@@ -19,6 +19,7 @@ package raft
 
 import (
 	"errors"
+	"sort"
 
 	pb "github.com/cockroachdb/cockroach/pkg/raft/raftpb"
 	"github.com/cockroachdb/cockroach/pkg/raft/tracker"
@@ -42,6 +43,7 @@ type RawNode struct {
 	prevSoftSt     *SoftState
 	prevHardSt     pb.HardState
 	stepsOnAdvance []pb.Message
+	metronome      *Metronome
 }
 
 // NewRawNode instantiates a RawNode from the given configuration.
@@ -52,9 +54,28 @@ type RawNode struct {
 // state manually by setting up a Storage that has a first index > 1 and which
 // stores the desired ConfState as its InitialState.
 func NewRawNode(config *Config) (*RawNode, error) {
+	/*** Metronome init ***/
 	r := newRaft(config)
+	nodes := make([]int, 0)
+
+	myId := r.id
+	voters := r.config.Voters.IDs()
+	_, myIdExists := voters[myId]
+	i := 0
+	assertTrue(len(voters) > 0, "voters should not be empty")
+	assertTrue(myIdExists, "voters should contain myId")
+	for pid, _ := range voters {
+		nodes = append(nodes, int(pid))
+		i += 1
+	}
+	sort.Ints(nodes)
+	myPid := sort.Search(len(nodes), func(i int) bool {
+		return nodes[i] == int(r.id)
+	}) + 1
+
 	rn := &RawNode{
-		raft: r,
+		raft:      r,
+		metronome: NewMetronome(myPid, len(nodes), len(nodes)/2+1),
 	}
 	rn.asyncStorageWrites = config.AsyncStorageWrites
 	ss := r.softState()
@@ -192,6 +213,15 @@ func (rn *RawNode) SendMsgApp(to pb.PeerID, slice logSlice) (pb.Message, bool) {
 func (rn *RawNode) Ready() Ready {
 	rd := rn.readyWithoutAccept()
 	rn.acceptReady(rd)
+	myOrder := rn.metronome.MyCriticalOrdering
+	var myEntries = make([]pb.Entry, 0, len(rd.Entries))
+	for _, entry := range rd.Entries {
+		metronomeIdx := int(entry.Index) % rn.metronome.TotalLen
+		if myOrder[metronomeIdx] {
+			myEntries = append(myEntries, entry)
+		}
+	}
+	rd.Entries = myEntries
 	return rd
 }
 
