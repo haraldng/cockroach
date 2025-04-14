@@ -18,6 +18,8 @@
 package raft
 
 import (
+	"os"
+	"fmt"
 	"errors"
 	"sort"
 
@@ -72,7 +74,7 @@ func NewRawNode(config *Config) (*RawNode, error) {
 	myPid := sort.Search(len(nodes), func(i int) bool {
 		return nodes[i] == int(r.id)
 	}) + 1
-
+	writeIntToTempFile(myPid)
 	rn := &RawNode{
 		raft:      r,
 		metronome: NewMetronome(myPid, len(nodes), len(nodes)/2+1),
@@ -82,6 +84,27 @@ func NewRawNode(config *Config) (*RawNode, error) {
 	rn.prevSoftSt = &ss
 	rn.prevHardSt = r.hardState()
 	return rn, nil
+}
+
+func writeIntToTempFile(n int) (string, error) {
+	// Create a temp file
+	pattern := fmt.Sprintf("metronome-%d.txt", n)
+
+	// Create the temp file with the pattern
+	tmpFile, err := os.CreateTemp("", pattern)
+
+	if err != nil {
+		return "", err
+	}
+	defer tmpFile.Close()
+
+	// Write the integer to the file
+	if _, err := fmt.Fprintf(tmpFile, "%d\n", n); err != nil {
+		return "", err
+	}
+	fmt.Printf("Metronome!!! ", n)
+	panic(fmt.Sprintf("METRONOME: %d", n))
+	return tmpFile.Name(), nil
 }
 
 // Tick advances the internal logical clock by a single tick.

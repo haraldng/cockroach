@@ -14,6 +14,7 @@ go_library(
         "storage.go",
         "types.go",
         "util.go",
+        "metronome.go",
     ],
     importpath = "github.com/cockroachdb/cockroach/pkg/raft",
     visibility = ["//visibility:public"],
