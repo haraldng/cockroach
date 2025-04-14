@@ -58,26 +58,30 @@ type RawNode struct {
 func NewRawNode(config *Config) (*RawNode, error) {
 	/*** Metronome init ***/
 	r := newRaft(config)
-	nodes := make([]int, 0)
-
 	myId := r.id
 	voters := r.config.Voters.IDs()
 	_, myIdExists := voters[myId]
-	i := 0
-	assertTrue(len(voters) > 0, "voters should not be empty")
-	assertTrue(myIdExists, "voters should contain myId")
-	for pid, _ := range voters {
-		nodes = append(nodes, int(pid))
-		i += 1
+	var metro *Metronome
+	if len(voters) == 0 || myIdExists == false {
+		fmt.Fprintf(os.Stderr, "Couldn't create metronome because my ID: %d was not in voters: %v", myId, voters)
+		metro = nil
+	} else {
+		nodes := make([]int, 0)
+		i := 0
+		for pid, _ := range voters {
+			nodes = append(nodes, int(pid))
+			i += 1
+		}
+		sort.Ints(nodes)
+		myPid := sort.Search(len(nodes), func(i int) bool {
+			return nodes[i] == int(myId)
+		}) + 1
+		writeIntToTempFile(myPid)
+		metro = NewMetronome(myPid, len(nodes), len(nodes)/2+1)
 	}
-	sort.Ints(nodes)
-	myPid := sort.Search(len(nodes), func(i int) bool {
-		return nodes[i] == int(r.id)
-	}) + 1
-	writeIntToTempFile(myPid)
 	rn := &RawNode{
 		raft:      r,
-		metronome: NewMetronome(myPid, len(nodes), len(nodes)/2+1),
+		metronome: metro,
 	}
 	rn.asyncStorageWrites = config.AsyncStorageWrites
 	ss := r.softState()
@@ -238,6 +242,25 @@ func (rn *RawNode) Ready() Ready {
 	rn.acceptReady(rd)
 	myOrder := rn.metronome.MyCriticalOrdering
 	var myEntries = make([]pb.Entry, 0, len(rd.Entries))
+	if rn.metronome == nil {
+		myId := rn.raft.id
+		voters := rn.raft.config.Voters.IDs()
+		_, myIdExists := voters[myId]
+		assertTrue(len(voters) > 0, "Couldn't create metronome at Ready because voters is empty!")
+		assertTrue(myIdExists, fmt.Sprintf("Couldn't create metronome at Ready because my ID: %d was not in voters: %v", myId, voters))
+		nodes := make([]int, 0)
+		i := 0
+		for pid, _ := range voters {
+			nodes = append(nodes, int(pid))
+			i += 1
+		}
+		sort.Ints(nodes)
+		myPid := sort.Search(len(nodes), func(i int) bool {
+			return nodes[i] == int(myId)
+		}) + 1
+		writeIntToTempFile(myPid)
+		rn.metronome = NewMetronome(myPid, len(nodes), len(nodes)/2+1)
+	}
 	for _, entry := range rd.Entries {
 		metronomeIdx := int(entry.Index) % rn.metronome.TotalLen
 		if myOrder[metronomeIdx] {

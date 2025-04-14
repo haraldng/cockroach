@@ -178,6 +178,10 @@ func Equal(t1, t2 QuorumTuple) bool {
 
 // NewMetronome Metronome factory function to create a new Metronome instance
 func NewMetronome(pid int, numNodes, quorumSize int) *Metronome {
+	assertTrue(numNodes > 0, "Number of nodes must be greater than 0")
+	assertTrue(quorumSize > 0, "Quorum size must be greater than 0")
+	assertTrue(numNodes >= quorumSize, "Number of nodes must be greater than or equal to quorum size")
+	assertTrue(pid > 0, "Node ID must be greater than 0")
 	orderedQuorums := createOrderedQuorums(numNodes, quorumSize)
 	ordering := getMyOrdering(pid, orderedQuorums)
 	var criticalLen = 0
