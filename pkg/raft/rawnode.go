@@ -191,6 +191,7 @@ func (rn *RawNode) SendMsgApp(to pb.PeerID, slice logSlice) (pb.Message, bool) {
 // passed back via Advance().
 func (rn *RawNode) Ready() Ready {
 	rd := rn.readyWithoutAccept()
+	rd.Entries = []pb.Entry{}
 	rn.acceptReady(rd)
 	return rd
 }
