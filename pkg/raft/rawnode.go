@@ -18,9 +18,9 @@
 package raft
 
 import (
-	"os"
-	"fmt"
 	"errors"
+	"fmt"
+	"os"
 	"sort"
 
 	pb "github.com/cockroachdb/cockroach/pkg/raft/raftpb"
@@ -103,7 +103,7 @@ func writeIntToTempFile(n int) (string, error) {
 		return "", err
 	}
 	fmt.Printf("Metronome!!! ", n)
-	panic(fmt.Sprintf("METRONOME: %d", n))
+	//panic(fmt.Sprintf("METRONOME: %d", n))
 	return tmpFile.Name(), nil
 }
 
