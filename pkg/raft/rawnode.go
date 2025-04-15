@@ -202,7 +202,7 @@ func (rn *RawNode) readyWithoutAccept() Ready {
 	r := rn.raft
 
 	rd := Ready{
-		Entries:          r.raftLog.nextUnstableEnts(),
+		Entries:          []pb.Entry{},
 		CommittedEntries: r.raftLog.nextCommittedEnts(rn.applyUnstableEntries()),
 		Messages:         r.msgs,
 	}
@@ -286,7 +286,7 @@ func newStorageAppendMsg(r *raft, rd Ready) pb.Message {
 		Type:    pb.MsgStorageAppend,
 		To:      LocalAppendThread,
 		From:    r.id,
-		Entries: rd.Entries,
+		Entries: []pb.Entry{},
 	}
 	if ln := len(rd.Entries); ln != 0 {
 		// See comment in newStorageAppendRespMsg for why the accTerm is attached.
