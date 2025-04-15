@@ -324,10 +324,11 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		// Do not Close batch on return. Will be Closed by SyncWaiterLoop.
 		batch = nil
 	} else {
-		if err := batch.Commit(willSync); err != nil {
-			const expl = "while committing batch"
-			return RaftState{}, errors.Wrap(err, expl)
-		}
+		/*
+			if err := batch.Commit(willSync); err != nil {
+				const expl = "while committing batch"
+				return RaftState{}, errors.Wrap(err, expl)
+			}*/
 		stats.PebbleEnd = timeutil.Now()
 		stats.PebbleCommitStats = batch.CommitStats()
 		if wantsSync {
