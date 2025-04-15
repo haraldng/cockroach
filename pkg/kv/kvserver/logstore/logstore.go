@@ -304,10 +304,11 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		// If non-blocking synchronization is enabled, apply the batched updates to
 		// the engine and initiate a synchronous disk write, but don't wait for the
 		// write to complete.
-		if err := batch.CommitNoSyncWait(); err != nil {
-			const expl = "while committing batch without sync wait"
-			return RaftState{}, errors.Wrap(err, expl)
-		}
+		/*
+			if err := batch.CommitNoSyncWait(); err != nil {
+				const expl = "while committing batch without sync wait"
+				return RaftState{}, errors.Wrap(err, expl)
+			}*/
 		stats.PebbleEnd = timeutil.Now()
 		// Instead, enqueue that waiting on the SyncWaiterLoop, who will signal the
 		// callback when the write completes.
