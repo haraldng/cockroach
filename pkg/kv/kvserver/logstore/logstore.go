@@ -9,7 +9,6 @@ package logstore
 import (
 	"context"
 	"fmt"
-	"math/rand"
 	"slices"
 	"sync"
 	"time"
@@ -286,20 +285,23 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	wantsSync := m.MustSync()
 	willSync := wantsSync && !DisableSyncRaftLog.Get(&s.Settings.SV)
 	// Use the non-blocking log sync path if we are performing a log sync ...
-	nonBlockingSync := willSync &&
-		// and the cluster setting is enabled ...
-		enableNonBlockingRaftLogSync.Get(&s.Settings.SV) &&
-		// and we are not overwriting any previous log entries. If we are
-		// overwriting, we may need to purge the sideloaded SSTables associated with
-		// overwritten entries. This must be performed after the corresponding
-		// entries are durably replaced and it's easier to do ensure proper ordering
-		// using a blocking log sync. This is a rare case, so it's not worth
-		// optimizing for.
-		!overwriting &&
-		// Also, randomly disable non-blocking sync in test builds to exercise the
-		// interleaved blocking and non-blocking syncs (unless the testing knobs
-		// disable this randomization explicitly).
-		!(buildutil.CrdbTestBuild && !s.DisableSyncLogWriteToss && rand.Intn(2) == 0)
+	/*
+		nonBlockingSync := willSync &&
+			// and the cluster setting is enabled ...
+			enableNonBlockingRaftLogSync.Get(&s.Settings.SV) &&
+			// and we are not overwriting any previous log entries. If we are
+			// overwriting, we may need to purge the sideloaded SSTables associated with
+			// overwritten entries. This must be performed after the corresponding
+			// entries are durably replaced and it's easier to do ensure proper ordering
+			// using a blocking log sync. This is a rare case, so it's not worth
+			// optimizing for.
+			!overwriting &&
+			// Also, randomly disable non-blocking sync in test builds to exercise the
+			// interleaved blocking and non-blocking syncs (unless the testing knobs
+			// disable this randomization explicitly).
+			!(buildutil.CrdbTestBuild && !s.DisableSyncLogWriteToss && rand.Intn(2) == 0)
+	*/
+	nonBlockingSync := false
 	if nonBlockingSync {
 		// If non-blocking synchronization is enabled, apply the batched updates to
 		// the engine and initiate a synchronous disk write, but don't wait for the
