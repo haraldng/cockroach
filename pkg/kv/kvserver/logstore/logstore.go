@@ -284,7 +284,7 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	stats.PebbleBegin = timeutil.Now()
 	stats.PebbleBytes = int64(batch.Len())
 	wantsSync := m.MustSync()
-	willSync := wantsSync && !DisableSyncRaftLog.Get(&s.Settings.SV)
+	willSync := false
 	// Use the non-blocking log sync path if we are performing a log sync ...
 	nonBlockingSync := willSync &&
 		// and the cluster setting is enabled ...
