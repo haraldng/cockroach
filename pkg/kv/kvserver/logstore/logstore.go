@@ -24,7 +24,6 @@ import (
 	"github.com/cockroachdb/cockroach/pkg/settings/cluster"
 	"github.com/cockroachdb/cockroach/pkg/storage"
 	"github.com/cockroachdb/cockroach/pkg/storage/enginepb"
-	"github.com/cockroachdb/cockroach/pkg/storage/fs"
 	"github.com/cockroachdb/cockroach/pkg/util/buildutil"
 	"github.com/cockroachdb/cockroach/pkg/util/envutil"
 	"github.com/cockroachdb/cockroach/pkg/util/hlc"
@@ -221,34 +220,32 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		}
 	}()
 	//m.Entries = []raftpb.Entry{}
-	/*
-		prevLastIndex := state.LastIndex
-		overwriting := false
-		if len(m.Entries) > 0 {
-			firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
-			overwriting = firstPurge <= prevLastIndex
-			stats.Begin = timeutil.Now()
-			// All of the entries are appended to distinct keys, returning a new
-			// last index.
-			thinEntries, numSideloaded, sideLoadedEntriesSize, otherEntriesSize, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
-			if err != nil {
-				const expl = "during sideloading"
-				return RaftState{}, errors.Wrap(err, expl)
-			}
-			state.ByteSize += sideLoadedEntriesSize
-			if state, err = logAppend(
-				ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
-			); err != nil {
-				const expl = "during append"
-				return RaftState{}, errors.Wrap(err, expl)
-			}
-			stats.RegularEntries += len(thinEntries) - numSideloaded
-			stats.RegularBytes += otherEntriesSize
-			stats.SideloadedEntries += numSideloaded
-			stats.SideloadedBytes += sideLoadedEntriesSize
-			stats.End = timeutil.Now()
+	//prevLastIndex := state.LastIndex
+	//overwriting := false
+	if len(m.Entries) > 0 {
+		//firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
+		//overwriting = firstPurge <= prevLastIndex
+		stats.Begin = timeutil.Now()
+		// All of the entries are appended to distinct keys, returning a new
+		// last index.
+		thinEntries, numSideloaded, sideLoadedEntriesSize, otherEntriesSize, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
+		if err != nil {
+			const expl = "during sideloading"
+			return RaftState{}, errors.Wrap(err, expl)
 		}
-	*/
+		state.ByteSize += sideLoadedEntriesSize
+		if state, err = logAppend(
+			ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
+		); err != nil {
+			const expl = "during append"
+			return RaftState{}, errors.Wrap(err, expl)
+		}
+		stats.RegularEntries += len(thinEntries) - numSideloaded
+		stats.RegularBytes += otherEntriesSize
+		stats.SideloadedEntries += numSideloaded
+		stats.SideloadedBytes += sideLoadedEntriesSize
+		stats.End = timeutil.Now()
+	}
 	if hs := m.HardState(); !raft.IsEmptyHardState(hs) {
 		// NB: Note that without additional safeguards, it's incorrect to write
 		// the HardState before appending m.Entries. When catching up, a follower
@@ -284,7 +281,7 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	stats.PebbleBegin = timeutil.Now()
 	stats.PebbleBytes = int64(batch.Len())
 	wantsSync := m.MustSync()
-	willSync := wantsSync && !DisableSyncRaftLog.Get(&s.Settings.SV)
+	willSync := false
 	// Use the non-blocking log sync path if we are performing a log sync ...
 	/*
 		nonBlockingSync := willSync &&
@@ -302,7 +299,7 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 			// disable this randomization explicitly).
 			!(buildutil.CrdbTestBuild && !s.DisableSyncLogWriteToss && rand.Intn(2) == 0)
 	*/
-	nonBlockingSync := true
+	nonBlockingSync := false
 	if nonBlockingSync {
 		// If non-blocking synchronization is enabled, apply the batched updates to
 		// the engine and initiate a synchronous disk write, but don't wait for the
@@ -312,6 +309,7 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 			const expl = "while committing batch without sync wait"
 			return RaftState{}, errors.Wrap(err, expl)
 		}
+
 		stats.PebbleEnd = timeutil.Now()
 		// Instead, enqueue that waiting on the SyncWaiterLoop, who will signal the
 		// callback when the write completes.
@@ -328,11 +326,13 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		// Do not Close batch on return. Will be Closed by SyncWaiterLoop.
 		batch = nil
 	} else {
+		/*
+			if err := batch.Commit(willSync); err != nil {
+				const expl = "while committing batch"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
 
-		if err := batch.Commit(willSync); err != nil {
-			const expl = "while committing batch"
-			return RaftState{}, errors.Wrap(err, expl)
-		}
+		*/
 		stats.PebbleEnd = timeutil.Now()
 		stats.PebbleCommitStats = batch.CommitStats()
 		if wantsSync {
@@ -458,25 +458,27 @@ func logAppend(
 	value.RawBytes = value.RawBytes[:0]
 	diff.Reset()
 
-	opts := storage.MVCCWriteOptions{Stats: diff, Category: fs.ReplicationReadCategory}
-	for i := range entries {
-		ent := &entries[i]
-		key := keys.RaftLogKeyFromPrefix(raftLogPrefix, kvpb.RaftIndex(ent.Index))
+	/*
+		opts := storage.MVCCWriteOptions{Stats: diff, Category: fs.ReplicationReadCategory}
+		for i := range entries {
+			ent := &entries[i]
+			key := keys.RaftLogKeyFromPrefix(raftLogPrefix, kvpb.RaftIndex(ent.Index))
 
-		if err := value.SetProto(ent); err != nil {
-			return RaftState{}, err
+			if err := value.SetProto(ent); err != nil {
+				return RaftState{}, err
+			}
+			value.InitChecksum(key)
+			var err error
+			if kvpb.RaftIndex(ent.Index) > prev.LastIndex {
+				_, err = storage.MVCCBlindPut(ctx, rw, key, hlc.Timestamp{}, *value, opts)
+			} else {
+				_, err = storage.MVCCPut(ctx, rw, key, hlc.Timestamp{}, *value, opts)
+			}
+			if err != nil {
+				return RaftState{}, err
+			}
 		}
-		value.InitChecksum(key)
-		var err error
-		if kvpb.RaftIndex(ent.Index) > prev.LastIndex {
-			_, err = storage.MVCCBlindPut(ctx, rw, key, hlc.Timestamp{}, *value, opts)
-		} else {
-			_, err = storage.MVCCPut(ctx, rw, key, hlc.Timestamp{}, *value, opts)
-		}
-		if err != nil {
-			return RaftState{}, err
-		}
-	}
+	*/
 
 	newLastIndex := kvpb.RaftIndex(entries[len(entries)-1].Index)
 	// Delete any previously appended log entries which never committed.
