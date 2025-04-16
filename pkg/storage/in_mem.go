@@ -29,7 +29,7 @@ import (
 func NewDefaultInMemForTesting(opts ...ConfigOption) Engine {
 	eng, err := Open(
 		context.Background(), InMemory(), cluster.MakeTestingClusterSettings(),
-		ForTesting, MaxSizeBytes(1<<20), CombineOptions(opts...),
+		ForTesting, MaxSizeBytes(3<<30), CombineOptions(opts...),
 	)
 	if err != nil {
 		panic(err)
