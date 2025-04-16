@@ -9,7 +9,6 @@ package logstore
 import (
 	"context"
 	"fmt"
-	"math/rand"
 	"slices"
 	"sync"
 	"time"
@@ -221,34 +220,35 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 			batch.Close()
 		}
 	}()
-	m.Entries = []raftpb.Entry{}
-	prevLastIndex := state.LastIndex
-	overwriting := false
-	if len(m.Entries) > 0 {
-		firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
-		overwriting = firstPurge <= prevLastIndex
-		stats.Begin = timeutil.Now()
-		// All of the entries are appended to distinct keys, returning a new
-		// last index.
-		thinEntries, numSideloaded, sideLoadedEntriesSize, otherEntriesSize, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
-		if err != nil {
-			const expl = "during sideloading"
-			return RaftState{}, errors.Wrap(err, expl)
+	//m.Entries = []raftpb.Entry{}
+	/*
+		prevLastIndex := state.LastIndex
+		overwriting := false
+		if len(m.Entries) > 0 {
+			firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
+			overwriting = firstPurge <= prevLastIndex
+			stats.Begin = timeutil.Now()
+			// All of the entries are appended to distinct keys, returning a new
+			// last index.
+			thinEntries, numSideloaded, sideLoadedEntriesSize, otherEntriesSize, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
+			if err != nil {
+				const expl = "during sideloading"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
+			state.ByteSize += sideLoadedEntriesSize
+			if state, err = logAppend(
+				ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
+			); err != nil {
+				const expl = "during append"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
+			stats.RegularEntries += len(thinEntries) - numSideloaded
+			stats.RegularBytes += otherEntriesSize
+			stats.SideloadedEntries += numSideloaded
+			stats.SideloadedBytes += sideLoadedEntriesSize
+			stats.End = timeutil.Now()
 		}
-		state.ByteSize += sideLoadedEntriesSize
-		if state, err = logAppend(
-			ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
-		); err != nil {
-			const expl = "during append"
-			return RaftState{}, errors.Wrap(err, expl)
-		}
-		stats.RegularEntries += len(thinEntries) - numSideloaded
-		stats.RegularBytes += otherEntriesSize
-		stats.SideloadedEntries += numSideloaded
-		stats.SideloadedBytes += sideLoadedEntriesSize
-		stats.End = timeutil.Now()
-	}
-
+	*/
 	if hs := m.HardState(); !raft.IsEmptyHardState(hs) {
 		// NB: Note that without additional safeguards, it's incorrect to write
 		// the HardState before appending m.Entries. When catching up, a follower
@@ -286,20 +286,23 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	wantsSync := m.MustSync()
 	willSync := wantsSync && !DisableSyncRaftLog.Get(&s.Settings.SV)
 	// Use the non-blocking log sync path if we are performing a log sync ...
-	nonBlockingSync := willSync &&
-		// and the cluster setting is enabled ...
-		enableNonBlockingRaftLogSync.Get(&s.Settings.SV) &&
-		// and we are not overwriting any previous log entries. If we are
-		// overwriting, we may need to purge the sideloaded SSTables associated with
-		// overwritten entries. This must be performed after the corresponding
-		// entries are durably replaced and it's easier to do ensure proper ordering
-		// using a blocking log sync. This is a rare case, so it's not worth
-		// optimizing for.
-		!overwriting &&
-		// Also, randomly disable non-blocking sync in test builds to exercise the
-		// interleaved blocking and non-blocking syncs (unless the testing knobs
-		// disable this randomization explicitly).
-		!(buildutil.CrdbTestBuild && !s.DisableSyncLogWriteToss && rand.Intn(2) == 0)
+	/*
+		nonBlockingSync := willSync &&
+			// and the cluster setting is enabled ...
+			enableNonBlockingRaftLogSync.Get(&s.Settings.SV) &&
+			// and we are not overwriting any previous log entries. If we are
+			// overwriting, we may need to purge the sideloaded SSTables associated with
+			// overwritten entries. This must be performed after the corresponding
+			// entries are durably replaced and it's easier to do ensure proper ordering
+			// using a blocking log sync. This is a rare case, so it's not worth
+			// optimizing for.
+			!overwriting &&
+			// Also, randomly disable non-blocking sync in test builds to exercise the
+			// interleaved blocking and non-blocking syncs (unless the testing knobs
+			// disable this randomization explicitly).
+			!(buildutil.CrdbTestBuild && !s.DisableSyncLogWriteToss && rand.Intn(2) == 0)
+	*/
+	nonBlockingSync := true
 	if nonBlockingSync {
 		// If non-blocking synchronization is enabled, apply the batched updates to
 		// the engine and initiate a synchronous disk write, but don't wait for the
@@ -341,27 +344,28 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	stats.Sync = wantsSync
 	stats.NonBlocking = nonBlockingSync
 
-	if overwriting {
-		// We may have just overwritten parts of the log which contain
-		// sideloaded SSTables from a previous term (and perhaps discarded some
-		// entries that we didn't overwrite). Remove any such leftover on-disk
-		// payloads (we can do that now because we've committed the deletion
-		// just above).
-		firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
-		purgeTerm := kvpb.RaftTerm(m.Entries[0].Term - 1)
-		lastPurge := prevLastIndex // old end of the log, include in deletion
-		purgedSize, err := maybePurgeSideloaded(ctx, s.Sideload, firstPurge, lastPurge, purgeTerm)
-		if err != nil {
-			const expl = "while purging sideloaded storage"
-			return RaftState{}, errors.Wrap(err, expl)
+	/*
+		if overwriting {
+			// We may have just overwritten parts of the log which contain
+			// sideloaded SSTables from a previous term (and perhaps discarded some
+			// entries that we didn't overwrite). Remove any such leftover on-disk
+			// payloads (we can do that now because we've committed the deletion
+			// just above).
+			firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
+			purgeTerm := kvpb.RaftTerm(m.Entries[0].Term - 1)
+			lastPurge := prevLastIndex // old end of the log, include in deletion
+			purgedSize, err := maybePurgeSideloaded(ctx, s.Sideload, firstPurge, lastPurge, purgeTerm)
+			if err != nil {
+				const expl = "while purging sideloaded storage"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
+			state.ByteSize -= purgedSize
+			if state.ByteSize < 0 {
+				// Might have gone negative if node was recently restarted.
+				state.ByteSize = 0
+			}
 		}
-		state.ByteSize -= purgedSize
-		if state.ByteSize < 0 {
-			// Might have gone negative if node was recently restarted.
-			state.ByteSize = 0
-		}
-	}
-
+	*/
 	// Update raft log entry cache. We clear any older, uncommitted log entries
 	// and cache the latest ones.
 	//
