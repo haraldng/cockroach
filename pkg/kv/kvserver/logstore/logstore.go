@@ -200,7 +200,7 @@ func (s *LogStore) StoreEntries(
 	ctx context.Context, state RaftState, m MsgStorageAppend, cb SyncCallback, stats *AppendStats,
 ) (RaftState, error) {
 	batch := newStoreEntriesBatch(s.Engine)
-	return s.storeEntriesAndCommitBatch(ctx, state, m, cb, stats, batch)
+	return s.storeEntriesAndCommitBatch(ctx, state, m, cb, stats, batch) //
 }
 
 // storeEntriesAndCommitBatch is like StoreEntries, but it accepts a
@@ -221,7 +221,7 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 			batch.Close()
 		}
 	}()
-
+	m.Entries = []raftpb.Entry{}
 	prevLastIndex := state.LastIndex
 	overwriting := false
 	if len(m.Entries) > 0 {
@@ -304,11 +304,11 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		// If non-blocking synchronization is enabled, apply the batched updates to
 		// the engine and initiate a synchronous disk write, but don't wait for the
 		// write to complete.
-		/*
-			if err := batch.CommitNoSyncWait(); err != nil {
-				const expl = "while committing batch without sync wait"
-				return RaftState{}, errors.Wrap(err, expl)
-			}*/
+
+		if err := batch.CommitNoSyncWait(); err != nil {
+			const expl = "while committing batch without sync wait"
+			return RaftState{}, errors.Wrap(err, expl)
+		}
 		stats.PebbleEnd = timeutil.Now()
 		// Instead, enqueue that waiting on the SyncWaiterLoop, who will signal the
 		// callback when the write completes.
@@ -325,11 +325,11 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 		// Do not Close batch on return. Will be Closed by SyncWaiterLoop.
 		batch = nil
 	} else {
-		/*
-			if err := batch.Commit(willSync); err != nil {
-				const expl = "while committing batch"
-				return RaftState{}, errors.Wrap(err, expl)
-			}*/
+
+		if err := batch.Commit(willSync); err != nil {
+			const expl = "while committing batch"
+			return RaftState{}, errors.Wrap(err, expl)
+		}
 		stats.PebbleEnd = timeutil.Now()
 		stats.PebbleCommitStats = batch.CommitStats()
 		if wantsSync {
