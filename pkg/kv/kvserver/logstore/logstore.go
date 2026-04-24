@@ -58,6 +58,69 @@ var enableNonBlockingRaftLogSync = settings.RegisterBoolSetting(
 	envutil.EnvOrDefaultBool("COCKROACH_ENABLE_RAFT_LOG_NON_BLOCKING_SYNCHRONIZATION", true),
 )
 
+// SimulatedQuorumSkipProbability configures a per-entry probabilistic skip of
+// Raft log syncs, for pre-implementation benchmarking of a "quorum-of-N sync"
+// feature where each entry is fsync'd only by a subset of replicas. When set
+// to p in (0, 1], each replica independently skips the sync with probability
+// p, leaving the entry durable only on replicas that did sync. The skipped
+// replica still acks the append to Raft as if it had been durable, which is
+// runtime-correct as long as a quorum did sync, but is never safe across
+// restarts. Applied only when a sync would otherwise happen and only on
+// non-overwriting appends (the overwriting path must sync to safely purge
+// sideloaded files). Intended for throwaway benchmark clusters only.
+//
+// This is the "design (1)" simulation: the replica still writes the entries
+// to the Pebble WAL (bytes hit the OS page cache and drift out via dirty-page
+// writeback), but skips the fsync barrier. For modeling a feature that drops
+// fsync cost only without reducing WAL bytes. See
+// SimulatedWALWriteSkipProbability for the "design (2)" variant that also
+// skips the write itself.
+var SimulatedQuorumSkipProbability = settings.RegisterFloatSetting(
+	settings.SystemOnly,
+	"kv.raft_log.simulated_quorum_skip_probability",
+	"probability in [0, 1] that a Raft log sync is skipped on this replica, "+
+		"to simulate a per-entry quorum-sync feature. Unsafe across restarts; "+
+		"benchmarking only, not for production.",
+	0.0,
+	settings.FloatInRange(0.0, 1.0),
+	settings.WithUnsafe,
+)
+
+// SimulatedWALWriteSkipProbability configures a per-entry probabilistic skip
+// of the Pebble entry write itself (not just the fsync), for benchmarking a
+// quorum-sync feature where non-persisting replicas do not write the entry
+// to their local WAL at all. When set to p in (0, 1], each replica
+// independently skips logAppend (and the associated sideload extraction)
+// with probability p, while still advancing the in-memory RaftState and
+// acking durability to Raft. HardState persistence is unaffected, matching
+// the feature's intent: skipped replicas still update Raft metadata
+// durably, they just don't persist the entries.
+//
+// This is the "design (2)" simulation. It is a strict superset of
+// SimulatedQuorumSkipProbability's effect: on skipped entries it removes
+// both WAL bytes and the fsync barrier, so the per-replica WAL bandwidth
+// drops proportionally, which is the main delta vs. design (1) on
+// throughput-bound workloads.
+//
+// Caveats: never safe across restarts (the replica has no local record of
+// skipped entries and would need to refetch from peers). The simulation
+// does not model that refetch; on a benchmark cluster, expect steady-state
+// Raft progress only. The skip is gated to non-overwriting appends; the
+// overwriting path must sync to safely purge sideloaded files. Mutually
+// exclusive with SimulatedQuorumSkipProbability on a given entry:
+// design (2) is checked first.
+var SimulatedWALWriteSkipProbability = settings.RegisterFloatSetting(
+	settings.SystemOnly,
+	"kv.raft_log.simulated_wal_write_skip_probability",
+	"probability in [0, 1] that a Raft log entry write is skipped on this "+
+		"replica (simulates design-(2) quorum-sync where non-persisting "+
+		"replicas don't touch their WAL). Unsafe across restarts; "+
+		"benchmarking only, not for production.",
+	0.0,
+	settings.FloatInRange(0.0, 1.0),
+	settings.WithUnsafe,
+)
+
 // raftLogTruncationClearRangeThreshold is the number of entries at which Raft
 // log truncation uses a Pebble range tombstone rather than point deletes. It is
 // set high enough to avoid writing too many range tombstones to Pebble, but low
@@ -192,28 +255,54 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 
 	prevLastIndex := state.LastIndex
 	overwriting := false
+	// willSkipWrite indicates a design-(2) simulated quorum skip: the entry
+	// is not written to the local WAL at all. See
+	// SimulatedWALWriteSkipProbability.
+	willSkipWrite := false
 	if len(m.Entries) > 0 {
 		firstPurge := kvpb.RaftIndex(m.Entries[0].Index) // first new entry written
 		overwriting = firstPurge <= prevLastIndex
-		stats.Begin = crtime.NowMono()
-		// All of the entries are appended to distinct keys, returning a new
-		// last index.
-		thinEntries, entryStats, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
-		if err != nil {
-			const expl = "during sideloading"
-			return RaftState{}, errors.Wrap(err, expl)
+		// The overwriting path must persist and sync so sideloaded files can be
+		// safely purged; never skip it.
+		if !overwriting {
+			if p := SimulatedWALWriteSkipProbability.Get(&s.Settings.SV); p > 0 && rand.Float64() < p {
+				willSkipWrite = true
+			}
 		}
-		stats.EntryStats.Add(entryStats) // TODO(pav-kv): just return the stats.
-		state.ByteSize += entryStats.SideloadedBytes
-		if state, err = logAppend(
-			ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
-		); err != nil {
-			const expl = "during append"
-			return RaftState{}, errors.Wrap(err, expl)
+		stats.Begin = crtime.NowMono()
+		if willSkipWrite {
+			// Advance the in-memory RaftState as if the entries had been written,
+			// but skip MaybeSideloadEntries and logAppend entirely so no entry
+			// bytes touch the Pebble batch. ByteSize is intentionally left
+			// unchanged — this path undercounts on-disk size, which is acceptable
+			// for a benchmarking-only simulation.
+			last := &m.Entries[len(m.Entries)-1]
+			state.LastIndex = kvpb.RaftIndex(last.Index)
+			state.LastTerm = kvpb.RaftTerm(last.Term)
+		} else {
+			// All of the entries are appended to distinct keys, returning a new
+			// last index.
+			thinEntries, entryStats, err := MaybeSideloadEntries(ctx, m.Entries, s.Sideload)
+			if err != nil {
+				const expl = "during sideloading"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
+			stats.EntryStats.Add(entryStats) // TODO(pav-kv): just return the stats.
+			state.ByteSize += entryStats.SideloadedBytes
+			if state, err = logAppend(
+				ctx, s.StateLoader.RaftLogPrefix(), batch, state, thinEntries,
+			); err != nil {
+				const expl = "during append"
+				return RaftState{}, errors.Wrap(err, expl)
+			}
 		}
 		stats.End = crtime.NowMono()
 	}
 
+	// HardState is still persisted even on the skip-write path: the real
+	// design-(2) feature only drops entry persistence, not Raft metadata
+	// durability. Keeping this match keeps the simulation honest about the
+	// per-append overhead a non-persisting replica still pays.
 	if err := storeHardState(ctx, batch, s.StateLoader, m.HardState); err != nil {
 		return RaftState{}, err
 	}
@@ -250,6 +339,26 @@ func (s *LogStore) storeEntriesAndCommitBatch(
 	// today preventing this, see #136416.
 	wantsSync := m.MustSync() || overwriting
 	willSync := wantsSync && !DisableSyncRaftLog.Get(&s.Settings.SV)
+	// If we skipped the entry write entirely (design-(2) simulation), also
+	// skip the sync: the whole point is to drop disk work on this replica.
+	// wantsSync stays true so the OnLogSync callback still fires and this
+	// replica acks the append to Raft as if durable.
+	if willSkipWrite {
+		willSync = false
+	}
+	// Design-(1) simulated quorum-sync: with probability p, skip the sync even
+	// though Raft asked for one. Only applies to non-overwriting appends that
+	// weren't already skipped by the design-(2) path above; the overwriting
+	// path must sync before sideloaded files can be safely purged. wantsSync
+	// is intentionally left true so the OnLogSync callback still fires below,
+	// making this replica ack the append to Raft as durable -- runtime-correct
+	// iff a quorum of replicas did sync. See SimulatedQuorumSkipProbability
+	// for usage and caveats.
+	if willSync && !overwriting && !willSkipWrite {
+		if p := SimulatedQuorumSkipProbability.Get(&s.Settings.SV); p > 0 && rand.Float64() < p {
+			willSync = false
+		}
+	}
 	// Use the non-blocking log sync path if we are performing a log sync ...
 	nonBlockingSync := willSync &&
 		// and the cluster setting is enabled ...

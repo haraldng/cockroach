@@ -29,10 +29,17 @@ type Config struct {
 	SMSyncWALBytes  int   `yaml:",omitempty"` // force state machine WAL sync every N bytes
 	SMDisableWAL    bool  `yaml:",omitempty"` // disable state machine WAL
 
-	RaftMemtableBytes   int64         // raft engine memtable size
-	RaftL0Threshold     int64         // #files in L0 for raft engine triggering compaction
-	RaftNoSync          bool          `yaml:",omitempty"` // don't fsync raft WAL
-	RaftMetricsInterval time.Duration `yaml:",omitempty"`
+	RaftMemtableBytes int64 // raft engine memtable size
+	RaftL0Threshold   int64 // #files in L0 for raft engine triggering compaction
+	RaftNoSync        bool  `yaml:",omitempty"` // don't fsync raft WAL
+	// RaftSkipWriteProbability in (0, 1] causes the worker to skip the raft WAL
+	// batch commit entirely with that probability per write, modelling a
+	// "design (2)" quorum-sync where non-persisting replicas do not write the
+	// entry to their local WAL at all. In-memory replica state still advances.
+	// Mutually additive with RaftNoSync: RaftNoSync turns off the fsync barrier
+	// on entries that are written; this knob drops the write itself.
+	RaftSkipWriteProbability float64       `yaml:",omitempty"`
+	RaftMetricsInterval      time.Duration `yaml:",omitempty"`
 
 	LooseTrunc          bool  // whether to use loosely coupled (state-durability-triggered) truncations
 	TruncThresholdBytes int64 // raft log size that triggers truncation
@@ -58,6 +65,7 @@ func MakeDefaultConfig() Config {
 	cfg.RaftMemtableBytes = 64 * 1 << 20
 	cfg.RaftL0Threshold = 2
 	cfg.RaftNoSync = false
+	cfg.RaftSkipWriteProbability = 0
 	cfg.RaftMetricsInterval = 5 * time.Minute
 
 	cfg.LooseTrunc = false

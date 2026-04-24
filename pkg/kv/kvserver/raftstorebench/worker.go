@@ -63,7 +63,14 @@ func (w *worker) doWorkForReplica(ctx context.Context, r *replicaWriteState) err
 	if err != nil {
 		return err
 	}
-	if err = batches.raftBatch.Commit(!w.o.cfg.RaftNoSync); err != nil {
+	// Design-(2) quorum-sync simulation: with probability p, discard the raft
+	// WAL batch entirely. In-memory replica state (nextRaftLogIndex,
+	// logSizeBytes) has already advanced in generateBatches, so the rest of
+	// the bench behaves as if the entry had been durably persisted on this
+	// replica.
+	if p := w.o.cfg.RaftSkipWriteProbability; p > 0 && w.rng.Float64() < p {
+		batches.raftBatch.Close()
+	} else if err = batches.raftBatch.Commit(!w.o.cfg.RaftNoSync); err != nil {
 		return err
 	}
 	if err = batches.smBatch.Commit(false); err != nil {
