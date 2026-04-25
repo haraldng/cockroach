@@ -1,0 +1,7 @@
+I260425 14:50:57.500322 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   file created at: 2026/04/25 14:50:57
+I260425 14:50:57.500331 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   running on machine: ‹ip-172-31-60-74›
+I260425 14:50:57.500343 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   binary: CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 14:50:57.500348 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   arguments: [‹./cockroach› ‹start› ‹--insecure› ‹--listen-addr=localhost:26257› ‹--http-addr=localhost:8080› ‹--store=/mnt/crdb1› ‹--join=localhost:26257,localhost:26258,localhost:26259› ‹--log-dir=/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node1›]
+I260425 14:50:57.500362 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   log format (utf8=✓): crdb-v2
+I260425 14:50:57.500366 4056 util/log/file_sync_buffer.go:237 ⋮ [config]   line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid [chan@]file:line redactionmark \[tags\] [counter] msg
+W260425 14:50:57.500200 4056 8@util/log/event_log.go:90 ⋮ [T1,Vsystem,n1,client=127.0.0.1:46054,hostnossl,user=root] 1 ={"Timestamp":1777128657500197296,"EventType":"unsafe_internals_accessed","Query":"SELECT value FROM \"\".crdb_internal.node_build_info WHERE field = ‹'Version'›"}
