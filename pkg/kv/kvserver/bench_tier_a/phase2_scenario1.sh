@@ -10,7 +10,7 @@ set -euo pipefail
 
 BINARY="${1:-./cockroach}"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-RESULTS_DIR="$SCRIPT_DIR/phase2_scenario1_results"
+RESULTS_DIR="${RESULTS_DIR:-$SCRIPT_DIR/phase2_scenario1_results}"
 CLUSTER_DATA="$RESULTS_DIR/cluster-data"
 LOG_DIR="$RESULTS_DIR/logs"
 DURATION="5m"

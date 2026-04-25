@@ -56,7 +56,7 @@ for node in 1 2 3; do
   echo "  node${node}: /dev/mapper/$DEV_NAME (${DELAY_MS}ms write delay, 0ms read delay)"
 
   # Format and mount.
-  mkfs.ext4 -q /dev/mapper/"$DEV_NAME"
+  mkfs.ext4 -q -F /dev/mapper/"$DEV_NAME"
   mkdir -p "$MNT"
   mount /dev/mapper/"$DEV_NAME" "$MNT"
   chmod 777 "$MNT"
@@ -67,7 +67,7 @@ for node in 1 2 3; do
   # applies after dm-delay and covers all writes to the virtual device.
   if [[ "${WRITE_MB}" -gt 0 ]]; then
     WRITE_BPS=$(( WRITE_MB * 1024 * 1024 ))
-    DEV_MAJ_MIN=$(stat -c '%t:%T' /dev/mapper/"$DEV_NAME" 2>/dev/null || \
+    DEV_MAJ_MIN=$(stat -L -c '%t:%T' /dev/mapper/"$DEV_NAME" 2>/dev/null || \
                   ls -l /dev/mapper/"$DEV_NAME" | awk '{print $5 ":" $6}' | tr -d ',')
     # stat -c '%t:%T' returns hex; convert to decimal for io.max.
     MAJ_HEX=$(echo "$DEV_MAJ_MIN" | cut -d: -f1)
@@ -84,9 +84,13 @@ for node in 1 2 3; do
       echo "+io" | tee /sys/fs/cgroup/cgroup.subtree_control >/dev/null
     fi
 
-    echo "${MAJ}:${MIN} wbps=${WRITE_BPS}" > "$CGROUP/io.max"
-    echo "$CGROUP" > "$IMG_DIR/node${node}.cgroup"
-    echo "  node${node}: cgroup ${CGROUP}, io.max wbps=${WRITE_BPS} (${WRITE_MB} MB/s)"
+    if echo "${MAJ}:${MIN} wbps=${WRITE_BPS}" > "$CGROUP/io.max" 2>/dev/null; then
+      echo "$CGROUP" > "$IMG_DIR/node${node}.cgroup"
+      echo "  node${node}: cgroup ${CGROUP}, io.max wbps=${WRITE_BPS} (${WRITE_MB} MB/s)"
+    else
+      echo "  node${node}: WARNING: cgroup io.max write failed for dm device ${MAJ}:${MIN}"
+      echo "  node${node}: continuing without bandwidth cap; dm-delay latency is still active"
+    fi
   fi
 done
 

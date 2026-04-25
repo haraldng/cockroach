@@ -6,8 +6,13 @@
 # Usage: sudo ./sim_disk/run_tiered_bench.sh <path-to-cockroach-binary>
 #
 # Run from the bench_tier_a/ directory, or set BENCH_DIR explicitly.
+# If the source checkout is `~/cockroach`, do not pass `~/cockroach` here; pass
+# the binary inside it (`~/cockroach/cockroach`) or a copied binary
+# (`~/bench_tier_a/cockroach`).
 #
-# Results land in phase2_scenario1_results/{nvme,ssd-fast,ssd-slow,hdd}/.
+# Results land in a timestamped directory:
+#   phase2_scenario1_results/run-YYYYmmdd-HHMMSS/{nvme,ssd-fast,ssd-slow,hdd}/.
+# Set RESULTS_ROOT to override the run directory.
 # Total runtime: ~2h (4 tiers × 5 scenarios × ~7 min warmup+measure each).
 #
 # Prerequisites (Ubuntu/Debian):
@@ -22,11 +27,30 @@ BINARY="${1:?usage: sudo $0 <path-to-cockroach-binary>}"
 BENCH_DIR="${BENCH_DIR:-$(cd "$(dirname "$0")/.." && pwd)}"
 SIM_DIR="$BENCH_DIR/sim_disk"
 export IMG_DIR="${IMG_DIR:-/tmp/crdb-sim}"
+RUN_ID="${RUN_ID:-$(date +%Y%m%d-%H%M%S)}"
+RESULTS_ROOT="${RESULTS_ROOT:-$BENCH_DIR/phase2_scenario1_results/run-$RUN_ID}"
 
 if [[ "$(id -u)" -ne 0 ]]; then
   echo "error: this script must run as root (dm-delay and cgroups require it)" >&2
   exit 1
 fi
+
+if [[ -d "$BINARY" ]]; then
+  if [[ -x "$BINARY/cockroach" ]]; then
+    BINARY="$BINARY/cockroach"
+  else
+    echo "error: binary argument is a directory: $BINARY" >&2
+    echo "       pass the cockroach binary path, e.g. $BINARY/cockroach or ~/bench_tier_a/cockroach" >&2
+    exit 1
+  fi
+fi
+if [[ ! -x "$BINARY" ]]; then
+  echo "error: cockroach binary is not executable: $BINARY" >&2
+  exit 1
+fi
+
+mkdir -p "$RESULTS_ROOT"
+echo "==> Results root: $RESULTS_ROOT"
 
 # Tier definitions: "name delay_ms write_mb_s"
 # delay_ms  — dm-delay write latency added to each block-layer completion
@@ -84,8 +108,8 @@ PYEOF
   # Also export IMG_DIR so start_cluster() can find cgroup files when attaching.
   export IMG_DIR
 
-  # Redirect results into a per-tier subdirectory.
-  export RESULTS_DIR="$BENCH_DIR/phase2_scenario1_results/$TIER"
+  # Redirect results into a per-run, per-tier subdirectory.
+  export RESULTS_DIR="$RESULTS_ROOT/$TIER"
   mkdir -p "$RESULTS_DIR"
 
   # Run the full 5-scenario matrix (baseline, s1_p33, s1_p100, s2_p33, s2_p100).
@@ -97,7 +121,7 @@ done
 
 echo ""
 echo "==> All tiers complete."
-echo "    Results: $BENCH_DIR/phase2_scenario1_results/{nvme,ssd-fast,ssd-slow,hdd}/"
+echo "    Results: $RESULTS_ROOT/{nvme,ssd-fast,ssd-slow,hdd}/"
 echo ""
 echo "    Interpretation (per tier):"
 echo "      design-1 capture  = (s1_p33 - baseline) / (s1_p100 - baseline)"

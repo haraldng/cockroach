@@ -11,21 +11,58 @@ set -euo pipefail
 
 IMG_DIR="${IMG_DIR:-/tmp/crdb-sim}"
 
-# Kill any cockroach processes using the sim mounts before unmounting.
+# Kill cockroach server processes using the sim mounts before unmounting.
+# Use "cockroach start" to avoid matching parent scripts that have "cockroach"
+# in their command-line arguments (e.g. run_tiered_bench.sh ~/cockroach/cockroach).
 pkill -f "cockroach start" 2>/dev/null || true
 sleep 2
+pkill -9 -f "cockroach start" 2>/dev/null || true
+for _i in $(seq 1 15); do
+  pgrep -f "cockroach start" >/dev/null 2>&1 || break
+  sleep 1
+done
+for node in 1 2 3; do
+  fuser -km "/mnt/crdb${node}" 2>/dev/null || true
+done
+sleep 1
 
 for node in 1 2 3; do
   DEV_NAME="crdb${node}"
   MNT="/mnt/crdb${node}"
 
-  umount "$MNT" 2>/dev/null && echo "  node${node}: unmounted $MNT" || true
-
-  if dmsetup info "$DEV_NAME" >/dev/null 2>&1; then
-    dmsetup remove "$DEV_NAME" && echo "  node${node}: removed /dev/mapper/$DEV_NAME" || true
+  for _try in $(seq 1 5); do
+    if ! grep -q "/mnt/crdb${node} " /proc/mounts 2>/dev/null; then
+      break
+    fi
+    umount -f "$MNT" 2>/dev/null || true
+    sleep 1
+  done
+  if ! grep -q "/mnt/crdb${node} " /proc/mounts 2>/dev/null; then
+    echo "  node${node}: unmounted $MNT"
+  else
+    echo "  node${node}: WARNING: $MNT still mounted; trying lazy unmount"
+    umount -l "$MNT" 2>/dev/null || true
+    sleep 2
   fi
 
-  # Detach loopback device if we recorded its path, otherwise scan by image file.
+  if dmsetup info "$DEV_NAME" >/dev/null 2>&1; then
+    removed=false
+    for _try in $(seq 1 15); do
+      if dmsetup remove "$DEV_NAME" 2>/dev/null; then
+        echo "  node${node}: removed /dev/mapper/$DEV_NAME"
+        removed=true
+        break
+      fi
+      sleep 1
+    done
+    if ! $removed; then
+      echo "  node${node}: WARNING: could not remove /dev/mapper/$DEV_NAME; skipping loop detach to avoid a stale dm device"
+      continue
+    fi
+  fi
+
+  # Detach loopback only after dm removal succeeds. Detaching the loop first
+  # leaves dm pointing at a dead device, which can require a reboot to clear.
   LOOP_FILE="$IMG_DIR/node${node}.loop"
   if [[ -f "$LOOP_FILE" ]]; then
     LOOP=$(cat "$LOOP_FILE")

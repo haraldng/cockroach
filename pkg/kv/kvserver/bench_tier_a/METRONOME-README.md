@@ -235,6 +235,23 @@ and measures `workload kv` throughput under five settings:
 | `s2_p33` | `simulated_wal_write_skip_probability = 0.333` | Design-2 at quorum margin |
 | `s2_p100` | `disable_synchronization_unsafe = true` | Design-1/2 ceiling (global knob) |
 
+`s2_p100` is intentionally **not** `simulated_wal_write_skip_probability =
+1.0`. A true Design-2 `p=1.0` run skips the entry write on every replica, so no
+replica has the Raft log entries on disk; after enough workload, Raft log
+truncation or snapshotting tries to read them back and the cluster panics.
+Instead, `s2_p100` uses the existing `disable_synchronization_unsafe` knob as a
+runtime-stable no-fsync ceiling.
+
+This makes `s1_p100` and `s2_p100` more similar than their labels suggest:
+both still write Raft log entry bytes, and both avoid waiting for durable sync.
+The difference is implementation scope. `s1_p100` uses the per-entry simulation
+path (`simulated_quorum_skip_probability = 1.0`), skips fsync only for eligible
+non-overwriting appends, and still goes through the normal write path.
+`s2_p100` uses the broader global unsafe sync bypass
+(`disable_synchronization_unsafe = true`), which skips flushing and fsyncing
+Raft log writes while preserving the entry bytes. It is therefore a stable
+fsync-cost ceiling, not the true Design-2 write-bandwidth ceiling.
+
 Key formulas:
 
 ```

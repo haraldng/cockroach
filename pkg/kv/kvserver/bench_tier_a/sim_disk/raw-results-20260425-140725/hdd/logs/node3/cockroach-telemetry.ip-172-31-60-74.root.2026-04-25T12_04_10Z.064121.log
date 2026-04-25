@@ -1,0 +1,7 @@
+I260425 12:04:10.618996 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   file created at: 2026/04/25 12:04:10
+I260425 12:04:10.619006 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   running on machine: ‹ip-172-31-60-74›
+I260425 12:04:10.619015 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   binary: CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 12:04:10.619024 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   arguments: [‹/home/ubuntu/bench_tier_a/cockroach› ‹start› ‹--insecure› ‹--listen-addr=localhost:26259› ‹--http-addr=localhost:8082› ‹--store=/mnt/crdb3› ‹--join=localhost:26257,localhost:26258,localhost:26259› ‹--log-dir=/home/ubuntu/bench_tier_a/phase2_scenario1_results/hdd/logs/node3›]
+I260425 12:04:10.619042 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   log format (utf8=✓): crdb-v2
+I260425 12:04:10.619045 1742 util/log/file_sync_buffer.go:237 ⋮ [config]   line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid [chan@]file:line redactionmark \[tags\] [counter] msg
+I260425 12:04:10.618880 1742 12@util/log/event_log.go:90 ⋮ [T1,Vsystem,n2] 1 ={"Timestamp":1777118650618877769,"EventType":"captured_index_usage_stats","LastRead":"0001-01-01 00:00:00 +0000 UTC","TableID":106,"IndexID":1,"DatabaseName":"kv","TableName":"kv","IndexName":"kv_pkey","IndexType":"primary","IsUnique":true,"CreatedAt":"2026-04-25 12:04:09.72974 +0000 UTC","SchemaName":"public"}

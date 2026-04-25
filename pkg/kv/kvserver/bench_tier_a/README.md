@@ -91,7 +91,7 @@ echo "+io" | sudo tee /sys/fs/cgroup/cgroup.subtree_control
 GOOS=linux GOARCH=amd64 ./dev build cockroach --cross=linux
 
 # Copy binary and scripts to the VM
-scp cockroach-linux-2.6.32-gnu-amd64 user@vm-ip:~/cockroach
+scp cockroach-linux-2.6.32-gnu-amd64 user@vm-ip:~/cockroach-bin
 rsync -av pkg/kv/kvserver/bench_tier_a/ user@vm-ip:~/bench_tier_a/
 ```
 
@@ -106,9 +106,9 @@ Requires ~40 GB of extra disk (Bazel cache + Go toolchain downloads) and
 sudo apt-get install -y git cmake ninja-build
 
 # Install Bazel via Bazelisk (the ./dev tool requires it)
-curl -Lo /usr/local/bin/bazel \
+sudo curl -Lo /usr/local/bin/bazel \
   https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-amd64
-chmod +x /usr/local/bin/bazel
+sudo chmod +x /usr/local/bin/bazel
 
 # Clone the repo (shallow clone saves ~8 GB of git history)
 git clone --depth=1 https://github.com/cockroachdb/cockroach.git
@@ -117,10 +117,15 @@ cd cockroach
 # Build (first run downloads toolchains and populates the Bazel cache)
 ./dev build short   # ~30–45 min; produces ./cockroach
 
-# Copy bench scripts to the working directory
+# Copy bench scripts and binary to a working directory.
+# Keep the binary name distinct from the source checkout directory (`~/cockroach`).
 cp -r pkg/kv/kvserver/bench_tier_a ~/bench_tier_a
-cp cockroach ~/cockroach
+cp cockroach ~/bench_tier_a/cockroach
 ```
+
+If the source checkout already lives at `~/cockroach`, do **not** copy the
+binary to `~/cockroach`; that path is a directory. Use `~/bench_tier_a/cockroach`
+or another explicit binary filename such as `~/cockroach-bin`.
 
 ### Disk space and loopback image size
 
@@ -145,7 +150,7 @@ building on the VM, 100 GB is sufficient.
 ssh user@vm-ip
 cd ~/bench_tier_a
 export IMG_SIZE_MB=20480
-sudo --preserve-env=IMG_SIZE_MB ./sim_disk/run_tiered_bench.sh ~/cockroach
+sudo --preserve-env=IMG_SIZE_MB ./sim_disk/run_tiered_bench.sh ~/bench_tier_a/cockroach
 ```
 
 This sweeps four tiers in sequence:
@@ -157,7 +162,9 @@ This sweeps four tiers in sequence:
 | `ssd-slow` | 3 ms | 240 MB/s | GCP pd-balanced / AWS gp2 |
 | `hdd` | 8 ms | 100 MB/s | GCP pd-standard / spinning |
 
-Results land in `phase2_scenario1_results/{nvme,ssd-fast,ssd-slow,hdd}/`.
+Results land in a timestamped directory:
+`phase2_scenario1_results/run-YYYYmmdd-HHMMSS/{nvme,ssd-fast,ssd-slow,hdd}/`.
+Set `RESULTS_ROOT` if you want a specific output directory.
 
 ### Retrieve results
 
@@ -190,7 +197,7 @@ export NODE_STORE_1=/mnt/crdb1
 export NODE_STORE_2=/mnt/crdb2
 export NODE_STORE_3=/mnt/crdb3
 export IMG_DIR=/tmp/crdb-sim
-./phase2_scenario1.sh ~/cockroach
+./phase2_scenario1.sh ~/bench_tier_a/cockroach
 
 # Tear down when done
 sudo ./sim_disk/teardown_sim_disks.sh
