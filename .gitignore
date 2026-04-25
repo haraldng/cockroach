@@ -76,5 +76,4 @@ pkg/testutils/serverutils/*_generated.go
 .vscode/
 CLAUDE.local.md
 .claude/*.local.*
-/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results
 /pkg/kv/kvserver/raftstorebench/testdata
