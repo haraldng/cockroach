@@ -1,0 +1,205 @@
+I260425 14:14:28.324890 97 util/log/file_sync_buffer.go:237 ⋮ [config]   file created at: 2026/04/25 14:14:28
+I260425 14:14:28.324896 97 util/log/file_sync_buffer.go:237 ⋮ [config]   running on machine: ‹ip-172-31-60-74›
+I260425 14:14:28.324907 97 util/log/file_sync_buffer.go:237 ⋮ [config]   binary: CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 14:14:28.324911 97 util/log/file_sync_buffer.go:237 ⋮ [config]   arguments: [‹./cockroach› ‹start› ‹--insecure› ‹--listen-addr=localhost:26258› ‹--http-addr=localhost:8081› ‹--store=/mnt/crdb2› ‹--join=localhost:26257,localhost:26258,localhost:26259› ‹--log-dir=/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/nvme/logs/node2›]
+I260425 14:14:28.324930 97 util/log/file_sync_buffer.go:237 ⋮ [config]   log format (utf8=✓): crdb-v2
+I260425 14:14:28.324935 97 util/log/file_sync_buffer.go:237 ⋮ [config]   line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid [chan@]file:line redactionmark \[tags\] [counter] msg
+I260425 14:14:28.324823 97 13@kv/kvserver/stores.go:252 ⋮ [T1,Vsystem,n2] 1  read 0 node addresses from persistent storage
+I260425 14:14:28.325026 1112 13@kv/kvserver/mma_store_rebalancer.go:76 ⋮ [T1,Vsystem,n2,s2] 2  starting multi-metric store rebalancer with mode=‹leases and replicas›
+I260425 14:14:28.365193 97 13@kv/kvserver/stores.go:271 ⋮ [T1,Vsystem,n2] 3  wrote 1 node addresses to persistent storage
+I260425 14:14:28.401452 130 13@kv/kvserver/stores.go:271 ⋮ [T1,Vsystem,n2] 4  wrote 2 node addresses to persistent storage
+I260425 14:14:28.721795 1479 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r12/2:{-}] 5  applying snapshot 2119ba74 from (n1,s1):1 at applied index 19
+I260425 14:14:29.079932 1517 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r56/2:{-}] 6  applying snapshot a3d8fbcc from (n1,s1):1 at applied index 15
+I260425 14:14:29.313506 835 13@kv/kvserver/stores.go:271 ⋮ [T1,Vsystem,n2] 7  wrote 2 node addresses to persistent storage
+I260425 14:14:29.355928 1468 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r24/2:{-}] 8  applying snapshot 11dc96e7 from (n1,s1):1 at applied index 15
+I260425 14:14:29.629214 1541 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r65/2:{-}] 9  applying snapshot fe9d6294 from (n1,s1):1 at applied index 15
+I260425 14:14:29.898504 1612 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r25/2:{-}] 10  applying snapshot cca0a433 from (n1,s1):1 at applied index 20
+I260425 14:14:30.071760 1621 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r4/2:{-}] 11  applying snapshot 9163bd18 from (n1,s1):1 at applied index 27
+I260425 14:14:30.607741 1648 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r9/2:{-}] 12  applying snapshot 64f3e64f from (n1,s1):1 at applied index 17
+I260425 14:14:30.829716 1681 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r64/2:{-}] 13  applying snapshot fe84d108 from (n1,s1):1 at applied index 15
+I260425 14:14:31.219088 1707 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r28/2:{-}] 14  applying snapshot 3892312e from (n1,s1):1 at applied index 16
+I260425 14:14:31.638190 1709 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r50/2:{-}] 15  applying snapshot 2ff2cbf3 from (n1,s1):1 at applied index 18
+I260425 14:14:32.115711 1661 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r32/2:{-}] 16  applying snapshot 462101d5 from (n1,s1):1 at applied index 15
+I260425 14:14:32.306698 1759 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r57/2:{-}] 17  applying snapshot 05cb3de1 from (n1,s1):1 at applied index 74
+I260425 14:14:32.513083 1782 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r60/2:{-}] 18  applying snapshot 83074faa from (n1,s1):1 at applied index 15
+I260425 14:14:32.684695 1858 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r14/2:{-}] 19  applying snapshot b1821e64 from (n1,s1):1 at applied index 15
+I260425 14:14:32.972589 1743 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r39/2:{-}] 20  applying snapshot 413206d3 from (n1,s1):1 at applied index 15
+I260425 14:14:33.162441 1875 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r41/2:{-}] 21  applying snapshot 5ef9f9ae from (n1,s1):1 at applied index 25
+I260425 14:14:33.271015 1877 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r48/2:{-}] 22  applying snapshot 31115779 from (n1,s1):1 at applied index 15
+I260425 14:14:33.575929 1807 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r5/2:{-}] 23  applying snapshot 79032a3e from (n1,s1):1 at applied index 20
+I260425 14:14:33.811698 1973 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r61/2:{-}] 24  applying snapshot 82d96f30 from (n1,s1):1 at applied index 15
+I260425 14:14:33.903381 1988 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r8/2:{-}] 25  applying snapshot 6c6e679f from (n1,s1):1 at applied index 28
+I260425 14:14:34.187633 1975 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r16/2:{-}] 26  applying snapshot 877e6db9 from (n1,s1):1 at applied index 54
+I260425 14:14:34.281002 1869 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r83/2:{-}] 27  applying snapshot 0d80946c from (n1,s1):1 at applied index 16
+I260425 14:14:34.540600 1932 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r23/2:{-}] 28  applying snapshot f0beaaf1 from (n1,s1):1 at applied index 15
+I260425 14:14:34.724481 1871 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r81/2:{-}] 29  applying snapshot 9d3da7d4 from (n1,s1):1 at applied index 16
+I260425 14:14:34.997094 1156 13@spanconfig/spanconfigstore/store.go:364 ⋮ [T1,Vsystem,n2] 30  changing the spanconfig for span:‹/Table/4{2-3}› from:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:14400 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false} to:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:3600 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false}
+I260425 14:14:34.997235 1156 13@spanconfig/spanconfigstore/store.go:364 ⋮ [T1,Vsystem,n2] 31  changing the spanconfig for span:‹/Table/4{3-4}› from:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:14400 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false} to:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:3600 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false}
+I260425 14:14:34.997296 1156 13@spanconfig/spanconfigstore/store.go:364 ⋮ [T1,Vsystem,n2] 32  changing the spanconfig for span:‹/Table/5{8-9}› from:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:14400 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false} to:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:3600 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false}
+I260425 14:14:34.997356 1156 13@spanconfig/spanconfigstore/store.go:364 ⋮ [T1,Vsystem,n2] 33  changing the spanconfig for span:‹/Table/6{1-2}› from:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:14400 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false} to:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:3600 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false}
+I260425 14:14:34.997420 1156 13@spanconfig/spanconfigstore/store.go:364 ⋮ [T1,Vsystem,n2] 34  changing the spanconfig for span:‹/Table/6{2-3}› from:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:14400 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false} to:{RangeMinBytes:134217728 RangeMaxBytes:536870912 GCPolicy:{TTLSeconds:3600 ProtectionPolicies:[] IgnoreStrictEnforcement:true} GlobalReads:false NumReplicas:5 NumVoters:0 Constraints:[] VoterConstraints:[] LeasePreferences:[] RangefeedEnabled:true ExcludeDataFromBackup:false}
+I260425 14:14:35.005728 2084 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r31/2:{-}] 35  applying snapshot fbf4b361 from (n1,s1):1 at applied index 15
+I260425 14:14:35.213749 2191 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r82/2:{-}] 36  applying snapshot a1597086 from (n1,s1):1 at applied index 35
+I260425 14:14:35.307192 2105 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r77/2:{-}] 37  applying snapshot 14507273 from (n1,s1):1 at applied index 15
+I260425 14:14:35.508519 2122 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r26/2:{-}] 38  applying snapshot ee53514e from (n1,s1):1 at applied index 15
+I260425 14:14:35.685586 2229 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r35/2:{-}] 39  applying snapshot 525d8582 from (n1,s1):1 at applied index 15
+I260425 14:14:35.965299 2266 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r6/2:{-}] 40  applying snapshot a44805da from (n1,s1):1 at applied index 16
+I260425 14:14:36.223647 2277 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r10/2:{-}] 41  applying snapshot c611e4f0 from (n1,s1):1 at applied index 31
+I260425 14:14:36.425759 2255 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r42/2:{-}] 42  applying snapshot 3f63982b from (n1,s1):1 at applied index 15
+I260425 14:14:36.628541 2381 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r72/2:{-}] 43  applying snapshot 83fb434e from (n1,s1):1 at applied index 22
+I260425 14:14:36.828265 2383 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r55/2:{-}] 44  applying snapshot 5551b01b from (n1,s1):1 at applied index 15
+I260425 14:14:36.922684 2174 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r67/2:{-}] 45  applying snapshot c762a95e from (n1,s1):1 at applied index 15
+I260425 14:14:37.131521 2469 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r78/3:{-}] 46  applying snapshot 94a7d188 from (n3,s3):2 at applied index 24
+I260425 14:14:37.440277 2461 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r20/2:{-}] 47  applying snapshot 208fa789 from (n1,s1):1 at applied index 15
+I260425 14:14:37.535132 2505 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r54/2:{-}] 48  applying snapshot ea990e17 from (n1,s1):1 at applied index 15
+I260425 14:14:37.748087 2486 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r53/2:{-}] 49  applying snapshot a7b5c3ec from (n1,s1):1 at applied index 16
+I260425 14:14:37.954334 2601 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r17/2:{-}] 50  applying snapshot 566ae566 from (n1,s1):1 at applied index 173
+I260425 14:14:38.170970 2585 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r29/3:{-}] 51  applying snapshot 46a5ceef from (n3,s3):2 at applied index 25
+I260425 14:14:38.336286 2593 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r33/2:{-}] 52  applying snapshot 17bbe7fb from (n1,s1):1 at applied index 15
+I260425 14:14:38.715628 2511 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r1/3:{-}] 53  applying snapshot 0b587c1c from (n1,s1):1 at applied index 27
+I260425 14:14:38.967377 2694 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r52/3:{-}] 54  applying snapshot 4885118c from (n1,s1):1 at applied index 21
+I260425 14:14:39.006372 2616 13@kv/kvserver/allocator/plan/replicate.go:421 ⋮ [T1,Vsystem,n2,replicate,s2,r72/2:/Table/{69-70}] 55  adding voter n3,s3: [1:30, 2*:30]
+I260425 14:14:39.007305 2616 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r72/2:/Table/{69-70}] 56  change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r72:/Table/{69-70} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I260425 14:14:39.021644 2616 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r72/2:/Table/{69-70}] 57  proposing SIMPLE(l3) [(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I260425 14:14:39.058513 2750 13@kv/kvserver/store_snapshot.go:895 ⋮ [T1,Vsystem,n2,s2,r72/2:/Table/{69-70}] 58  streamed snapshot e0340ec6 at applied index 32 to (n3,s3):3LEARNER with 1017 B in 0.00s @ 6.6 MiB/s: kvs=16 rangeKVs=0 sharedSSTs=0, externalSSTs=0, rate-limit: 32 MiB/s, queued: 0.02s
+I260425 14:14:39.140863 2616 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r72/2:/Table/{69-70}] 59  change replicas (add [(n3,s3):3] remove []): existing descriptor r72:/Table/{69-70} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I260425 14:14:39.155040 2616 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r72/2:/Table/{69-70}] 60  proposing SIMPLE(v3) [(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I260425 14:14:39.251065 2790 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r13/3:{-}] 61  applying snapshot d97e1cfe from (n1,s1):1 at applied index 21
+I260425 14:14:39.501188 2792 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r68/3:{-}] 62  applying snapshot d396dc14 from (n1,s1):1 at applied index 21
+I260425 14:14:39.734830 2834 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r62/3:{-}] 63  applying snapshot 8d03f71f from (n1,s1):1 at applied index 21
+I260425 14:14:40.005266 2854 13@kv/kvserver/allocator/plan/replicate.go:421 ⋮ [T1,Vsystem,n2,replicate,s2,r55/2:/Table/5{2-3}] 64  adding voter n3,s3: [1:23, 2*:23]
+I260425 14:14:40.055976 2854 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r55/2:/Table/5{2-3}] 65  change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r55:/Table/5{2-3} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I260425 14:14:40.075913 2854 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r55/2:/Table/5{2-3}] 66  proposing SIMPLE(l3) [(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I260425 14:14:40.112764 2815 13@kv/kvserver/store_snapshot.go:895 ⋮ [T1,Vsystem,n2,s2,r55/2:/Table/5{2-3}] 67  streamed snapshot 38c92a37 at applied index 25 to (n3,s3):3LEARNER with 782 B in 0.00s @ 4.0 MiB/s: kvs=12 rangeKVs=0 sharedSSTs=0, externalSSTs=0, rate-limit: 32 MiB/s, queued: 0.03s
+I260425 14:14:40.184724 2829 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r21/3:{-}] 68  applying snapshot 13153566 from (n1,s1):1 at applied index 21
+I260425 14:14:40.206149 2854 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r55/2:/Table/5{2-3}] 69  change replicas (add [(n3,s3):3] remove []): existing descriptor r55:/Table/5{2-3} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I260425 14:14:40.236065 2854 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r55/2:/Table/5{2-3}] 70  proposing SIMPLE(v3) [(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I260425 14:14:40.470527 2940 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r18/3:{-}] 71  applying snapshot a04f0bac from (n1,s1):1 at applied index 21
+I260425 14:14:40.727066 2964 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r38/3:{-}] 72  applying snapshot 4226f314 from (n1,s1):1 at applied index 21
+I260425 14:14:40.981879 2984 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r19/3:{-}] 73  applying snapshot fbac05bc from (n1,s1):1 at applied index 61
+I260425 14:14:41.010187 2967 13@kv/kvserver/allocator/plan/replicate.go:421 ⋮ [T1,Vsystem,n2,replicate,s2,r77/2:/Table/7{4-5}] 74  adding voter n3,s3: [1:23, 2*:22]
+I260425 14:14:41.010696 2967 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r77/2:/Table/7{4-5}] 75  change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r77:/Table/7{4-5} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I260425 14:14:41.021636 2967 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r77/2:/Table/7{4-5}] 76  proposing SIMPLE(l3) [(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I260425 14:14:41.045389 2968 13@kv/kvserver/store_snapshot.go:895 ⋮ [T1,Vsystem,n2,s2,r77/2:/Table/7{4-5}] 77  streamed snapshot f24e1c8b at applied index 25 to (n3,s3):3LEARNER with 782 B in 0.00s @ 5.4 MiB/s: kvs=12 rangeKVs=0 sharedSSTs=0, externalSSTs=0, rate-limit: 32 MiB/s, queued: 0.01s
+I260425 14:14:41.119971 2967 13@kv/kvserver/replica_command.go:2528 ⋮ [T1,Vsystem,n2,replicate,s2,r77/2:/Table/7{4-5}] 78  change replicas (add [(n3,s3):3] remove []): existing descriptor r77:/Table/7{4-5} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I260425 14:14:41.139206 2967 13@kv/kvserver/replica_raft.go:429 ⋮ [T1,Vsystem,n2,s2,r77/2:/Table/7{4-5}] 79  proposing SIMPLE(v3) [(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I260425 14:14:41.256154 2993 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r71/3:{-}] 80  applying snapshot f62f5051 from (n1,s1):1 at applied index 29
+I260425 14:14:41.380739 3027 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r70/3:{-}] 81  applying snapshot a5b65c59 from (n1,s1):1 at applied index 21
+I260425 14:14:41.738784 3076 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r34/3:{-}] 82  applying snapshot f5a1b503 from (n1,s1):1 at applied index 29
+I260425 14:14:41.999789 3007 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r44/3:{-}] 83  applying snapshot bbb3309c from (n1,s1):1 at applied index 23
+I260425 14:14:42.244080 3057 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r30/3:{-}] 84  applying snapshot cd36f08f from (n1,s1):1 at applied index 21
+I260425 14:14:42.383540 3108 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r11/3:{-}] 85  applying snapshot 68498ed1 from (n1,s1):1 at applied index 24
+I260425 14:14:42.625011 3155 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r46/3:{-}] 86  applying snapshot 72fe927c from (n1,s1):1 at applied index 21
+I260425 14:14:42.987020 2859 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r3/3:{-}] 87  applying snapshot 3a39c954 from (n1,s1):1 at applied index 43
+I260425 14:14:43.159998 3148 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r80/3:{-}] 88  applying snapshot d2992423 from (n3,s3):2 at applied index 25
+I260425 14:14:43.295044 3206 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r7/3:{-}] 89  applying snapshot f95e57e3 from (n1,s1):1 at applied index 21
+I260425 14:14:43.613279 3132 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r47/3:{-}] 90  applying snapshot 5b4a620d from (n1,s1):1 at applied index 21
+I260425 14:14:43.733452 3260 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r74/3:{-}] 91  applying snapshot acf8bdbb from (n1,s1):1 at applied index 25
+I260425 14:14:44.121425 3275 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r79/3:{-}] 92  applying snapshot 724329e4 from (n1,s1):1 at applied index 21
+I260425 14:14:44.320216 3279 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r40/3:{-}] 93  applying snapshot 48b085df from (n1,s1):1 at applied index 21
+I260425 14:14:44.525039 3302 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r45/3:{-}] 94  applying snapshot 4ff3c940 from (n1,s1):1 at applied index 21
+I260425 14:14:44.642039 3338 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r43/3:{-}] 95  applying snapshot be54b59f from (n1,s1):1 at applied index 33
+I260425 14:14:44.949603 3304 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r22/3:{-}] 96  applying snapshot 29165a84 from (n1,s1):1 at applied index 21
+I260425 14:14:45.316250 3230 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r66/3:{-}] 97  applying snapshot 76b27315 from (n1,s1):1 at applied index 21
+I260425 14:14:45.684242 3447 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r15/3:{-}] 98  applying snapshot 6ae5b630 from (n1,s1):1 at applied index 202
+I260425 14:14:46.031610 3448 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r36/3:{-}] 99  applying snapshot 294746e7 from (n1,s1):1 at applied index 21
+I260425 14:14:46.243377 3543 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r59/3:{-}] 100  applying snapshot f52cc4e1 from (n1,s1):1 at applied index 21
+I260425 14:14:46.605789 3452 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r2/3:{-}] 101  applying snapshot 3e09483d from (n1,s1):1 at applied index 609
+I260425 14:14:46.955774 3642 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r27/3:{-}] 102  applying snapshot d5ba4558 from (n1,s1):1 at applied index 24
+I260425 14:14:47.510142 3692 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r69/3:{-}] 103  applying snapshot 28dc486f from (n1,s1):1 at applied index 21
+I260425 14:14:47.702220 3764 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r75/3:{-}] 104  applying snapshot 2fbf525d from (n1,s1):1 at applied index 21
+I260425 14:14:47.897120 3615 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r76/3:{-}] 105  applying snapshot 6f1cf03a from (n1,s1):1 at applied index 21
+I260425 14:14:48.427283 3858 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r73/3:{-}] 106  applying snapshot 282729d9 from (n1,s1):1 at applied index 26
+I260425 14:14:48.814873 3926 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r63/3:{-}] 107  applying snapshot 8b90567a from (n1,s1):1 at applied index 21
+I260425 14:14:49.271048 3987 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r37/3:{-}] 108  applying snapshot 640352d7 from (n1,s1):1 at applied index 21
+I260425 14:14:49.971560 3934 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r51/3:{-}] 109  applying snapshot f64b089f from (n1,s1):1 at applied index 29
+I260425 14:14:50.435262 4102 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r58/3:{-}] 110  applying snapshot a532e8d1 from (n1,s1):1 at applied index 21
+I260425 14:14:50.645256 4134 13@kv/kvserver/replica_raftstorage.go:553 ⋮ [T1,Vsystem,n2,s2,r49/3:{-}] 111  applying snapshot b09fa851 from (n1,s1):1 at applied index 21
+I260425 14:15:45.016068 13807 13@kv/kvserver/replica_command.go:481 ⋮ [T1,Vsystem,n2,split,s2,r86/2:/Table/106/1/{‹-4658›…-‹34535›…}] 112  initiating a split of this range at key /Table/106/1/‹-2029438391321812600› [r104] (load at key /Table/106/1/‹-2029438391321812600› (cpu 613ms, 4821.24 batches/sec, 4800.48 raft mutations/sec))
+I260425 14:15:45.241597 13972 13@kv/kvserver/replica_command.go:481 ⋮ [T1,Vsystem,n2,split,s2,r87/2:/{Table/106/1/…-Max}] 113  initiating a split of this range at key /Table/106/1/‹6911627624825204941› [r105] (load at key /Table/106/1/‹6911627624825204941› (cpu 622ms, 4388.65 batches/sec, 4369.05 raft mutations/sec))
+I260425 14:16:28.328771 1111 13@kv/kvserver/store_rebalancer.go:484 ⋮ [T1,Vsystem,n2,s2,store-rebalancer,obj=‹cpu›] 114  considering load-based lease transfers for s2 with (queries-per-second=9842.7 cpu-per-second=1.9s) load, mean=(queries-per-second=6448.4 cpu-per-second=1.5s), upperThreshold=(queries-per-second=6448.4 cpu-per-second=1.6s)
+I260425 14:16:28.329179 1111 13@kv/kvserver/store_rebalancer.go:862 ⋮ [T1,Vsystem,n2,s2,store-rebalancer,obj=‹cpu›] 115  transferring lease for r86 load=(queries-per-second=2657.1 cpu-per-second=317ms) to store s3 load=(queries-per-second=4598.1 cpu-per-second=1.1s) from local store s2 load=(queries-per-second=9842.7 cpu-per-second=1.9s) (skipped 0 candidates with load=(queries-per-second=0.0 cpu-per-second=0µs))
+I260425 14:16:28.329263 1111 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,n2,s2,store-rebalancer,obj=‹cpu›] 116  transferring lease to n3,s3
+I260425 14:16:28.486084 1111 13@kv/kvserver/store_rebalancer.go:613 ⋮ [T1,Vsystem,n2,s2,store-rebalancer,obj=‹cpu›] 117  load-based lease transfers successfully brought s2 down to (queries-per-second=7208.3 cpu-per-second=1.6s) load, mean=(queries-per-second=6456.6 cpu-per-second=1.5s), upperThreshold=(queries-per-second=6456.6 cpu-per-second=1.6s)
+I260425 14:19:40.029714 54752 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r55/2:/Table/5{2-3}] 118  initiating a merge of r56:/Table/5{3-4} [(n1,s1):1, (n2,s2):2, (n3,s3):3, next=4, gen=4] into this range (lhs+rhs size (0 B+0 B=0 B) below threshold (128 MiB) lhs+rhs cpu (1ms+895µs=2ms) below threshold (250ms))
+I260425 14:19:40.077976 1089 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r55/2:/Table/5{2-3},raft] 119  removing replica r56/2 (merge trigger)
+I260425 14:19:55.066102 1080 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r78/3:/Table/7{5-6},raft] 120  removing replica r79/3 (merge trigger)
+I260425 14:20:20.059107 1024 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r67/2:/Table/6{4-5},raft] 121  removing replica r68/3 (merge trigger)
+I260425 14:20:25.062610 1072 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r78/3:/Table/7{5-7},raft] 122  removing replica r80/3 (merge trigger)
+I260425 14:20:26.116181 1090 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r7/3:/Table/{0-3},raft] 123  removing replica r8/2 (merge trigger)
+I260425 14:20:35.056374 1036 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r75/3:/Table/7{2-3},raft] 124  removing replica r76/3 (merge trigger)
+I260425 14:20:36.109293 1037 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r59/3:/Table/5{6-7},raft] 125  removing replica r60/2 (merge trigger)
+I260425 14:20:40.040515 65063 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r55/2:/Table/5{2-4}] 126  initiating a merge of r57:/Table/5{4-5} [(n1,s1):1, (n2,s2):2, (n3,s3):3, next=4, gen=4] into this range (lhs+rhs size (0 B+461 KiB=461 KiB) below threshold (128 MiB) lhs+rhs cpu (4ms+23ms=27ms) below threshold (250ms))
+I260425 14:20:40.066896 985 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r64/2:/Table/6{1-2},raft] 127  removing replica r65/2 (merge trigger)
+I260425 14:20:40.094590 1100 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r55/2:/Table/5{2-4},raft] 128  removing replica r57/2 (merge trigger)
+I260425 14:20:56.096281 1001 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r73/3:/Table/7{0-1},raft] 129  removing replica r74/3 (merge trigger)
+I260425 14:21:00.148256 1031 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r67/2:/Table/6{4-6},raft] 130  removing replica r69/3 (merge trigger)
+I260425 14:21:05.044401 69306 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r77/2:/Table/7{4-5}] 131  initiating a merge of r78:/Table/7{5-8} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=6] into this range (lhs+rhs size (0 B+11 KiB=11 KiB) below threshold (128 MiB) lhs+rhs cpu (1ms+19ms=20ms) below threshold (250ms))
+I260425 14:21:05.087907 1006 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r58/3:/Table/5{5-6},raft] 132  removing replica r59/3 (merge trigger)
+I260425 14:21:05.098965 1067 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r77/2:/Table/7{4-5},raft] 133  removing replica r78/3 (merge trigger)
+I260425 14:21:10.086426 1024 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r75/3:/Table/7{2-4},raft] 134  removing replica r77/2 (merge trigger)
+I260425 14:21:25.078011 1023 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r67/2:/Table/6{4-7},raft] 135  removing replica r70/3 (merge trigger)
+I260425 14:21:26.104618 996 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r81/2:/Table/7{8-9},raft] 136  removing replica r82/2 (merge trigger)
+I260425 14:21:30.077470 1079 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r54/2:/Table/5{1-2},raft] 137  removing replica r55/2 (merge trigger)
+I260425 14:21:40.083262 1031 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r67/2:/Table/6{4-8},raft] 138  removing replica r71/3 (merge trigger)
+I260425 14:21:45.098590 75868 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r62/3:/Table/{59-60}] 139  initiating a merge of r63:/Table/6{0-1} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=4] into this range (lhs+rhs size (0 B+0 B=0 B) below threshold (128 MiB) lhs+rhs cpu (0µs+1µs=1µs) below threshold (250ms))
+I260425 14:21:45.125511 1074 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r62/3:/Table/{59-60},raft] 140  removing replica r63/3 (merge trigger)
+I260425 14:21:50.093394 1058 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r53/2:/Table/5{0-1},raft] 141  removing replica r54/2 (merge trigger)
+I260425 14:22:05.112251 78234 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r66/3:/Table/6{3-4}] 142  initiating a merge of r67:/Table/6{4-9} [(n1,s1):1, (n2,s2):2, (n3,s3):3, next=4, gen=8] into this range (lhs+rhs size (23 B+18 KiB=18 KiB) below threshold (128 MiB) lhs+rhs cpu (0µs+14ms=14ms) below threshold (250ms))
+I260425 14:22:05.172575 1021 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r66/3:/Table/6{3-4},raft] 143  removing replica r67/2 (merge trigger)
+I260425 14:22:15.059194 80085 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r72/2:/Table/{69-70}] 144  initiating a merge of r73:/Table/7{0-2} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=5] into this range (lhs+rhs size (18 KiB+6.5 KiB=25 KiB) below threshold (128 MiB) lhs+rhs cpu (9ms+12ms=20ms) below threshold (250ms))
+I260425 14:22:15.200586 984 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r72/2:/Table/{69-70},raft] 145  removing replica r73/3 (merge trigger)
+I260425 14:22:16.202053 1043 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r52/3:/Table/{48-50},raft] 146  removing replica r53/2 (merge trigger)
+I260425 14:22:25.122209 1033 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r75/3:/Table/7{2-8},raft] 147  removing replica r81/2 (merge trigger)
+I260425 14:22:30.056929 82652 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r66/3:/Table/6{3-9}] 148  initiating a merge of r72:/Table/{69-72} [(n1,s1):1, (n2,s2):2, (n3,s3):3, next=4, gen=6] into this range (lhs+rhs size (18 KiB+25 KiB=43 KiB) below threshold (128 MiB) lhs+rhs cpu (14ms+20ms=35ms) below threshold (250ms))
+I260425 14:22:30.202637 1008 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r66/3:/Table/6{3-9},raft] 149  removing replica r72/2 (merge trigger)
+I260425 14:22:35.058291 83608 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r66/3:/Table/{63-72}] 150  initiating a merge of r75:/Table/{72-80} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9] into this range (lhs+rhs size (43 KiB+84 KiB=128 KiB) below threshold (128 MiB) lhs+rhs cpu (35ms+24ms=58ms) below threshold (250ms))
+I260425 14:22:35.342769 1020 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r66/3:/Table/{63-72},raft] 151  removing replica r75/3 (merge trigger)
+I260425 14:22:40.067378 84612 13@kv/kvserver/replica_command.go:843 ⋮ [T1,Vsystem,n2,merge,s2,r66/3:/Table/{63-80}] 152  initiating a merge of r83:/Table/{80-106} [(n1,s1):1, (n2,s2):2, (n3,s3):3, next=4, gen=5] into this range (lhs+rhs size (128 KiB+0 B=128 KiB) below threshold (128 MiB) lhs+rhs cpu (58ms+0µs=58ms) below threshold (250ms))
+I260425 14:22:40.170271 1011 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r66/3:/Table/{63-80},raft] 153  removing replica r83/2 (merge trigger)
+I260425 14:23:01.278506 1049 13@kv/kvserver/store_remove_replica.go:152 ⋮ [T1,Vsystem,n2,s2,r52/3:/Table/{48-55},raft] 154  removing replica r58/3 (merge trigger)
+I260425 14:37:58.394221 231568 13@kv/kvserver/replica_command.go:481 ⋮ [T1,Vsystem,n2,split,s2,r104/2:/Table/106/1/{‹-2029›…-‹34535›…}] 155  initiating a split of this range at key /Table/106/1/‹-842368743003034340› [r106] (512 MiB above threshold size 512 MiB)
+I260425 14:38:37.592917 236317 13@kv/kvserver/replica_command.go:481 ⋮ [T1,Vsystem,n2,split,s2,r105/2:/{Table/106/1/…-Max}] 156  initiating a split of this range at key /Table/106/1/‹8067680486997441554› [r107] (512 MiB above threshold size 512 MiB)
+I260425 14:40:06.145176 247378 13@kv/kvserver/replica_command.go:481 ⋮ [T1,Vsystem,n2,split,s2,r87/2:/Table/106/1/{‹47351›…-‹69116›…}] 157  initiating a split of this range at key /Table/106/1/‹5822924063136209877› [r108] (512 MiB above threshold size 512 MiB)
+I260425 14:50:31.610633 333937 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r45/3:/Table/4{1-2}] 158  transferring lease to n3,s3
+I260425 14:50:31.610658 333932 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r104/2:/Table/106/1/‹-›{‹20294›…-‹84236›…}] 159  transferring lease to n3,s3
+I260425 14:50:31.610759 333996 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r37/3:/Table/3{3-4}] 160  transferring lease to n3,s3
+I260425 14:50:31.610788 333934 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r31/2:/Table/2{7-8}] 161  transferring lease to n3,s3
+I260425 14:50:31.610798 334068 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r50/2:/Table/4{6-7}] 162  transferring lease to n3,s3
+I260425 14:50:31.610969 334088 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r24/2:/Table/2{0-1}] 163  transferring lease to n3,s3
+I260425 14:50:31.610996 334071 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r105/2:/Table/106/1/{‹69116›…-‹80676›…}] 164  transferring lease to n3,s3
+I260425 14:50:31.610993 334101 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r10/2:/Table/{5-6}] 165  transferring lease to n3,s3
+I260425 14:50:31.611014 333992 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r87/2:/Table/106/1/{‹47351›…-‹58229›…}] 166  transferring lease to n3,s3
+I260425 14:50:31.611063 334087 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r62/3:/Table/{59-61}] 167  transferring lease to n3,s3
+I260425 14:50:31.611085 334085 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r21/3:/Table/1{7-8}] 168  transferring lease to n3,s3
+I260425 14:50:31.611088 333744 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r11/3:/Table/{6-7}] 169  transferring lease to n3,s3
+I260425 14:50:31.611098 334097 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r38/3:/Table/3{4-5}] 170  transferring lease to n3,s3
+I260425 14:50:31.611125 334104 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r17/2:/Table/1{3-4}] 172  transferring lease to n3,s3
+I260425 14:50:31.611119 334081 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r107/2:/{Table/106/1/…-Max}] 171  transferring lease to n3,s3
+I260425 14:50:31.611132 334074 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r41/2:/Table/3{7-8}] 173  transferring lease to n3,s3
+I260425 14:50:31.611151 333935 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r48/2:/Table/4{4-5}] 174  transferring lease to n3,s3
+I260425 14:50:31.611176 334084 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r46/3:/Table/4{2-3}] 175  transferring lease to n3,s3
+I260425 14:50:31.611188 334119 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r25/2:/Table/2{1-2}] 176  transferring lease to n3,s3
+I260425 14:50:31.611203 334080 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r42/2:/Table/3{8-9}] 177  transferring lease to n3,s3
+I260425 14:50:31.611224 333737 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r52/3:/Table/{48-58}] 178  transferring lease to n3,s3
+I260425 14:50:31.611238 334076 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r28/2:/Table/2{4-5}] 179  transferring lease to n3,s3
+I260425 14:50:31.611261 333739 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r9/2:/Table/{4-5}] 180  transferring lease to n3,s3
+I260425 14:50:31.611278 333738 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r33/2:/{Table/29-NamespaceTab…}] 181  transferring lease to n3,s3
+I260425 14:50:31.611298 333933 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r108/2:/Table/106/1/{‹58229›…-‹69116›…}] 182  transferring lease to n3,s3
+I260425 14:50:31.611304 334086 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r7/3:/Table/{0-4}] 183  transferring lease to n3,s3
+I260425 14:50:31.611334 334069 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r27/3:/Table/2{3-4}] 184  transferring lease to n3,s3
+I260425 14:50:31.611338 334117 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r15/3:/Table/1{1-2}] 185  transferring lease to n3,s3
+I260425 14:50:31.611359 334077 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r66/3:/Table/{63-106}] 186  transferring lease to n3,s3
+I260425 14:50:31.611370 334105 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r106/2:/Table/106/1/{‹-8423›…-‹34535›…}] 187  transferring lease to n3,s3
+I260425 14:50:31.611382 334072 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r12/2:/Table/{7-8}] 188  transferring lease to n3,s3
+I260425 14:50:31.611391 334115 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r1/3:/M{in-eta2}] 189  transferring lease to n3,s3
+I260425 14:50:31.611407 333998 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r20/2:/Table/1{6-7}] 190  transferring lease to n3,s3
+I260425 14:50:31.611413 333742 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r36/3:/Table/3{2-3}] 191  transferring lease to n3,s3
+I260425 14:50:31.611429 334114 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r43/3:/Table/{39-40}] 192  transferring lease to n3,s3
+I260425 14:50:31.611444 334102 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r49/3:/Table/4{5-6}] 193  transferring lease to n3,s3
+I260425 14:50:31.611456 334103 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r88/2:/Table/106/1/‹-6›{‹7956›…-‹2040›…}] 194  transferring lease to n3,s3
+I260425 14:50:31.611481 334082 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r30/3:/Table/2{6-7}] 195  transferring lease to n3,s3
+I260425 14:50:31.611499 334091 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r2/3:/{Meta2-System/NodeL…}] 196  transferring lease to n3,s3
+I260425 14:50:31.737263 334205 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r84/2:/Table/106{-/1/‹-795›…}] 197  transferring lease to n3,s3
+I260425 14:50:31.737333 334247 13@kv/kvserver/replicate_queue.go:1152 ⋮ [T1,Vsystem,drain,n2,s2,r89/2:/Table/106/1/‹-›{‹79501›…-‹67956›…}] 198  transferring lease to n3,s3
+I260425 14:50:31.739362 333704 13@kv/kvserver/store.go:2105 ⋮ [drain] 199  waiting for 2 replicas to transfer their lease away

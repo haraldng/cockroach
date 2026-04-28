@@ -1,0 +1,44 @@
+*
+* WARNING: ALL SECURITY CONTROLS HAVE BEEN DISABLED!
+* 
+* This mode is intended for non-production testing only.
+* 
+* In this mode:
+* - Your cluster is open to any client that can access localhost.
+* - Intruders with access to your machine or network can observe client-server traffic.
+* - Intruders can log in without password and read or write any data in the cluster.
+* - Intruders can consume all your server's resources and cause unavailability.
+*
+*
+* INFO: To start a secure server without mandating TLS for clients,
+* consider --accept-sql-without-tls instead. For other options, see:
+* 
+* - https://go.crdb.dev/issue-v/53404/dev
+* - https://www.cockroachlabs.com/docs/dev/secure-a-cluster.html
+*
+*
+* WARNING: Running a server without --sql-addr, with a combined RPC/SQL listener, is deprecated.
+* This feature will be removed in a later version of CockroachDB.
+*
+*
+* INFO: initial startup completed.
+* Node will now attempt to join a running cluster, or wait for `cockroach init`.
+* Client connections will be accepted after this completes successfully.
+* Check the log file(s) for progress. 
+*
+CockroachDB node starting at 2026-04-25 16:03:51.705799482 +0000 UTC m=+16.807693814 (took 16.7s)
+build:               CCL v26.3.0-alpha.00000000-dev @  (go1.26.2)
+malloc_conf:         prof:false,prof_active:true,background_thread:true,thp:never,metadata_thp:disabled,narenas:64,dirty_decay_ms:2000,muzzy_decay_ms:0
+webui:               http://localhost:8080
+sql:                 postgresql://root@localhost:26257/defaultdb?sslmode=disable
+sql (JDBC):          jdbc:postgresql://localhost:26257/defaultdb?sslmode=disable&user=root
+RPC client flags:    ./cockroach <client cmd> --host=localhost:26257 --insecure
+logs:                /home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node1
+temp dir:            /mnt/crdb1/cockroach-temp562674007
+external I/O path:   /mnt/crdb1/extern
+store[0]:            path=/mnt/crdb1
+clusterID:           b58840d0-7b95-4c2d-b5fd-4f8f7bf2a163
+status:              initialized new cluster
+nodeID:              1
+initiating graceful shutdown of server
+server drained and shutdown completed

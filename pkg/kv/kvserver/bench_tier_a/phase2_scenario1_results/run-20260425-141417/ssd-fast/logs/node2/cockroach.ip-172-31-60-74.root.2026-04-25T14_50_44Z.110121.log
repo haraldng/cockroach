@@ -1,0 +1,858 @@
+I260425 14:50:44.748900 1 util/log/file_sync_buffer.go:237 ⋮ [config]   file created at: 2026/04/25 14:50:44
+I260425 14:50:44.748907 1 util/log/file_sync_buffer.go:237 ⋮ [config]   running on machine: ‹ip-172-31-60-74›
+I260425 14:50:44.748918 1 util/log/file_sync_buffer.go:237 ⋮ [config]   binary: CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 14:50:44.748923 1 util/log/file_sync_buffer.go:237 ⋮ [config]   arguments: [‹./cockroach› ‹start› ‹--insecure› ‹--listen-addr=localhost:26258› ‹--http-addr=localhost:8081› ‹--store=/mnt/crdb2› ‹--join=localhost:26257,localhost:26258,localhost:26259› ‹--log-dir=/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2›]
+I260425 14:50:44.748943 1 util/log/file_sync_buffer.go:237 ⋮ [config]   log format (utf8=✓): crdb-v2
+I260425 14:50:44.748948 1 util/log/file_sync_buffer.go:237 ⋮ [config]   line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid [chan@]file:line redactionmark \[tags\] [counter] msg
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1  ALL SECURITY CONTROLS HAVE BEEN DISABLED!
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +This mode is intended for non-production testing only.
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +In this mode:
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Your cluster is open to any client that can access ‹localhost›.
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders with access to your machine or network can observe client-server traffic.
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders can log in without password and read or write any data in the cluster.
+W260425 14:50:44.748823 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders can consume all your server's resources and cause unavailability.
+I260425 14:50:44.749035 1 1@cli/start.go:1489 ⋮ [n?] 2  To start a secure server without mandating TLS for clients,
+I260425 14:50:44.749035 1 1@cli/start.go:1489 ⋮ [n?] 2 +consider --accept-sql-without-tls instead. For other options, see:
+I260425 14:50:44.749035 1 1@cli/start.go:1489 ⋮ [n?] 2 +
+I260425 14:50:44.749035 1 1@cli/start.go:1489 ⋮ [n?] 2 +- https://go.crdb.dev/issue-v/53404/dev
+I260425 14:50:44.749035 1 1@cli/start.go:1489 ⋮ [n?] 2 +- https://www.cockroachlabs.com/docs/dev/secure-a-cluster.html
+I260425 14:50:44.749304 1 server/status/recorder.go:1354 ⋮ [n?] 3  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+W260425 14:50:44.749324 1 1@cli/start.go:1378 ⋮ [n?] 4  Using the default setting for --cache (256 MiB).
+W260425 14:50:44.749324 1 1@cli/start.go:1378 ⋮ [n?] 4 +  A significantly larger value is usually needed for good performance.
+W260425 14:50:44.749324 1 1@cli/start.go:1378 ⋮ [n?] 4 +  If you have a dedicated server a reasonable setting is --cache=.25 (7.7 GiB).
+I260425 14:50:44.749499 1 server/status/recorder.go:1354 ⋮ [n?] 5  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 14:50:44.749516 1 1@cli/start.go:1518 ⋮ [n?] 6  CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 14:50:44.750039 1 server/status/recorder.go:1354 ⋮ [n?] 7  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 14:50:44.750053 1 1@cli/start.go:572 ⋮ [n?] 8  soft memory limit of Go runtime is set to 17 GiB
+I260425 14:50:44.750073 1 1@cli/start.go:609 ⋮ [n?] 9  GC target percentage of Go runtime is set to 300%
+I260425 14:50:44.750720 1 server/status/recorder.go:1354 ⋮ [T1,Vsystem,n?] 10  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 14:50:44.750738 1 server/config.go:690 ⋮ [T1,Vsystem,n?] 11  system total memory: 31 GiB
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12  server configuration:
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +max offset             500000000
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +cache size             256 MiB
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +SQL memory pool size   7.7 GiB
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan interval          10m0s
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan min idle time     10ms
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan max idle time     1s
+I260425 14:50:44.750749 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +event log enabled      true
+I260425 14:50:44.750820 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13  using local environment variables:
+I260425 14:50:44.750820 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13 +LANG=C.UTF-8
+I260425 14:50:44.750820 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13 +TERM=screen
+I260425 14:50:44.750836 1 1@cli/start.go:1363 ⋮ [T1,Vsystem,n?] 14  process identity: uid 0 euid 0 gid 0 egid 0
+W260425 14:50:44.751060 1 1@cli/start.go:1543 ⋮ [T1,Vsystem,n?] 15  could not initialize GEOS - spatial functions may not be available: geos: error during GEOS init: geos: cannot load GEOS from dir ‹"/usr/local/lib/cockroach"›: ‹geos error: /usr/local/lib/cockroach/libgeos.so: cannot open shared object file: No such file or directory›
+W260425 14:50:44.751060 1 1@cli/start.go:1543 ⋮ [T1,Vsystem,n?] 15 +HINT: ‹Ensure you have the spatial libraries installed as per the instructions in https://www.cockroachlabs.com/docs/dev/install-cockroachdb-linux›
+I260425 14:50:44.751116 1 1@cli/start.go:795 ⋮ [T1,Vsystem,n?] 16  starting cockroach node
+W260425 14:50:44.751688 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 17  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+W260425 14:50:44.751764 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 18  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+W260425 14:50:44.751791 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 19  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+I260425 14:50:44.911092 76 server/config.go:924 ⋮ [T1,Vsystem,n?] 20  1 storage engine initialized
+I260425 14:50:44.911141 76 server/config.go:927 ⋮ [T1,Vsystem,n?] 21  Pebble cache size: 256 MiB
+I260425 14:50:44.911186 76 server/config.go:927 ⋮ [T1,Vsystem,n?] 22  store 0: disk deviceID: 252:1
+I260425 14:50:44.911192 76 server/config.go:927 ⋮ [T1,Vsystem,n?] 23  store 0: max size 0 B, max open file limit 1043575
+I260425 14:50:44.911197 76 server/config.go:927 ⋮ [T1,Vsystem,n?] 24  store 0: /mnt/crdb2: rw encrypted=false fs:{bdev=/dev/mapper/crdb2 fstype=ext4 mountpoint=/mnt/crdb2 mountopts=rw,relatime}
+W260425 14:50:44.911476 76 server/status/runtime.go:909 ⋮ [T1,Vsystem,n?] 25  could not parse build timestamp: ‹parsing time "" as "2006/01/02 15:04:05": cannot parse "" as "2006"›
+I260425 14:50:44.913843 76 server/goroutinedumper/goroutinedumper.go:162 ⋮ [T1,Vsystem,n?] 26  writing goroutine dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/goroutine_dump›
+I260425 14:50:44.920736 9 util/cidr/cidr.go:299 ⋮ [T1,Vsystem,n?] 27  CIDR lookup updated with 0 destinations
+W260425 14:50:44.922940 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 28  unsupported device type 252:1 for store at ‹"/mnt/crdb2/cockroach-temp1955438130"›
+W260425 14:50:44.923032 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 29  unsupported device type 252:1 for store at ‹"/mnt/crdb2/cockroach-temp1955438130"›
+I260425 14:50:45.110585 76 1@server/clock_monotonicity.go:61 ⋮ [T1,Vsystem,n?] 30  monitoring forward clock jumps based on server.clock.forward_jump_check.enabled
+W260425 14:50:45.111579 76 1@cli/start.go:1317 ⋮ [T1,Vsystem,n?] 31  Running a server without --sql-addr, with a combined RPC/SQL listener, is deprecated.
+W260425 14:50:45.111579 76 1@cli/start.go:1317 ⋮ [T1,Vsystem,n?] 31 +This feature will be removed in a later version of CockroachDB.
+I260425 14:50:45.111600 76 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32  initial startup completed.
+I260425 14:50:45.111600 76 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Node will now attempt to join a running cluster, or wait for `cockroach init`.
+I260425 14:50:45.111600 76 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Client connections will be accepted after this completes successfully.
+I260425 14:50:45.111600 76 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Check the log file(s) for progress. 
+I260425 14:50:45.111619 76 server/init.go:200 ⋮ [T1,Vsystem,n?] 33  no stores initialized
+I260425 14:50:45.111629 76 server/init.go:201 ⋮ [T1,Vsystem,n?] 34  awaiting `cockroach init` or join with an already initialized node
+W260425 14:50:45.112072 629 server/init.go:378 ⋮ [T1,Vsystem,n?] 35  outgoing join rpc to ‹localhost:26257› unsuccessful: ‹rpc error: code = Unavailable desc = connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"›
+I260425 14:50:45.112933 629 server/init.go:376 ⋮ [T1,Vsystem,n?] 36  ‹localhost:26259› is itself waiting for init, will retry
+I260425 14:50:46.114786 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 37  ‹localhost:26257› is itself waiting for init, will retry
+I260425 14:50:47.114348 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 38  ‹localhost:26259› is itself waiting for init, will retry
+I260425 14:50:48.114027 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 39  ‹localhost:26257› is itself waiting for init, will retry
+I260425 14:50:49.113807 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 40  ‹localhost:26259› is itself waiting for init, will retry
+I260425 14:50:50.113981 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 41  ‹localhost:26257› is itself waiting for init, will retry
+I260425 14:50:51.114570 629 server/init.go:422 ⋮ [T1,Vsystem,n?] 42  ‹localhost:26259› is itself waiting for init, will retry
+I260425 14:50:52.383575 76 server/init.go:288 ⋮ [T1,Vsystem,n?] 43  joined cluster 084c3880-217c-4322-b354-3e5a85367688 through join rpc
+I260425 14:50:52.383598 76 server/init.go:289 ⋮ [T1,Vsystem,n?] 44  received node ID: 3
+I260425 14:50:52.383607 76 server/init.go:290 ⋮ [T1,Vsystem,n?] 45  received cluster version: 1000026.2-upgrading-to-1000026.3-step-006
+I260425 14:50:52.385399 76 1@obs/ash/sampler.go:212 ⋮ [T1,Vsystem,n3] 46  starting ASH sampler
+W260425 14:50:52.385536 76 2@gossip/gossip.go:1493 ⋮ [T1,Vsystem,n3] 47  no incoming or outgoing connections
+I260425 14:50:52.390247 802 1@server/server.go:1976 ⋮ [T1,Vsystem,n3] 48  connecting to gossip network to verify cluster ID "084c3880-217c-4322-b354-3e5a85367688"
+I260425 14:50:52.390423 782 gossip/client.go:412 ⋮ [T1,Vsystem,n3] 49  unvalidated bootstrap gossip dial to ‹localhost:26257›
+I260425 14:50:52.393030 782 gossip/client.go:127 ⋮ [T1,Vsystem,n3] 50  started gossip client to n0 (‹localhost:26257›)
+I260425 14:50:52.399623 802 1@server/server.go:1979 ⋮ [T1,Vsystem,n3] 51  node connected via gossip
+I260425 14:50:52.400002 808 server/node.go:697 ⋮ [T1,Vsystem,n3] 52  initialized store s3 in 9ms (0 replicas)
+I260425 14:50:52.417467 76 server/node.go:808 ⋮ [T1,Vsystem,n3] 53  started with attributes []
+I260425 14:50:52.417603 76 server/profiler/heapprofiler.go:74 ⋮ [T1,Vsystem,n3] 54  writing go heap profiles to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/heap_profiler› at least every 1h0m0s
+I260425 14:50:52.417626 76 server/profiler/memory_monitoring_profiler.go:66 ⋮ [T1,Vsystem,n3] 55  writing memory monitoring dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/heap_profiler› at least every 1h0m0s
+I260425 14:50:52.417637 76 server/profiler/cgoprofiler.go:66 ⋮ [T1,Vsystem,n3] 56  to enable jmalloc profiling: "export MALLOC_CONF=prof:true" or "ln -s prof:true /etc/malloc.conf"
+I260425 14:50:52.417648 76 server/profiler/statsprofiler.go:68 ⋮ [T1,Vsystem,n3] 57  writing memory stats to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/heap_profiler› at last every 1h0m0s
+I260425 14:50:52.417829 76 server/profiler/activequeryprofiler.go:88 ⋮ [T1,Vsystem,n3] 58  writing go query profiles to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/heap_profiler›
+I260425 14:50:52.417876 76 server/profiler/cpuprofiler.go:87 ⋮ [T1,Vsystem,n3] 59  writing cpu profile dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/pprof_dump›
+I260425 14:50:52.417889 76 server/profiler/ashreportprofiler.go:67 ⋮ [T1,Vsystem,n3] 60  writing ASH reports to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2/heap_profiler›
+W260425 14:50:52.417966 76 1@storage/disk/platform_linux.go:186 ⋮ [-] 61  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+I260425 14:50:52.418401 76 1@server/server.go:2178 ⋮ [T1,Vsystem,n3] 62  starting http server at ‹127.0.0.1:8081› (use: ‹localhost:8081›)
+I260425 14:50:52.418425 76 1@server/server.go:2186 ⋮ [T1,Vsystem,n3] 63  starting grpc/postgres server at ‹127.0.0.1:26258›
+I260425 14:50:52.418443 76 1@server/server.go:2187 ⋮ [T1,Vsystem,n3] 64  advertising CockroachDB node at ‹localhost:26258›
+W260425 14:50:52.418773 76 1@server/status/runtime.go:1686 ⋮ [T1,Vsystem,n3,summaries] 65  unable to read cgroup CPU settings: error when read cpu quota from cgroup v2 at ‹/sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope/cpu.max›: open ‹/sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope/cpu.max›: no such file or directory; falling back to OS-reported CPU count
+I260425 14:50:52.439410 76 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3] 66 ={"Timestamp":1777128652439407743,"EventType":"node_join","NodeID":3,"StartedAt":1777128652385581149,"LastUp":1777128652385581149}
+I260425 14:50:52.439530 822 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 67  spanconfig-subscriber: established range feed cache
+I260425 14:50:52.439591 824 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 68  settings-watcher: established range feed cache
+I260425 14:50:52.441048 76 sql/sqlliveness/slinstance/slinstance.go:446 ⋮ [T1,Vsystem,n3] 69  starting SQL liveness instance
+I260425 14:50:52.455735 1178 sql/sqlliveness/slstorage/slstorage.go:540 ⋮ [T1,Vsystem,n3] 70  inserted sqlliveness session 0101800f14c3c9b8004dde9ec22ff2ed9cdf1e with expiry 1777128692.441086184,0
+I260425 14:50:52.455776 1178 sql/sqlliveness/slinstance/slinstance.go:248 ⋮ [T1,Vsystem,n3] 71  created new SQL liveness session 0101800f14c3c9b8004dde9ec22ff2ed9cdf1e
+I260425 14:50:52.455809 76 sql/sqlinstance/instancestorage/instancestorage.go:338 ⋮ [T1,Vsystem,n3] 72  assigning instance id to rpc addr ‹localhost:26258› and sql addr ‹localhost:26258›
+I260425 14:50:52.468542 76 server/server_sql.go:1664 ⋮ [T1,Vsystem,n3] 73  bound sqlinstance: Instance{RegionPrefix: gA==, InstanceID: 3, SQLAddr: ‹localhost:26258›, RPCAddr: ‹localhost:26258›, SessionID: 0101800f14c3c9b8004dde9ec22ff2ed9cdf1e, Locality: , BinaryVersion: 1000026.2-upgrading-to-1000026.3-step-006}
+I260425 14:50:52.468647 76 sql/catalog/lease/lease.go:3186 ⋮ [T1,Vsystem,n3] 74  starting lease manager rangefeed at timestamp 1777128652.468646919,0
+I260425 14:50:52.468664 1165 sql/temporary_schema.go:705 ⋮ [T1,Vsystem,n3] 75  skipping temporary object cleanup run as it is not the leaseholder
+I260425 14:50:52.468699 1165 sql/temporary_schema.go:706 ⋮ [T1,Vsystem,n3] 76  completed temporary object cleanup job
+I260425 14:50:52.468708 1186 sql/sqlstats/persistedsqlstats/provider.go:157 ⋮ [T1,Vsystem,n3] 77  starting sql-stats-worker with initial delay: 9m45.402122176s
+I260425 14:50:52.468712 1165 sql/temporary_schema.go:874 ⋮ [T1,Vsystem,n3] 78  temporary object cleaner next scheduled to run at 2026-04-25 15:20:52.468643917 +0000 UTC m=+1807.879927952
+I260425 14:50:52.468995 76 upgrade/upgrademanager/manager.go:178 ⋮ [T1,Vsystem,n3] 79  running permanent upgrades up to version: 1000026.2-upgrading-to-1000026.3-step-006
+I260425 14:50:52.469132 1202 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 80  system-config-cache: established range feed cache
+I260425 14:50:52.574062 76 upgrade/upgrademanager/manager.go:244 ⋮ [T1,Vsystem,n3] 81  the last permanent upgrade (v0.0-upgrading-step-004) does not appear to have completed; attempting to run all upgrades
+I260425 14:50:52.574092 76 upgrade/upgrademanager/manager.go:250 ⋮ [T1,Vsystem,n3] 82  running permanent upgrade for version 0.0-upgrading-step-002
+I260425 14:50:52.647784 879 spanconfig/spanconfigmanager/manager.go:138 ⋮ [T1,Vsystem,n3] 83  started auto span config reconciliation job
+I260425 14:50:52.647855 1390 jobs/adopt.go:311 ⋮ [T1,Vsystem,n3,job=1170008481689796611] 84  job 1170008481689796611: resuming execution
+I260425 14:50:52.685261 1393 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170008481689796611] 85  AUTO SPAN CONFIG RECONCILIATION job 1170008481689796611: stepping through state running
+I260425 14:50:52.716321 1393 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170008481689796611] 86 ={"Timestamp":1777128652716318971,"EventType":"status_change","JobID":1170008481689796611,"JobType":"AUTO SPAN CONFIG RECONCILIATION","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:50:52.795809 76 upgrade/upgrademanager/manager.go:815 ⋮ [T1,Vsystem,n3] 87  found existing migration job 1170008482035138562 for version 0.0-upgrading-step-002 in status running, waiting
+I260425 14:50:52.795901 76 upgrade/upgrademanager/manager.go:721 ⋮ [T1,Vsystem,n3] 88  waiting for intitialize the system cluster
+I260425 14:50:52.795912 76 jobs/wait.go:56 ⋮ [T1,Vsystem,n3] 89  waiting for 1 [1170008482035138562] queued jobs to complete
+I260425 14:50:53.073240 1393 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:250 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170008481689796611] 90  established range feed over system.descriptors starting at time 1777128652.735979966,0
+I260425 14:50:53.073283 1393 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:309 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170008481689796611] 91  established range feed over system.zones starting at time 1777128652.735979966,0
+I260425 14:50:53.073311 1393 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:410 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170008481689796611] 92  established range feed over system.protected_ts_records starting at time 1777128652.735979966,0
+I260425 14:50:53.238791 76 jobs/wait.go:148 ⋮ [T1,Vsystem,n3] 93  waited for 1 [1170008482035138562] queued jobs to complete 442.847485ms
+I260425 14:50:53.238819 76 upgrade/upgrademanager/manager.go:250 ⋮ [T1,Vsystem,n3] 94  running permanent upgrade for version 0.0-upgrading-step-004
+I260425 14:50:53.257055 76 upgrade/upgrademanager/manager.go:815 ⋮ [T1,Vsystem,n3] 95  found existing migration job 1170008483778756610 for version 0.0-upgrading-step-004 in status running, waiting
+I260425 14:50:53.257135 76 upgrade/upgrademanager/manager.go:721 ⋮ [T1,Vsystem,n3] 96  waiting for intitialize the cluster
+I260425 14:50:53.257143 76 jobs/wait.go:56 ⋮ [T1,Vsystem,n3] 97  waiting for 1 [1170008483778756610] queued jobs to complete
+I260425 14:50:53.503213 807 1@gossip/gossip.go:1507 ⋮ [T1,Vsystem,n3] 98  node has connected to cluster via gossip
+I260425 14:50:54.436529 76 jobs/wait.go:148 ⋮ [T1,Vsystem,n3] 99  waited for 1 [1170008483778756610] queued jobs to complete 1.17937377s
+I260425 14:50:54.436558 76 server/server_sql.go:1767 ⋮ [T1,Vsystem,n3] 100  done ensuring all necessary startup migrations have run
+I260425 14:50:54.437648 1772 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 101  statement-hints-watcher: established range feed cache
+I260425 14:50:54.437938 1772 sql/hints/hint_cache.go:224 ⋮ [T1,Vsystem,n3] 102  statement_hints rangefeed completed initial scan
+I260425 14:50:54.438050 76 server/license/enforcer.go:257 ⋮ [T1,Vsystem,n3] 103  trial license expiry initialized to 1970-01-01 00:00:00 +0000 UTC
+I260425 14:50:54.438299 76 server/license/enforcer.go:293 ⋮ [T1,Vsystem,n3] 104  fetched existing cluster init grace period end time: 2026-05-02 14:50:44 +0000 UTC
+I260425 14:50:54.438383 76 server/license/enforcer.go:493 ⋮ [T1,Vsystem,n3] 105  enforcer license updated: type is none, grace period ends at "2026-05-02 14:50:44 +0000 UTC", telemetry required: false
+I260425 14:50:54.438397 76 server/license/enforcer.go:493 ⋮ [T1,Vsystem,n3] 106  enforcer license updated: type is none, grace period ends at "2026-05-02 14:50:44 +0000 UTC", telemetry required: false
+I260425 14:50:54.439442 1777 jobs/job_scheduler.go:407 ⋮ [T1,Vsystem,n3] 107  waiting 3m0s before scheduled jobs daemon start
+I260425 14:50:54.440282 1898 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 108  tenant-settings-watcher: established range feed cache
+I260425 14:50:54.440557 1760 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 109  tenant-entry-watcher: established range feed cache
+I260425 14:50:54.441111 1760 multitenant/tenantcapabilities/tenantcapabilitieswatcher/watcher.go:285 ⋮ [T1,Vsystem,n3] 110  received results of a full table scan for tenant capabilities
+I260425 14:50:54.441279 76 1@server/server_sql.go:2033 ⋮ [T1,Vsystem,n3] 111  serving sql connections
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112  node startup completed:
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +CockroachDB node starting at 2026-04-25 14:50:54.441295268 +0000 UTC m=+9.852579298 (took 9.7s)
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +build:               CCL v26.3.0-alpha.00000000-dev @  (go1.26.2)
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +malloc_conf:         prof:false,prof_active:true,background_thread:true,thp:never,metadata_thp:disabled,narenas:64,dirty_decay_ms:2000,muzzy_decay_ms:0
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +webui:               ‹http://localhost:8081›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +sql:                 ‹postgresql://root@localhost:26258/defaultdb?sslmode=disable›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +sql (JDBC):          ‹jdbc:postgresql://localhost:26258/defaultdb?sslmode=disable&user=root›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +RPC client flags:    ‹./cockroach <client cmd> --host=localhost:26258 --insecure›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +logs:                ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/ssd-fast/logs/node2›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +temp dir:            ‹/mnt/crdb2/cockroach-temp1955438130›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +external I/O path:   ‹/mnt/crdb2/extern›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +store[0]:            ‹path=/mnt/crdb2›
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +clusterID:           084c3880-217c-4322-b354-3e5a85367688
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +status:              initialized new node, joined pre-existing cluster
+I260425 14:50:54.441373 76 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 112 +nodeID:              3
+I260425 14:50:54.453199 1774 sql/syntheticprivilegecache/cache.go:204 ⋮ [T1,Vsystem,n3] 113  warmed privileges for virtual tables in 15.515884ms
+I260425 14:50:54.466771 1896 server/auto_upgrade.go:81 ⋮ [T1,Vsystem,n3] 114  no need to upgrade, cluster already at the newest version
+I260425 14:50:54.469743 1860 sql/catalog/lease/lease.go:3823 ⋮ [T1,Vsystem,n3] 115  starting orphaned lease cleanup from stale sessions in default region (0x80)
+I260425 14:50:54.489935 1860 sql/catalog/lease/lease.go:3883 ⋮ [T1,Vsystem,n3] 116  completed orphaned lease cleanup for default region (0x80): 0 sessions processed, 0 leases deleted
+I260425 14:50:54.491431 1860 sql/catalog/lease/lease.go:3980 ⋮ [T1,Vsystem,n3] 117  found 0 orphaned leases to clean up for instance ID 3
+I260425 14:51:54.617588 7538 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 118 ={"Timestamp":1777128714617583229,"EventType":"status_change","JobID":1170008684830162947,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:54.617912 7538 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008684830162947,create-stats-distsql] 119  using computed sample size of 10000 for histogram construction
+I260425 14:51:55.180490 7538 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 120 ={"Timestamp":1777128715180486761,"EventType":"status_change","JobID":1170008684830162947,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:55.393700 7640 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 121 ={"Timestamp":1777128715393696669,"EventType":"status_change","JobID":1170008687427354627,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:55.394155 7640 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008687427354627,create-stats-distsql] 122  using computed sample size of 10000 for histogram construction
+I260425 14:51:56.204985 7640 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 123 ={"Timestamp":1777128716204982233,"EventType":"status_change","JobID":1170008687427354627,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:56.413490 7726 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 124 ={"Timestamp":1777128716413486686,"EventType":"status_change","JobID":1170008690785288195,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:56.413856 7726 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008690785288195,create-stats-distsql] 125  using computed sample size of 10000 for histogram construction
+I260425 14:51:56.988519 7726 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 126 ={"Timestamp":1777128716988515988,"EventType":"status_change","JobID":1170008690785288195,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:57.303454 8373 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 127 ={"Timestamp":1777128717303450603,"EventType":"status_change","JobID":1170008693344501763,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:57.303876 8373 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008693344501763,create-stats-distsql] 128  using computed sample size of 10000 for histogram construction
+I260425 14:51:58.299365 8373 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 129 ={"Timestamp":1777128718299361206,"EventType":"status_change","JobID":1170008693344501763,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:58.516591 8543 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 130 ={"Timestamp":1777128718516587821,"EventType":"status_change","JobID":1170008697642450947,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:58.516929 8543 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008697642450947,create-stats-distsql] 131  using computed sample size of 10000 for histogram construction
+I260425 14:51:59.011422 8543 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 132 ={"Timestamp":1777128719011418623,"EventType":"status_change","JobID":1170008697642450947,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:59.249794 8838 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 133 ={"Timestamp":1777128719249790833,"EventType":"status_change","JobID":1170008700094283779,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:59.250156 8838 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008700094283779,create-stats-distsql] 134  using computed sample size of 10000 for histogram construction
+I260425 14:51:59.759482 8838 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 135 ={"Timestamp":1777128719759479478,"EventType":"status_change","JobID":1170008700094283779,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:51:59.994739 9018 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 136 ={"Timestamp":1777128719994735770,"EventType":"status_change","JobID":1170008702528225283,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:51:59.995086 9018 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008702528225283,create-stats-distsql] 137  using computed sample size of 10000 for histogram construction
+I260425 14:52:00.372506 9018 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 138 ={"Timestamp":1777128720372502642,"EventType":"status_change","JobID":1170008702528225283,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:00.559315 9193 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 139 ={"Timestamp":1777128720559311504,"EventType":"status_change","JobID":1170008704386269187,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:00.559842 9193 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008704386269187,create-stats-distsql] 140  using computed sample size of 10000 for histogram construction
+I260425 14:52:00.976417 9193 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 141 ={"Timestamp":1777128720976413421,"EventType":"status_change","JobID":1170008704386269187,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:01.194068 9455 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 142 ={"Timestamp":1777128721194065931,"EventType":"status_change","JobID":1170008706487615491,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:01.194430 9455 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008706487615491,create-stats-distsql] 143  using computed sample size of 10000 for histogram construction
+I260425 14:52:01.680558 9455 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 144 ={"Timestamp":1777128721680554444,"EventType":"status_change","JobID":1170008706487615491,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:01.921519 9791 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 145 ={"Timestamp":1777128721921516533,"EventType":"status_change","JobID":1170008708857036803,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:01.921998 9791 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008708857036803,create-stats-distsql] 146  using computed sample size of 10000 for histogram construction
+I260425 14:52:02.379467 9791 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 147 ={"Timestamp":1777128722379463332,"EventType":"status_change","JobID":1170008708857036803,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:02.638790 10133 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 148 ={"Timestamp":1777128722638786580,"EventType":"status_change","JobID":1170008711196278787,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:02.639181 10133 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008711196278787,create-stats-distsql] 149  using computed sample size of 10000 for histogram construction
+I260425 14:52:03.125527 10133 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 150 ={"Timestamp":1777128723125523295,"EventType":"status_change","JobID":1170008711196278787,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:03.344858 10347 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 151 ={"Timestamp":1777128723344854545,"EventType":"status_change","JobID":1170008713503539203,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:03.345238 10347 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008713503539203,create-stats-distsql] 152  using computed sample size of 10000 for histogram construction
+I260425 14:52:03.803312 10347 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 153 ={"Timestamp":1777128723803308619,"EventType":"status_change","JobID":1170008713503539203,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:04.051011 10448 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 154 ={"Timestamp":1777128724051008091,"EventType":"status_change","JobID":1170008715821088771,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:04.051736 10448 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008715821088771,create-stats-distsql] 155  using computed sample size of 10000 for histogram construction
+I260425 14:52:05.363592 10448 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 156 ={"Timestamp":1777128725363589314,"EventType":"status_change","JobID":1170008715821088771,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:05.672195 10934 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 157 ={"Timestamp":1777128725672190998,"EventType":"status_change","JobID":1170008721061117955,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:05.672534 10934 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008721061117955,create-stats-distsql] 158  using computed sample size of 10000 for histogram construction
+I260425 14:52:06.267906 10934 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 159 ={"Timestamp":1777128726267902817,"EventType":"status_change","JobID":1170008721061117955,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:06.518942 11134 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 160 ={"Timestamp":1777128726518937872,"EventType":"status_change","JobID":1170008723869040643,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:06.519344 11134 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008723869040643,create-stats-distsql] 161  using computed sample size of 10000 for histogram construction
+I260425 14:52:06.902065 11134 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 162 ={"Timestamp":1777128726902062380,"EventType":"status_change","JobID":1170008723869040643,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 14:52:06.986717 5139 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 163  failed to create statistics on table 63: create-stats: cannot create statistics on *sql.optSequence
+I260425 14:52:07.128970 11274 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 164 ={"Timestamp":1777128727128964397,"EventType":"status_change","JobID":1170008725973729283,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:07.129522 11274 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008725973729283,create-stats-distsql] 165  using computed sample size of 10000 for histogram construction
+I260425 14:52:07.757108 11274 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 166 ={"Timestamp":1777128727757104587,"EventType":"status_change","JobID":1170008725973729283,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:08.044087 11684 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 167 ={"Timestamp":1777128728044084647,"EventType":"status_change","JobID":1170008728808914947,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:08.044466 11684 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008728808914947,create-stats-distsql] 168  using computed sample size of 10000 for histogram construction
+I260425 14:52:08.565589 11684 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 169 ={"Timestamp":1777128728565585407,"EventType":"status_change","JobID":1170008728808914947,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:08.662757 11954 sql/create_stats.go:284 ⋮ [T1,Vsystem,n3,intExec=create-stats] 170  concurrent create stats job found, skipping
+I260425 14:52:08.810228 11957 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 171 ={"Timestamp":1777128728810224299,"EventType":"status_change","JobID":1170008731438317571,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:08.810587 11957 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008731438317571,create-stats-distsql] 172  using computed sample size of 10000 for histogram construction
+I260425 14:52:09.651182 11957 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 173 ={"Timestamp":1777128729651179080,"EventType":"status_change","JobID":1170008731438317571,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:09.870153 12032 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 174 ={"Timestamp":1777128729870149902,"EventType":"status_change","JobID":1170008734890754051,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:09.874137 12032 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008734890754051,create-stats-distsql] 175  using computed sample size of 10000 for histogram construction
+I260425 14:52:10.775213 12032 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 176 ={"Timestamp":1777128730775209871,"EventType":"status_change","JobID":1170008734890754051,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:52:10.964209 12567 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 177 ={"Timestamp":1777128730964206716,"EventType":"status_change","JobID":1170008738491400195,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:10.964526 12567 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008738491400195,create-stats-distsql] 178  using computed sample size of 10000 for histogram construction
+I260425 14:52:11.416858 12567 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 179 ={"Timestamp":1777128731416854232,"EventType":"status_change","JobID":1170008738491400195,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 14:52:11.596980 5139 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 180  failed to create statistics on table 7: create-stats: cannot create statistics on *sql.optSequence
+W260425 14:52:11.771893 5139 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 181  failed to create statistics on table 48: create-stats: cannot create statistics on *sql.optSequence
+I260425 14:52:11.859137 12934 sql/create_stats.go:284 ⋮ [T1,Vsystem,n3,intExec=create-stats] 182  concurrent create stats job found, skipping
+I260425 14:52:12.038928 12865 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 183 ={"Timestamp":1777128732038924839,"EventType":"status_change","JobID":1170008742113607683,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:52:12.039856 12865 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008742113607683,create-stats-distsql] 184  using computed sample size of 10000 for histogram construction
+I260425 14:52:12.412458 12865 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 185 ={"Timestamp":1777128732412455162,"EventType":"status_change","JobID":1170008742113607683,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:53:12.627001 22673 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 186 ={"Timestamp":1777128792626997311,"EventType":"status_change","JobID":1170008940673204227,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:53:12.628520 22673 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170008940673204227,create-stats-distsql] 187  using computed sample size of 10000 for histogram construction
+I260425 14:53:12.823197 22673 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 188 ={"Timestamp":1777128792823193588,"EventType":"status_change","JobID":1170008940673204227,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:53:12.976983 22795 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 189 ={"Timestamp":1777128792976979226,"EventType":"status_change","JobID":1170008941770276867,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:53:12.977394 22795 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170008941770276867,create-stats-distsql] 190  using computed sample size of 10000 for histogram construction
+I260425 14:53:13.213610 22795 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 191 ={"Timestamp":1777128793213607414,"EventType":"status_change","JobID":1170008941770276867,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:53:13.356556 23082 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 192 ={"Timestamp":1777128793356552773,"EventType":"status_change","JobID":1170008943031779331,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:53:13.356905 23082 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170008943031779331,create-stats-distsql] 193  using computed sample size of 10000 for histogram construction
+I260425 14:53:13.639642 23082 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 194 ={"Timestamp":1777128793639638012,"EventType":"status_change","JobID":1170008943031779331,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:53:13.788977 22974 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 195 ={"Timestamp":1777128793788973932,"EventType":"status_change","JobID":1170008944443817987,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 14:53:13.789380 22974 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170008944443817987,create-stats-distsql] 196  using computed sample size of 10000 for histogram construction
+I260425 14:53:13.987076 22974 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 197 ={"Timestamp":1777128793987072857,"EventType":"status_change","JobID":1170008944443817987,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 14:59:07.800324 1161 util/admission/granter.go:568 ⋮ [-] 198  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 0/0/0)
+W260425 14:59:24.958298 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 199  unable to get disk stats for token error adjustment: /proc/diskstats:18: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 14:59:52.255291 1161 storage/disk/linux_parse.go:58 ⋮ [-] 200  /proc/diskstats did not parse
+W260425 14:59:52.255335 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 201  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+W260425 14:59:55.052608 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 202  unable to get disk stats for token error adjustment: /proc/diskstats:18: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:00:07.937891 1161 util/admission/granter.go:568 ⋮ [-] 203  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 278/15/0)
+I260425 15:00:36.226886 1777 jobs/job_scheduler.go:171 ⋮ [T1,Vsystem,n3] 204  Starting job for schedule 1170008483805036545 (‹"sql-stats-compaction"›); scheduled to run at 2026-04-25 15:00:00 +0000 UTC; next run scheduled for 2026-04-25 16:00:00 +0000 UTC
+I260425 15:00:37.136846 878 jobs/adopt.go:169 ⋮ [T1,Vsystem,n3] 205  claimed 1 jobs
+I260425 15:00:37.154424 94662 jobs/adopt.go:311 ⋮ [T1,Vsystem,n3,job=1170010394548895747] 206  job 1170010394548895747: resuming execution
+I260425 15:00:37.176729 94569 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170010394548895747] 207  AUTO SQL STATS COMPACTION job 1170010394548895747: stepping through state running
+I260425 15:00:37.234970 94569 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170010394548895747] 208 ={"Timestamp":1777129237234967108,"EventType":"status_change","JobID":1170010394548895747,"JobType":"AUTO SQL STATS COMPACTION","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:00:37.235026 94569 sql/compact_sql_stats.go:37 ⋮ [T1,Vsystem,n3,job=AUTO SQL STATS COMPACTION id=1170010394548895747] 209  starting sql stats compaction job
+I260425 15:00:37.391921 94569 sql/compact_sql_stats.go:101 ⋮ [T1,Vsystem,n3,job=AUTO SQL STATS COMPACTION id=1170010394548895747] 210  sql stats compaction job terminated with status = succeeded
+I260425 15:00:37.403090 94569 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170010394548895747] 211  AUTO SQL STATS COMPACTION job 1170010394548895747: stepping through state succeeded
+I260425 15:00:37.525403 94569 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170010394548895747] 212 ={"Timestamp":1777129237525398698,"EventType":"status_change","JobID":1170010394548895747,"JobType":"AUTO SQL STATS COMPACTION","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:00:49.254307 97 storage/disk/linux_parse.go:58 ⋮ [-] 213  /proc/diskstats did not parse
+I260425 15:01:08.174232 1161 util/admission/granter.go:568 ⋮ [-] 214  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 572/38/0)
+I260425 15:01:14.264665 100781 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 215 ={"Timestamp":1777129274264661570,"EventType":"status_change","JobID":1170010518511157251,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:01:14.265073 100781 sql/distsql_plan_stats.go:813 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170010518511157251,create-stats-distsql] 216  job 1170010518511157251: stats collection is swallowing benign error the latest full statistic for column ‹fingerprint_id› has no histogram
+I260425 15:01:14.468777 100781 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 217 ={"Timestamp":1777129274468773189,"EventType":"status_change","JobID":1170010518511157251,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218  IO admission controller:
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [status] throttling all at 12 MiB/s (elastic 3.9 MiB/s) due to memtable flush
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [util] L0: 10%, flush: 28%
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [L0] compaction score 0.100, 15 ssts, 2 sub-levels, in 52 MiB (writes 52 MiB, ingests 0 B), out 46 MiB [≈46 MiB] (net 5.7 MiB)
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [io-tokens] total used 50 MiB (elastic 0 B)
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [flush] flushed 143 MiB [≈176 MiB] (mult 1.000)
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [accounting] 292274 requests (915 bypassed), write 76 MiB (902 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 52 MiB, adjusted-disk-writes 609 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:01:52.475393 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 218 +  [models] write 0.68x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 11.71x+1 B [≈12.43x+1 B], at-admission 3.3 KiB
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219  IO admission controller:
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [status] throttling all at 11 MiB/s (elastic 8.7 MiB/s) due to memtable flush
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [util] L0: 0%, flush: 30%
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [L0] compaction score 0.001, 2 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 52 MiB [≈49 MiB] (net -17 MiB)
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [io-tokens] total used 51 MiB (elastic 0 B)
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [flush] flushed 152 MiB [≈164 MiB] (mult 1.000)
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [accounting] 284913 requests (907 bypassed), write 75 MiB (1.1 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 659 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:02:07.475871 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 219 +  [models] write 0.50x+1 B [≈0.58x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 19.22x+1 B [≈15.83x+1 B], at-admission 3.0 KiB
+I260425 15:02:08.754245 1161 util/admission/granter.go:568 ⋮ [-] 220  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 948/70/0)
+I260425 15:02:14.751894 110815 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 221 ={"Timestamp":1777129334751891118,"EventType":"status_change","JobID":1170010716648931331,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:02:14.752295 110815 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170010716648931331,create-stats-distsql] 222  using computed sample size of 10000 for histogram construction
+I260425 15:02:15.447099 110815 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 223 ={"Timestamp":1777129335447095003,"EventType":"status_change","JobID":1170010716648931331,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 15:03:07.154397 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 224  unable to get disk stats for token error adjustment: /proc/diskstats:18: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:03:08.884015 1161 util/admission/granter.go:568 ⋮ [-] 225  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1332/103/0)
+I260425 15:03:16.033819 121160 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 226 ={"Timestamp":1777129396033815087,"EventType":"status_change","JobID":1170010916896964611,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:03:16.034230 121160 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170010916896964611,create-stats-distsql] 227  using computed sample size of 10000 for histogram construction
+I260425 15:03:16.608088 121160 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 228 ={"Timestamp":1777129396608083736,"EventType":"status_change","JobID":1170010916896964611,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:04:08.887121 1161 util/admission/granter.go:568 ⋮ [-] 229  disk token error adjustment: no stat change for 27 consecutive intervals (cumulative runs exceeding 20/50/100: 1717/136/2)
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230  IO admission controller:
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [status] throttling all at 10 MiB/s (elastic 3.9 MiB/s) due to memtable flush
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [util] L0: 10%, flush: 33%
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [L0] compaction score 0.100, 14 ssts, 2 sub-levels, in 52 MiB (writes 52 MiB, ingests 0 B), out 43 MiB [≈47 MiB] (net 8.5 MiB)
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [io-tokens] total used 50 MiB (elastic 0 B)
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [flush] flushed 148 MiB [≈150 MiB] (mult 1.000)
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [accounting] 288479 requests (928 bypassed), write 76 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 52 MiB, adjusted-disk-writes 650 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:04:22.532639 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 230 +  [models] write 0.68x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.59x+1 B [≈12.70x+1 B], at-admission 3.4 KiB
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231  IO admission controller:
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [status] throttling all at 10 MiB/s (elastic 4.1 MiB/s) due to memtable flush
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [util] L0: 10%, flush: 32%
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [L0] compaction score 0.100, 13 ssts, 2 sub-levels, in 51 MiB (writes 51 MiB, ingests 0 B), out 52 MiB [≈49 MiB] (net -583 KiB)
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [io-tokens] total used 49 MiB (elastic 0 B)
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [flush] flushed 152 MiB [≈151 MiB] (mult 1.000)
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [accounting] 276421 requests (888 bypassed), write 73 MiB (684 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 51 MiB, adjusted-disk-writes 656 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:04:37.560450 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 231 +  [models] write 0.70x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.87x+1 B [≈12.79x+1 B], at-admission 3.8 KiB
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232  IO admission controller:
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [status] throttling all at 9.3 MiB/s (elastic 7.4 MiB/s) due to memtable flush
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [util] L0: 5%, flush: 37%
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [L0] compaction score 0.050, 4 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 45 MiB [≈47 MiB] (net -11 MiB)
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [io-tokens] total used 52 MiB (elastic 0 B)
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [flush] flushed 128 MiB [≈140 MiB] (mult 1.000)
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [accounting] 287257 requests (914 bypassed), write 76 MiB (1.1 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 619 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:04:52.561313 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 232 +  [models] write 0.50x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.07x+1 B [≈15.43x+1 B], at-admission 3.2 KiB
+I260425 15:05:08.902820 1161 util/admission/granter.go:568 ⋮ [-] 233  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 2115/183/6)
+I260425 15:06:08.964397 1161 util/admission/granter.go:568 ⋮ [-] 234  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 2351/255/46)
+I260425 15:07:08.965001 1161 util/admission/granter.go:568 ⋮ [-] 235  disk token error adjustment: no stat change for 112 consecutive intervals (cumulative runs exceeding 20/50/100: 2604/375/91)
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236  IO admission controller:
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [status] throttling all at 11 MiB/s (elastic 4.0 MiB/s) due to memtable flush
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [util] L0: 10%, flush: 30%
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [L0] compaction score 0.100, 12 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 48 MiB [≈48 MiB] (net 2.5 MiB)
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [io-tokens] total used 50 MiB (elastic 0 B)
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [flush] flushed 154 MiB [≈166 MiB] (mult 1.000)
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [accounting] 284613 requests (904 bypassed), write 74 MiB (681 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 680 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:07:37.572915 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 236 +  [models] write 0.67x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 13.55x+1 B [≈13.15x+1 B], at-admission 3.4 KiB
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237  IO admission controller:
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [status] throttling all at 11 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [util] L0: 10%, flush: 30%
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [L0] compaction score 0.100, 17 ssts, 2 sub-levels, in 51 MiB (writes 51 MiB, ingests 0 B), out 43 MiB [≈45 MiB] (net 8.5 MiB)
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [io-tokens] total used 52 MiB (elastic 0 B)
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [flush] flushed 171 MiB [≈168 MiB] (mult 1.000)
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [accounting] 287502 requests (912 bypassed), write 77 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 51 MiB, adjusted-disk-writes 593 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:07:52.574512 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [models] write 0.66x+1 B [≈0.66x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 11.59x+1 B [≈12.37x+1 B], at-admission 4.0 KiB
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238  IO admission controller:
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [status] throttling all at 11 MiB/s (elastic 8.8 MiB/s) due to memtable flush
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [util] L0: 5%, flush: 29%
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [L0] compaction score 0.050, 5 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 48 MiB [≈47 MiB] (net -14 MiB)
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [io-tokens] total used 49 MiB (elastic 0 B)
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [flush] flushed 163 MiB [≈166 MiB] (mult 1.000)
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [accounting] 283034 requests (921 bypassed), write 74 MiB (687 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 632 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:08:07.575203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 238 +  [models] write 0.50x+1 B [≈0.58x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.73x+1 B [≈15.55x+1 B], at-admission 2.8 KiB
+I260425 15:08:08.965968 1161 util/admission/granter.go:568 ⋮ [-] 239  disk token error adjustment: no stat change for 27 consecutive intervals (cumulative runs exceeding 20/50/100: 2874/498/130)
+I260425 15:09:09.004630 1161 util/admission/granter.go:568 ⋮ [-] 240  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 3144/616/176)
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241  IO admission controller:
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [status] throttling all at 11 MiB/s (elastic 3.9 MiB/s) due to memtable flush
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [util] L0: 10%, flush: 28%
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [L0] compaction score 0.100, 9 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 47 MiB [≈47 MiB] (net 3.1 MiB)
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [io-tokens] total used 48 MiB (elastic 0 B)
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [flush] flushed 139 MiB [≈166 MiB] (mult 1.000)
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [accounting] 273774 requests (873 bypassed), write 72 MiB (1.1 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 617 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:09:37.597905 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 241 +  [models] write 0.70x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.30x+1 B [≈12.87x+1 B], at-admission 3.2 KiB
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242  IO admission controller:
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [status] throttling all at 11 MiB/s (elastic 8.5 MiB/s) due to memtable flush
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [util] L0: 5%, flush: 31%
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [L0] compaction score 0.050, 7 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 41 MiB [≈44 MiB] (net -7.0 MiB)
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [io-tokens] total used 50 MiB (elastic 0 B)
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [flush] flushed 153 MiB [≈159 MiB] (mult 1.000)
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [accounting] 272838 requests (866 bypassed), write 73 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 621 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:09:52.601203 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 242 +  [models] write 0.50x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.45x+1 B [≈15.66x+1 B], at-admission 3.3 KiB
+I260425 15:10:09.099279 1161 util/admission/granter.go:568 ⋮ [-] 243  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 3424/735/219)
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244  IO admission controller:
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [status] throttling all at 8.5 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [util] L0: 10%, flush: 38%
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [L0] compaction score 0.100, 16 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 42 MiB [≈44 MiB] (net 8.5 MiB)
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [io-tokens] total used 49 MiB (elastic 0 B)
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [flush] flushed 119 MiB [≈128 MiB] (mult 1.000)
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [accounting] 280379 requests (909 bypassed), write 73 MiB (684 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 603 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:10:37.651716 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 244 +  [models] write 0.68x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.02x+1 B [≈12.65x+1 B], at-admission 3.2 KiB
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245  IO admission controller:
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [status] throttling all at 8.6 MiB/s (elastic 6.9 MiB/s) due to memtable flush
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [util] L0: 5%, flush: 37%
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [L0] compaction score 0.050, 6 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 48 MiB [≈46 MiB] (net -14 MiB)
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [io-tokens] total used 48 MiB (elastic 0 B)
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [flush] flushed 130 MiB [≈129 MiB] (mult 1.000)
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [accounting] 265352 requests (861 bypassed), write 71 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 610 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:10:52.655734 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 245 +  [models] write 0.50x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.10x+1 B [≈15.37x+1 B], at-admission 3.3 KiB
+I260425 15:11:09.100294 1161 util/admission/granter.go:568 ⋮ [-] 246  disk token error adjustment: no stat change for 105 consecutive intervals (cumulative runs exceeding 20/50/100: 3731/840/256)
+W260425 15:11:20.258619 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 247  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248  IO admission controller:
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [status] throttling all at 9.1 MiB/s (elastic 3.9 MiB/s) due to memtable flush
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [util] L0: 10%, flush: 34%
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [L0] compaction score 0.100, 9 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 46 MiB [≈47 MiB] (net 4.4 MiB)
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [io-tokens] total used 47 MiB (elastic 0 B)
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [flush] flushed 146 MiB [≈136 MiB] (mult 1.000)
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [accounting] 268336 requests (982 bypassed), write 72 MiB (1.4 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 646 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:11:22.702603 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 248 +  [models] write 0.69x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.84x+1 B [≈13.47x+1 B], at-admission 4.0 KiB
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249  IO admission controller:
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [status] throttling all at 8.3 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [util] L0: 10%, flush: 38%
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [L0] compaction score 0.100, 17 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 41 MiB [≈44 MiB] (net 9.0 MiB)
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [io-tokens] total used 48 MiB (elastic 0 B)
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [flush] flushed 113 MiB [≈125 MiB] (mult 1.000)
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [accounting] 275729 requests (916 bypassed), write 72 MiB (698 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 627 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:11:37.703550 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 249 +  [models] write 0.69x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.54x+1 B [≈13.01x+1 B], at-admission 3.2 KiB
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250  IO admission controller:
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [status] throttling all at 8.6 MiB/s (elastic 6.9 MiB/s) due to memtable flush
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [util] L0: 5%, flush: 40%
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [L0] compaction score 0.050, 6 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 46 MiB [≈45 MiB] (net -12 MiB)
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [io-tokens] total used 52 MiB (elastic 183 KiB)
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [flush] flushed 132 MiB [≈129 MiB] (mult 1.000)
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [accounting] 281964 requests (893 bypassed), write 76 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 636 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:11:52.704015 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 250 +  [models] write 0.50x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 19.00x+1 B [≈16.00x+1 B], at-admission 3.1 KiB
+I260425 15:12:09.101070 1161 util/admission/granter.go:568 ⋮ [-] 251  disk token error adjustment: no stat change for 88 consecutive intervals (cumulative runs exceeding 20/50/100: 4043/953/288)
+I260425 15:13:09.178894 1161 util/admission/granter.go:568 ⋮ [-] 252  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 4403/1066/331)
+I260425 15:13:17.290120 214562 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 253 ={"Timestamp":1777129997290116580,"EventType":"status_change","JobID":1170012886464561155,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:13:17.290565 214562 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170012886464561155,create-stats-distsql] 254  using computed sample size of 10000 for histogram construction
+I260425 15:13:18.225137 214562 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 255 ={"Timestamp":1777129998225133721,"EventType":"status_change","JobID":1170012886464561155,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256  IO admission controller:
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [status] throttling all at 8.6 MiB/s (elastic 4.0 MiB/s) due to memtable flush
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [util] L0: 10%, flush: 35%
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [L0] compaction score 0.100, 15 ssts, 2 sub-levels, in 62 MiB (writes 62 MiB, ingests 0 B), out 55 MiB [≈48 MiB] (net 6.8 MiB)
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [flush] flushed 135 MiB [≈129 MiB] (mult 1.000)
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [accounting] 283839 requests (617 bypassed), write 76 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 62 MiB, adjusted-disk-writes 656 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:13:52.723974 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 256 +  [models] write 0.81x+1 B [≈0.70x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 10.55x+1 B [≈13.11x+1 B], at-admission 6.1 KiB
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257  IO admission controller:
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [status] throttling all at 8.4 MiB/s (elastic 6.7 MiB/s) due to memtable flush
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [util] L0: 5%, flush: 42%
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [L0] compaction score 0.050, 7 ssts, 1 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 51 MiB [≈50 MiB] (net -8.6 MiB)
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [io-tokens] total used 53 MiB (elastic 0 B)
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [flush] flushed 122 MiB [≈126 MiB] (mult 1.000)
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [accounting] 287323 requests (632 bypassed), write 75 MiB (679 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 595 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:14:07.724477 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 257 +  [models] write 0.56x+1 B [≈0.63x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.05x+1 B [≈13.58x+1 B], at-admission 4.5 KiB
+I260425 15:14:09.276666 1161 util/admission/granter.go:568 ⋮ [-] 258  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 4834/1108/333)
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259  IO admission controller:
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [status] throttling all at 7.7 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [util] L0: 10%, flush: 37%
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [L0] compaction score 0.100, 21 ssts, 2 sub-levels, in 63 MiB (writes 63 MiB, ingests 0 B), out 42 MiB [≈45 MiB] (net 20 MiB)
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [io-tokens] total used 44 MiB (elastic 0 B)
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [flush] flushed 113 MiB [≈116 MiB] (mult 1.000)
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [accounting] 285340 requests (617 bypassed), write 74 MiB (678 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 63 MiB, adjusted-disk-writes 607 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:14:37.728714 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 259 +  [models] write 0.84x+1 B [≈0.71x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 9.69x+1 B [≈11.94x+1 B], at-admission 4.7 KiB
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260  IO admission controller:
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [status] throttling all at 8.5 MiB/s (elastic 6.8 MiB/s) due to memtable flush
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [util] L0: 5%, flush: 40%
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [L0] compaction score 0.050, 9 ssts, 1 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 56 MiB [≈50 MiB] (net -14 MiB)
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [io-tokens] total used 52 MiB (elastic 43 KiB)
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [flush] flushed 140 MiB [≈128 MiB] (mult 1.000)
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [accounting] 269485 requests (776 bypassed), write 72 MiB (1.4 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 595 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:14:52.729933 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 260 +  [models] write 0.57x+1 B [≈0.64x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.19x+1 B [≈13.06x+1 B], at-admission 5.3 KiB
+I260425 15:15:09.447815 1161 util/admission/granter.go:568 ⋮ [-] 261  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 5308/1151/335)
+W260425 15:15:18.953331 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 262  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263  IO admission controller:
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [status] throttling all at 8.6 MiB/s (elastic 3.6 MiB/s) due to memtable flush
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [util] L0: 10%, flush: 33%
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [L0] compaction score 0.100, 28 ssts, 2 sub-levels, in 63 MiB (writes 63 MiB, ingests 0 B), out 42 MiB [≈43 MiB] (net 20 MiB)
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [io-tokens] total used 43 MiB (elastic 0 B)
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [flush] flushed 127 MiB [≈129 MiB] (mult 1.000)
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [accounting] 286440 requests (616 bypassed), write 75 MiB (678 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 63 MiB, adjusted-disk-writes 576 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:15:37.771890 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 263 +  [models] write 0.84x+1 B [≈0.71x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 9.18x+1 B [≈11.39x+1 B], at-admission 4.6 KiB
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264  IO admission controller:
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [status] throttling all at 7.7 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [util] L0: 10%, flush: 45%
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [L0] compaction score 0.100, 25 ssts, 2 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 47 MiB [≈45 MiB] (net -5.1 MiB)
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [io-tokens] total used 53 MiB (elastic 0 B)
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [flush] flushed 102 MiB [≈116 MiB] (mult 1.000)
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [accounting] 274704 requests (616 bypassed), write 74 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 507 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:15:52.799291 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 264 +  [models] write 0.57x+1 B [≈0.64x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.05x+1 B [≈11.72x+1 B], at-admission 5.2 KiB
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265  IO admission controller:
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [status] throttling all at 7.3 MiB/s (elastic 4.1 MiB/s) due to memtable flush
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [util] L0: 10%, flush: 41%
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [L0] compaction score 0.100, 16 ssts, 2 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 54 MiB [≈50 MiB] (net -12 MiB)
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [io-tokens] total used 45 MiB (elastic 47 KiB)
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [flush] flushed 102 MiB [≈109 MiB] (mult 1.000)
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [accounting] 268728 requests (688 bypassed), write 70 MiB (690 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 552 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:16:07.801424 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 265 +  [models] write 0.59x+1 B [≈0.61x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 13.17x+1 B [≈12.45x+1 B], at-admission 4.2 KiB
+I260425 15:16:09.448364 1161 util/admission/granter.go:568 ⋮ [-] 266  disk token error adjustment: no stat change for 39 consecutive intervals (cumulative runs exceeding 20/50/100: 5811/1208/335)
+I260425 15:16:19.102852 236780 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 267 ={"Timestamp":1777130179102849435,"EventType":"status_change","JobID":1170013482207707139,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:16:19.103100 236780 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170013482207707139,create-stats-distsql] 268  using computed sample size of 10000 for histogram construction
+I260425 15:16:21.114392 236780 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 269 ={"Timestamp":1777130181114388814,"EventType":"status_change","JobID":1170013482207707139,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270  IO admission controller:
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [status] throttling all at 6.6 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [util] L0: 10%, flush: 42%
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [L0] compaction score 0.100, 13 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 42 MiB [≈46 MiB] (net -1.2 MiB)
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [io-tokens] total used 42 MiB (elastic 41 KiB)
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [flush] flushed 90 MiB [≈100 MiB] (mult 1.000)
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [accounting] 257072 requests (634 bypassed), write 68 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 580 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:16:22.873319 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 270 +  [models] write 0.59x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.21x+1 B [≈13.33x+1 B], at-admission 4.3 KiB
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271  IO admission controller:
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [status] throttling all at 6.2 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [util] L0: 10%, flush: 48%
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [L0] compaction score 0.100, 9 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 44 MiB [≈45 MiB] (net -2.2 MiB)
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [flush] flushed 87 MiB [≈94 MiB] (mult 1.000)
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [accounting] 282842 requests (629 bypassed), write 75 MiB (680 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 600 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:16:38.013666 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 271 +  [models] write 0.55x+1 B [≈0.58x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.54x+1 B [≈13.93x+1 B], at-admission 4.5 KiB
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272  IO admission controller:
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [status] throttling all at 6.2 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [util] L0: 10%, flush: 46%
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [L0] compaction score 0.100, 23 ssts, 2 sub-levels, in 62 MiB (writes 62 MiB, ingests 0 B), out 46 MiB [≈46 MiB] (net 16 MiB)
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [io-tokens] total used 43 MiB (elastic 0 B)
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [flush] flushed 91 MiB [≈92 MiB] (mult 1.000)
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [accounting] 271561 requests (598 bypassed), write 73 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 62 MiB, adjusted-disk-writes 597 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:16:53.014954 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 272 +  [models] write 0.85x+1 B [≈0.71x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 9.58x+1 B [≈11.75x+1 B], at-admission 6.8 KiB
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273  IO admission controller:
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [status] throttling all at 6.0 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [util] L0: 10%, flush: 54%
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [L0] compaction score 0.100, 19 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 46 MiB [≈46 MiB] (net -5.0 MiB)
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [io-tokens] total used 49 MiB (elastic 0 B)
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [flush] flushed 87 MiB [≈90 MiB] (mult 1.000)
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [accounting] 260180 requests (592 bypassed), write 68 MiB (681 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 596 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:17:08.018532 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 273 +  [models] write 0.60x+1 B [≈0.65x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.63x+1 B [≈13.19x+1 B], at-admission 5.1 KiB
+I260425 15:17:09.526648 1161 util/admission/granter.go:568 ⋮ [-] 274  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 6368/1257/340)
+I260425 15:17:21.904500 244533 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 275 ={"Timestamp":1777130241904497156,"EventType":"status_change","JobID":1170013688247123971,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:17:21.904833 244533 sql/distsql_plan_stats.go:813 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170013688247123971,create-stats-distsql] 276  job 1170013688247123971: stats collection is swallowing benign error the latest full statistic for column ‹id› has no histogram
+I260425 15:17:22.537769 244533 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 277 ={"Timestamp":1777130242537765509,"EventType":"status_change","JobID":1170013688247123971,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278  IO admission controller:
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [status] throttling all at 5.9 MiB/s (elastic 4.0 MiB/s) due to memtable flush
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [util] L0: 10%, flush: 51%
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [L0] compaction score 0.100, 14 ssts, 2 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 49 MiB [≈48 MiB] (net -7.6 MiB)
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [io-tokens] total used 46 MiB (elastic 0 B)
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [flush] flushed 88 MiB [≈89 MiB] (mult 1.000)
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [accounting] 258119 requests (601 bypassed), write 70 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 649 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:17:23.018965 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 278 +  [models] write 0.60x+1 B [≈0.62x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 15.55x+1 B [≈14.37x+1 B], at-admission 4.8 KiB
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279  IO admission controller:
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [status] throttling all at 6.0 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [util] L0: 10%, flush: 47%
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [L0] compaction score 0.100, 13 ssts, 2 sub-levels, in 42 MiB (writes 42 MiB, ingests 0 B), out 42 MiB [≈45 MiB] (net -589 KiB)
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [io-tokens] total used 42 MiB (elastic 0 B)
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [flush] flushed 91 MiB [≈90 MiB] (mult 1.000)
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [accounting] 258271 requests (574 bypassed), write 67 MiB (681 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 42 MiB, adjusted-disk-writes 553 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:17:38.019780 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 279 +  [models] write 0.61x+1 B [≈0.62x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 13.32x+1 B [≈13.84x+1 B], at-admission 4.1 KiB
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280  IO admission controller:
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [status] throttling all at 6.1 MiB/s (elastic 4.9 MiB/s) due to memtable flush
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [util] L0: 5%, flush: 47%
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [L0] compaction score 0.050, 12 ssts, 1 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 42 MiB [≈44 MiB] (net -1.3 MiB)
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [io-tokens] total used 44 MiB (elastic 0 B)
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [flush] flushed 92 MiB [≈91 MiB] (mult 1.000)
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [accounting] 258412 requests (562 bypassed), write 70 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 650 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:17:53.045642 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 280 +  [models] write 0.58x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 15.90x+1 B [≈14.87x+1 B], at-admission 5.3 KiB
+I260425 15:18:09.531108 1161 util/admission/granter.go:568 ⋮ [-] 281  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 6877/1313/344)
+W260425 15:18:38.055454 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 282  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.minor field not present
+W260425 15:18:40.853352 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 283  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284  IO admission controller:
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [status] throttling all at 6.2 MiB/s (elastic 3.6 MiB/s) due to memtable flush
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [util] L0: 10%, flush: 44%
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [L0] compaction score 0.100, 25 ssts, 2 sub-levels, in 62 MiB (writes 62 MiB, ingests 0 B), out 44 MiB [≈43 MiB] (net 18 MiB)
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [io-tokens] total used 42 MiB (elastic 0 B)
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [flush] flushed 122 MiB [≈93 MiB] (mult 1.000)
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [accounting] 257294 requests (563 bypassed), write 69 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 62 MiB, adjusted-disk-writes 564 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:18:53.241597 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 284 +  [models] write 0.89x+1 B [≈0.74x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 9.12x+1 B [≈11.83x+1 B], at-admission 7.0 KiB
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285  IO admission controller:
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [status] throttling all at 5.7 MiB/s (elastic 3.6 MiB/s) due to memtable flush
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [util] L0: 10%, flush: 54%
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [L0] compaction score 0.100, 23 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 44 MiB [≈44 MiB] (net -3.6 MiB)
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [io-tokens] total used 47 MiB (elastic 56 KiB)
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [flush] flushed 77 MiB [≈85 MiB] (mult 1.000)
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [accounting] 240773 requests (636 bypassed), write 63 MiB (689 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 598 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:19:08.280668 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 285 +  [models] write 0.64x+1 B [≈0.69x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.66x+1 B [≈13.25x+1 B], at-admission 5.1 KiB
+I260425 15:19:09.545686 1161 util/admission/granter.go:568 ⋮ [-] 286  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 7408/1392/346)
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287  IO admission controller:
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [status] throttling all at 5.5 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [util] L0: 10%, flush: 59%
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [L0] compaction score 0.100, 17 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 48 MiB [≈46 MiB] (net -6.9 MiB)
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [io-tokens] total used 48 MiB (elastic 24 KiB)
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [flush] flushed 79 MiB [≈82 MiB] (mult 1.000)
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [accounting] 257140 requests (866 bypassed), write 69 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 573 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:19:23.281078 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 287 +  [models] write 0.59x+1 B [≈0.64x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 13.92x+1 B [≈13.58x+1 B], at-admission 5.8 KiB
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288  IO admission controller:
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [status] throttling all at 5.2 MiB/s (elastic 3.2 MiB/s) due to memtable flush
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [util] L0: 10%, flush: 49%
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [L0] compaction score 0.100, 22 ssts, 2 sub-levels, in 41 MiB (writes 41 MiB, ingests 0 B), out 32 MiB [≈39 MiB] (net 8.9 MiB)
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [io-tokens] total used 38 MiB (elastic 42 KiB)
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [flush] flushed 74 MiB [≈78 MiB] (mult 1.000)
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [accounting] 227163 requests (772 bypassed), write 60 MiB (704 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 41 MiB, adjusted-disk-writes 632 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:19:38.317454 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 288 +  [models] write 0.68x+1 B [≈0.66x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 15.43x+1 B [≈14.51x+1 B], at-admission 5.1 KiB
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289  IO admission controller:
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [status] throttling all at 5.3 MiB/s (elastic 4.3 MiB/s) due to memtable flush
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [util] L0: 5%, flush: 21%
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [L0] compaction score 0.050, 6 ssts, 1 sub-levels, in 21 MiB (writes 21 MiB, ingests 0 B), out 42 MiB [≈40 MiB] (net -21 MiB)
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [io-tokens] total used 17 MiB (elastic 0 B)
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [flush] flushed 83 MiB [≈80 MiB] (mult 1.000)
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [accounting] 82139 requests (226 bypassed), write 25 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 21 MiB, adjusted-disk-writes 606 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:19:53.317907 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 289 +  [models] write 0.82x+1 B [≈0.74x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 29.17x+1 B [≈21.84x+1 B], at-admission 14 KiB
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290  IO admission controller:
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [status] throttling all at 6.0 MiB/s (elastic 2.9 MiB/s) due to memtable flush
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [util] L0: 10%, flush: 46%
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [L0] compaction score 0.100, 9 ssts, 2 sub-levels, in 32 MiB (writes 32 MiB, ingests 0 B), out 29 MiB [≈34 MiB] (net 3.8 MiB)
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [io-tokens] total used 42 MiB (elastic 316 KiB)
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [flush] flushed 99 MiB [≈90 MiB] (mult 1.000)
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [accounting] 211915 requests (740 bypassed), write 56 MiB (684 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 32 MiB, adjusted-disk-writes 594 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:20:08.321464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 290 +  [models] write 0.57x+1 B [≈0.66x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.36x+1 B [≈20.10x+1 B], at-admission 8.5 KiB
+I260425 15:20:09.547721 1161 util/admission/granter.go:568 ⋮ [-] 291  disk token error adjustment: no stat change for 22 consecutive intervals (cumulative runs exceeding 20/50/100: 7911/1505/376)
+I260425 15:20:23.218713 266003 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 292 ={"Timestamp":1777130423218710104,"EventType":"status_change","JobID":1170014283014242307,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:20:23.219104 266003 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170014283014242307,create-stats-distsql] 293  using computed sample size of 10000 for histogram construction
+I260425 15:20:23.355196 266003 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 294 ={"Timestamp":1777130423355190172,"EventType":"status_change","JobID":1170014283014242307,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295  IO admission controller:
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [status] throttling all at 6.9 MiB/s (elastic 5.5 MiB/s) due to memtable flush
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [util] L0: 5%, flush: 40%
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [L0] compaction score 0.050, 4 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 40 MiB [≈37 MiB] (net -7.4 MiB)
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [io-tokens] total used 42 MiB (elastic 85 KiB)
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [flush] flushed 116 MiB [≈103 MiB] (mult 1.000)
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [accounting] 233909 requests (877 bypassed), write 63 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 568 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:20:23.408752 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 295 +  [models] write 0.51x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 17.31x+1 B [≈18.71x+1 B], at-admission 6.3 KiB
+I260425 15:20:52.468674 1165 sql/temporary_schema.go:723 ⋮ [T1,Vsystem,n3] 296  running temporary object cleanup background job
+I260425 15:20:52.478823 1165 sql/temporary_schema.go:782 ⋮ [T1,Vsystem,n3] 297  found 0 temporary schemas
+I260425 15:20:52.478875 1165 sql/temporary_schema.go:785 ⋮ [T1,Vsystem,n3] 298  early exiting temporary schema cleaner as no temporary schemas were found
+I260425 15:20:52.478888 1165 sql/temporary_schema.go:786 ⋮ [T1,Vsystem,n3] 299  completed temporary object cleanup job
+I260425 15:20:52.478898 1165 sql/temporary_schema.go:874 ⋮ [T1,Vsystem,n3] 300  temporary object cleaner next scheduled to run at 2026-04-25 15:50:52.468643917 +0000 UTC m=+3607.879927952
+W260425 15:21:00.655576 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 301  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+W260425 15:21:04.253009 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 302  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:21:09.740317 1161 util/admission/granter.go:568 ⋮ [-] 303  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 8292/1655/394)
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304  IO admission controller:
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [status] throttling all at 6.6 MiB/s (elastic 3.2 MiB/s) due to memtable flush
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [util] L0: 10%, flush: 38%
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [L0] compaction score 0.100, 15 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 43 MiB [≈38 MiB] (net 6.6 MiB)
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [io-tokens] total used 38 MiB (elastic 0 B)
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [flush] flushed 96 MiB [≈100 MiB] (mult 1.000)
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [accounting] 239879 requests (795 bypassed), write 65 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 534 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:21:23.424881 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 304 +  [models] write 0.76x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 10.84x+1 B [≈13.80x+1 B], at-admission 4.9 KiB
+I260425 15:21:23.494547 274561 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 305 ={"Timestamp":1777130483494544718,"EventType":"status_change","JobID":1170014481289216003,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:21:23.494879 274561 sql/distsql_plan_stats.go:813 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170014481289216003,create-stats-distsql] 306  job 1170014481289216003: stats collection is swallowing benign error the latest full statistic for column ‹id› has no histogram
+I260425 15:21:23.562149 274561 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 307 ={"Timestamp":1777130483562146502,"EventType":"status_change","JobID":1170014481289216003,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308  IO admission controller:
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [status] throttling all at 6.5 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [util] L0: 10%, flush: 44%
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [L0] compaction score 0.100, 18 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 46 MiB [≈42 MiB] (net 3.1 MiB)
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [io-tokens] total used 43 MiB (elastic 5.7 KiB)
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [flush] flushed 95 MiB [≈97 MiB] (mult 1.000)
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [accounting] 243669 requests (851 bypassed), write 64 MiB (697 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 489 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:21:38.425533 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 308 +  [models] write 0.77x+1 B [≈0.72x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 9.88x+1 B [≈11.84x+1 B], at-admission 4.0 KiB
+W260425 15:21:44.052551 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 309  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310  IO admission controller:
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [status] throttling all at 6.4 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [util] L0: 10%, flush: 46%
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [L0] compaction score 0.100, 11 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 42 MiB [≈42 MiB] (net -8.6 MiB)
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [flush] flushed 94 MiB [≈96 MiB] (mult 1.000)
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [accounting] 227906 requests (718 bypassed), write 62 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 557 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:21:53.510996 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [models] write 0.53x+1 B [≈0.63x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 16.91x+1 B [≈14.37x+1 B], at-admission 4.0 KiB
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311  IO admission controller:
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [status] throttling all at 6.0 MiB/s (elastic 4.8 MiB/s) due to memtable flush
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [util] L0: 5%, flush: 42%
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [L0] compaction score 0.050, 10 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 36 MiB [≈39 MiB] (net -3.2 MiB)
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [io-tokens] total used 38 MiB (elastic 150 KiB)
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [flush] flushed 83 MiB [≈89 MiB] (mult 1.000)
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [accounting] 226815 requests (718 bypassed), write 60 MiB (683 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 586 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:22:08.511927 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [models] write 0.55x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 17.69x+1 B [≈16.03x+1 B], at-admission 3.0 KiB
+I260425 15:22:09.959800 1161 util/admission/granter.go:568 ⋮ [-] 312  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 8688/1801/422)
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313  IO admission controller:
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [status] throttling all at 5.6 MiB/s (elastic 3.1 MiB/s) due to memtable flush
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [util] L0: 10%, flush: 43%
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [L0] compaction score 0.100, 22 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 35 MiB [≈37 MiB] (net 14 MiB)
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [io-tokens] total used 37 MiB (elastic 4.9 KiB)
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [flush] flushed 80 MiB [≈85 MiB] (mult 1.000)
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [accounting] 227026 requests (713 bypassed), write 62 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 608 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:22:23.512464 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [models] write 0.79x+1 B [≈0.69x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.43x+1 B [≈14.23x+1 B], at-admission 4.4 KiB
+I260425 15:22:23.732660 284218 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 314 ={"Timestamp":1777130543732656437,"EventType":"status_change","JobID":1170014678544252931,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:22:23.733059 284218 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170014678544252931,create-stats-distsql] 315  using computed sample size of 10000 for histogram construction
+I260425 15:22:23.899430 284218 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 316 ={"Timestamp":1777130543899426570,"EventType":"status_change","JobID":1170014678544252931,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317  IO admission controller:
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [status] throttling all at 5.5 MiB/s (elastic 3.4 MiB/s) due to memtable flush
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [util] L0: 10%, flush: 50%
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [L0] compaction score 0.100, 10 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 46 MiB [≈41 MiB] (net -12 MiB)
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [io-tokens] total used 41 MiB (elastic 8.6 KiB)
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [flush] flushed 79 MiB [≈82 MiB] (mult 1.000)
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [accounting] 226840 requests (804 bypassed), write 59 MiB (702 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 615 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:22:38.513955 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [models] write 0.56x+1 B [≈0.62x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.54x+1 B [≈16.39x+1 B], at-admission 3.3 KiB
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318  IO admission controller:
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [status] throttling all at 6.1 MiB/s (elastic 4.9 MiB/s) due to memtable flush
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [util] L0: 5%, flush: 43%
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [L0] compaction score 0.050, 10 ssts, 1 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 49 MiB [≈45 MiB] (net -65 KiB)
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [io-tokens] total used 40 MiB (elastic 13 KiB)
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [flush] flushed 101 MiB [≈92 MiB] (mult 1.000)
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [accounting] 233353 requests (803 bypassed), write 63 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 693 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:22:53.514336 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 318 +  [models] write 0.77x+1 B [≈0.70x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.11x+1 B [≈15.25x+1 B], at-admission 4.4 KiB
+I260425 15:23:09.960861 1161 util/admission/granter.go:568 ⋮ [-] 319  disk token error adjustment: no stat change for 38 consecutive intervals (cumulative runs exceeding 20/50/100: 9060/1916/457)
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320  IO admission controller:
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [status] throttling all at 6.2 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [util] L0: 10%, flush: 37%
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [L0] compaction score 0.100, 14 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 48 MiB [≈42 MiB] (net 816 KiB)
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [io-tokens] total used 34 MiB (elastic 0 B)
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [flush] flushed 89 MiB [≈93 MiB] (mult 1.000)
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [accounting] 224344 requests (667 bypassed), write 59 MiB (683 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 576 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:23:38.560939 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 320 +  [models] write 0.83x+1 B [≈0.71x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 11.70x+1 B [≈14.68x+1 B], at-admission 3.0 KiB
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321  IO admission controller:
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [status] throttling all at 7.2 MiB/s (elastic 5.8 MiB/s) due to memtable flush
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [util] L0: 0%, flush: 41%
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [L0] compaction score 0.000, 1 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 46 MiB [≈44 MiB] (net -13 MiB)
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [io-tokens] total used 45 MiB (elastic 45 KiB)
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [flush] flushed 124 MiB [≈109 MiB] (mult 1.000)
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [accounting] 231866 requests (727 bypassed), write 63 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 650 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:23:53.561476 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [models] write 0.52x+1 B [≈0.61x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 19.94x+1 B [≈17.31x+1 B], at-admission 3.0 KiB
+I260425 15:24:09.986708 1161 util/admission/granter.go:568 ⋮ [-] 322  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 9456/2025/480)
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323  IO admission controller:
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [status] throttling all at 6.9 MiB/s (elastic 3.3 MiB/s) due to memtable flush
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [util] L0: 10%, flush: 36%
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [L0] compaction score 0.100, 17 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 43 MiB [≈40 MiB] (net 6.2 MiB)
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [io-tokens] total used 38 MiB (elastic 990 B)
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [flush] flushed 105 MiB [≈104 MiB] (mult 1.000)
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [accounting] 229402 requests (668 bypassed), write 60 MiB (688 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 636 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:24:38.656756 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [models] write 0.82x+1 B [≈0.72x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 12.90x+1 B [≈14.88x+1 B], at-admission 2.6 KiB
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324  IO admission controller:
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [status] throttling all at 7.2 MiB/s (elastic 5.8 MiB/s) due to memtable flush
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [util] L0: 5%, flush: 41%
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [L0] compaction score 0.050, 3 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 48 MiB [≈44 MiB] (net -16 MiB)
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [flush] flushed 112 MiB [≈108 MiB] (mult 1.000)
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [accounting] 226841 requests (688 bypassed), write 62 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 616 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:24:53.658670 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [models] write 0.53x+1 B [≈0.63x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 18.67x+1 B [≈16.78x+1 B], at-admission 2.8 KiB
+I260425 15:25:09.986752 1161 util/admission/granter.go:568 ⋮ [-] 325  disk token error adjustment: no stat change for 35 consecutive intervals (cumulative runs exceeding 20/50/100: 9854/2158/505)
+I260425 15:25:33.353377 1161 storage/disk/linux_parse.go:58 ⋮ [-] 326  /proc/diskstats did not parse
+W260425 15:25:33.353410 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 327  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+I260425 15:25:34.657258 97 storage/disk/linux_parse.go:58 ⋮ [-] 328  /proc/diskstats did not parse
+I260425 15:25:43.960056 97 storage/disk/linux_parse.go:58 ⋮ [-] 329  /proc/diskstats did not parse
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330  IO admission controller:
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [status] throttling all at 6.8 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [util] L0: 10%, flush: 36%
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [L0] compaction score 0.100, 12 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 45 MiB [≈41 MiB] (net 4.1 MiB)
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [io-tokens] total used 37 MiB (elastic 0 B)
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [flush] flushed 101 MiB [≈102 MiB] (mult 1.000)
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [accounting] 225846 requests (597 bypassed), write 59 MiB (681 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 657 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:26:08.901989 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 330 +  [models] write 0.82x+1 B [≈0.72x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 13.44x+1 B [≈15.14x+1 B], at-admission 2.5 KiB
+I260425 15:26:09.988607 1161 util/admission/granter.go:568 ⋮ [-] 331  disk token error adjustment: no stat change for 29 consecutive intervals (cumulative runs exceeding 20/50/100: 10263/2277/521)
+W260425 15:26:15.855486 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 332  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+W260425 15:26:19.152518 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 333  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334  IO admission controller:
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [status] throttling all at 7.2 MiB/s (elastic 5.8 MiB/s) due to memtable flush
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [util] L0: 5%, flush: 41%
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [L0] compaction score 0.050, 4 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 40 MiB [≈41 MiB] (net -6.7 MiB)
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [flush] flushed 114 MiB [≈108 MiB] (mult 1.000)
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [accounting] 227648 requests (559 bypassed), write 62 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 582 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:26:23.905232 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 334 +  [models] write 0.53x+1 B [≈0.62x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 17.65x+1 B [≈16.39x+1 B], at-admission 2.7 KiB
+I260425 15:26:24.043882 322612 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 335 ={"Timestamp":1777130784043879225,"EventType":"status_change","JobID":1170015466109861891,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 15:26:24.044288 322612 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170015466109861891,create-stats-distsql] 336  using computed sample size of 10000 for histogram construction
+I260425 15:26:24.335329 322612 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 337 ={"Timestamp":1777130784335325909,"EventType":"status_change","JobID":1170015466109861891,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 15:26:33.352284 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 338  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339  IO admission controller:
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [status] throttling all at 7.0 MiB/s (elastic 3.1 MiB/s) due to memtable flush
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [util] L0: 10%, flush: 30%
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [L0] compaction score 0.100, 21 ssts, 2 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 34 MiB [≈37 MiB] (net 16 MiB)
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [io-tokens] total used 32 MiB (elastic 668 B)
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [flush] flushed 104 MiB [≈106 MiB] (mult 1.000)
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [accounting] 195861 requests (1127 bypassed), write 52 MiB (750 KiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 706 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:26:38.913069 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 339 +  [models] write 0.96x+1 B [≈0.79x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 14.29x+1 B [≈15.34x+1 B], at-admission 2.8 KiB
+I260425 15:26:39.157584 1161 storage/disk/linux_parse.go:58 ⋮ [-] 340  /proc/diskstats did not parse
+W260425 15:26:39.157631 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 341  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+I260425 15:26:40.952283 1161 storage/disk/linux_parse.go:58 ⋮ [-] 342  /proc/diskstats did not parse
+W260425 15:26:40.952323 1161 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 343  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+I260425 15:26:45.657880 97 storage/disk/linux_parse.go:58 ⋮ [-] 344  /proc/diskstats did not parse
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345  IO admission controller:
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [status] throttling all at 6.7 MiB/s (elastic 5.3 MiB/s) due to memtable flush
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [util] L0: 5%, flush: 46%
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [L0] compaction score 0.050, 8 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 46 MiB [≈42 MiB] (net -13 MiB)
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [io-tokens] total used 46 MiB (elastic 9.8 KiB)
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [flush] flushed 94 MiB [≈100 MiB] (mult 1.000)
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [accounting] 213133 requests (549 bypassed), write 58 MiB (1.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 583 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 15:26:53.916196 1161 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 345 +  [models] write 0.56x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈0.75x+1 B], ingest 0.00x+0 B [≈1.25x+1 B], write-amp 17.75x+1 B [≈16.55x+1 B], at-admission 3.0 KiB
+I260425 15:26:55.058109 1 1@cli/start.go:1011 ⋮ [T1,Vsystem,n3] 346  received signal 'terminated'
+I260425 15:26:55.080301 1 1@cli/start.go:1052 ⋮ [T1,Vsystem,n3] 347  initiating graceful shutdown of server
+I260425 15:26:55.081118 327365 server/drain.go:378 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 348  all tenant servers stopped
+I260425 15:26:55.089366 327365 1@server/drain.go:437 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 349  waiting for health probes to notice that the node is not ready for new sql connections
+I260425 15:26:55.089435 1850 sql/stats/automatic_stats.go:762 ⋮ [T1,Vsystem,n3] 350  draining auto stats refresher
+I260425 15:26:55.089429 1851 sql/stats/automatic_stats.go:800 ⋮ [T1,Vsystem,n3] 351  draining auto stats misestimates refresher
+W260425 15:26:55.089460 876 jobs/registry.go:1063 ⋮ [T1,Vsystem,n3] 352  canceling all adopted jobs due to graceful drain request
+I260425 15:26:55.089452 1852 sql/stats/automatic_stats.go:854 ⋮ [T1,Vsystem,n3] 353  draining stats garbage collector
+W260425 15:26:55.089589 57084 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170008481689796611,rangefeed=‹sql-watcher-descriptor-rangefeed›,mux_n=3,gen=4] 354  error closing mux rangefeed client: context canceled
+W260425 15:26:55.845210 3463 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 355  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:55.845346 2232 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 356  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:55.845493 2465 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 357  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:55.968572 2198 15@kv/kvserver/storeliveness/transport.go:565 ⋮ [T1,Vsystem,n3] 358  processing outgoing queue to node 2 failed: ‹EOF›
+W260425 15:26:55.968572 2198 15@kv/kvserver/storeliveness/transport.go:565 ⋮ [T1,Vsystem,n3] 358 +‹EOF›:
+E260425 15:26:56.075894 2331 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=system,rpc] 359  disconnected (was healthy for 35m58.852s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 15:26:56.079419 2331 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=system,rpc] 360  failed connection attempt (last connected 4ms ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26259: connect: connection refused"› [code 14/Unavailable]
+W260425 15:26:56.098973 327573 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 361  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.099568 327467 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 362  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.100015 327641 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 363  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.100573 327601 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 364  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.100952 327565 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 365  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.107027 327484 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 366  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.107393 327667 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 367  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+I260425 15:26:56.139674 327365 sql/sqlstats/persistedsqlstats/provider.go:125 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 368  stopping persisted SQL stats tasks
+I260425 15:26:56.145627 327365 sql/sqlstats/persistedsqlstats/provider.go:131 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 369  persisted SQL stats tasks successfully shut down
+I260425 15:26:56.145650 327365 sql/stats/automatic_stats.go:575 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 370  starting to wait for auto-stats tasks to shut down
+I260425 15:26:56.145660 327365 sql/stats/automatic_stats.go:578 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 371  auto-stats tasks successfully shut down
+I260425 15:26:56.145667 327365 jobs/registry.go:1997 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 372  starting to wait for job registry to shut down
+I260425 15:26:56.145676 327365 jobs/registry.go:2000 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 373  job registry tasks successfully shut down
+W260425 15:26:56.146672 327456 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 374  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.147126 327487 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 375  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.147650 327669 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 376  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.148031 327649 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 377  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.148389 327714 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 378  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.149526 327730 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 379  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.149891 327568 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 380  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.150327 327472 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 381  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.150684 327733 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 382  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.151043 327655 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 383  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.151495 327658 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 384  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.151809 327734 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 385  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.152240 327735 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 386  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.152670 327659 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 387  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.152980 327473 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 388  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.153436 327580 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 389  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.153824 327662 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 390  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.154205 327581 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 391  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.154719 327680 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 392  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.155121 327736 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 393  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.155493 327752 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 394  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.155948 327753 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 395  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.156397 327795 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 396  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.156755 327584 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 397  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.157102 327800 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 398  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.157506 327781 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 399  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.157874 327737 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 400  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.158331 327784 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 401  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.158696 327756 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 402  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.159051 327803 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 403  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.159381 327715 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 404  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.159643 327716 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 405  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.160031 327764 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 406  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.160514 327705 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 407  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.160817 1861 1@sql/stmtdiagnostics/statement_diagnostics.go:906 ⋮ [T1,Vsystem,n3] 408  error polling for transaction diagnostics requests: txn-diag-poll: cannot acquire lease when draining
+W260425 15:26:56.175339 1178 sql/sqlliveness/slinstance/slinstance.go:337 ⋮ [T1,Vsystem,n3] 409  exiting heartbeat loop
+I260425 15:26:56.177925 1178 sql/sqlliveness/slinstance/slinstance.go:322 ⋮ [T1,Vsystem,n3] 410  draining heartbeat loop
+W260425 15:26:56.178241 1861 1@sql/stmtdiagnostics/statement_diagnostics.go:912 ⋮ [T1,Vsystem,n3] 411  error polling for statement diagnostics requests: stmt-diag-poll: cannot acquire lease when draining
+W260425 15:26:56.178272 327706 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 412  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.178782 327709 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 413  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+I260425 15:26:56.179072 327365 server/drain.go:520 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 414  SQL server drained successfully; SQL queries cannot execute any more
+I260425 15:26:56.179101 327365 server/drain.go:386 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 415  done draining clients
+W260425 15:26:56.179140 327710 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 416  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.179819 327761 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 417  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.180454 327767 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 418  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.183042 327742 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 419  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.183539 327770 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 420  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.184125 327721 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 421  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.184628 327722 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 422  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.185047 327725 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 423  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.185555 327745 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 424  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.186131 327726 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 425  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.186622 327729 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 426  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.187004 327844 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 427  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.187492 327858 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 428  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.188031 327777 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 429  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.188476 327845 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 430  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.189034 327876 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 431  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.189491 327827 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 432  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.189981 327830 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 433  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.190621 327879 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 434  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.191134 327861 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 435  while processing outgoing Raft queue to node 2: ‹EOF›:
+W260425 15:26:56.191669 327814 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 436  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.228577 327864 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 437  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+W260425 15:26:56.229776 327833 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 438  while processing outgoing Raft queue to node 2: ‹EOF›:
+E260425 15:26:56.254660 2338 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=default,rpc] 439  disconnected (was healthy for 35m59.031s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 15:26:56.255100 2338 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=default,rpc] 440  failed connection attempt (last connected 0s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26259: connect: connection refused"› [code 14/Unavailable]
+W260425 15:26:56.445340 328578 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 441  while processing outgoing Raft queue to node 2: grpc: ‹node unavailable; try another peer› [code 2/Unknown]:
+E260425 15:26:56.535131 2233 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=raft,rpc] 442  disconnected (was healthy for 35m59.312s): grpc: ‹connection error: desc = "transport: error while dialing: connection interrupted (did the remote node shut down or are there networking issues?)"› [code 14/Unavailable]
+E260425 15:26:56.543711 2233 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=raft,rpc] 443  failed connection attempt (last connected 9ms ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26259: connect: connection refused"› [code 14/Unavailable]
+E260425 15:26:56.914827 894 13@kv/kvserver/reports/reporter.go:154 ⋮ [T1,Vsystem,n3,replication-reporter] 444  failed to generate replication reports: failed to save constraint report: get-previous-timestamp: cannot acquire lease when draining
+W260425 15:26:57.045016 969 15@kv/kvserver/storeliveness/support_manager.go:370 ⋮ [T1,Vsystem,n3,s3] 445  failed to send heartbeat to store {NodeID:2 StoreID:2}
+E260425 15:26:57.080202 2331 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=system,rpc] 446  failed connection attempt (last connected 1.004s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26259: connect: connection refused"› [code 14/Unavailable]
+E260425 15:26:57.255455 2338 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=2,raddr=‹localhost:26259›,class=default,rpc] 447  failed connection attempt (last connected 1.001s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26259: connect: connection refused"› [code 14/Unavailable]
+W260425 15:26:57.975108 969 15@kv/kvserver/storeliveness/support_manager.go:370 ⋮ [T1,Vsystem,n3,s3] 448  failed to send heartbeat to store {NodeID:2 StoreID:2}
+I260425 15:26:58.087243 1 1@cli/start.go:1092 ⋮ [T1,Vsystem,n3] 449  received additional signal 'terminated'; continuing graceful shutdown
+W260425 15:26:58.925066 969 15@kv/kvserver/storeliveness/support_manager.go:370 ⋮ [T1,Vsystem,n3,s3] 450  failed to send heartbeat to store {NodeID:2 StoreID:2}
+W260425 15:26:59.924024 969 15@kv/kvserver/storeliveness/support_manager.go:370 ⋮ [T1,Vsystem,n3,s3] 451  failed to send heartbeat to store {NodeID:2 StoreID:2}
+I260425 15:27:00.080717 327366 1@cli/start.go:1064 ⋮ [T1,Vsystem,n3] 452  652 running tasks

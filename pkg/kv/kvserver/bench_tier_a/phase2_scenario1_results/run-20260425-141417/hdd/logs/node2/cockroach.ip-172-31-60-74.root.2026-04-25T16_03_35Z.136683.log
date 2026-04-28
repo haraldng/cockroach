@@ -1,0 +1,614 @@
+I260425 16:03:35.108175 1 util/log/file_sync_buffer.go:237 ⋮ [config]   file created at: 2026/04/25 16:03:35
+I260425 16:03:35.108188 1 util/log/file_sync_buffer.go:237 ⋮ [config]   running on machine: ‹ip-172-31-60-74›
+I260425 16:03:35.108195 1 util/log/file_sync_buffer.go:237 ⋮ [config]   binary: CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 16:03:35.108199 1 util/log/file_sync_buffer.go:237 ⋮ [config]   arguments: [‹./cockroach› ‹start› ‹--insecure› ‹--listen-addr=localhost:26258› ‹--http-addr=localhost:8081› ‹--store=/mnt/crdb2› ‹--join=localhost:26257,localhost:26258,localhost:26259› ‹--log-dir=/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2›]
+I260425 16:03:35.108210 1 util/log/file_sync_buffer.go:237 ⋮ [config]   log format (utf8=✓): crdb-v2
+I260425 16:03:35.108213 1 util/log/file_sync_buffer.go:237 ⋮ [config]   line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid [chan@]file:line redactionmark \[tags\] [counter] msg
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1  ALL SECURITY CONTROLS HAVE BEEN DISABLED!
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +This mode is intended for non-production testing only.
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +In this mode:
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Your cluster is open to any client that can access ‹localhost›.
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders with access to your machine or network can observe client-server traffic.
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders can log in without password and read or write any data in the cluster.
+W260425 16:03:35.108097 1 1@cli/start.go:1479 ⋮ [n?] 1 +- Intruders can consume all your server's resources and cause unavailability.
+I260425 16:03:35.108285 1 1@cli/start.go:1489 ⋮ [n?] 2  To start a secure server without mandating TLS for clients,
+I260425 16:03:35.108285 1 1@cli/start.go:1489 ⋮ [n?] 2 +consider --accept-sql-without-tls instead. For other options, see:
+I260425 16:03:35.108285 1 1@cli/start.go:1489 ⋮ [n?] 2 +
+I260425 16:03:35.108285 1 1@cli/start.go:1489 ⋮ [n?] 2 +- https://go.crdb.dev/issue-v/53404/dev
+I260425 16:03:35.108285 1 1@cli/start.go:1489 ⋮ [n?] 2 +- https://www.cockroachlabs.com/docs/dev/secure-a-cluster.html
+I260425 16:03:35.108474 1 server/status/recorder.go:1354 ⋮ [n?] 3  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+W260425 16:03:35.108487 1 1@cli/start.go:1378 ⋮ [n?] 4  Using the default setting for --cache (256 MiB).
+W260425 16:03:35.108487 1 1@cli/start.go:1378 ⋮ [n?] 4 +  A significantly larger value is usually needed for good performance.
+W260425 16:03:35.108487 1 1@cli/start.go:1378 ⋮ [n?] 4 +  If you have a dedicated server a reasonable setting is --cache=.25 (7.7 GiB).
+I260425 16:03:35.108606 1 server/status/recorder.go:1354 ⋮ [n?] 5  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 16:03:35.108615 1 1@cli/start.go:1518 ⋮ [n?] 6  CockroachDB CCL v26.3.0-alpha.00000000-dev (linux amd64, built , go1.26.2)
+I260425 16:03:35.108973 1 server/status/recorder.go:1354 ⋮ [n?] 7  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 16:03:35.108982 1 1@cli/start.go:572 ⋮ [n?] 8  soft memory limit of Go runtime is set to 17 GiB
+I260425 16:03:35.108997 1 1@cli/start.go:609 ⋮ [n?] 9  GC target percentage of Go runtime is set to 300%
+I260425 16:03:35.109302 1 server/status/recorder.go:1354 ⋮ [T1,Vsystem,n?] 10  ‹available memory from cgroups (8.0 EiB) is unsupported, using system memory 31 GiB instead: ›
+I260425 16:03:35.109313 1 server/config.go:690 ⋮ [T1,Vsystem,n?] 11  system total memory: 31 GiB
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12  server configuration:
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +max offset             500000000
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +cache size             256 MiB
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +SQL memory pool size   7.7 GiB
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan interval          10m0s
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan min idle time     10ms
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +scan max idle time     1s
+I260425 16:03:35.109319 1 server/config.go:692 ⋮ [T1,Vsystem,n?] 12 +event log enabled      true
+I260425 16:03:35.109370 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13  using local environment variables:
+I260425 16:03:35.109370 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13 +LANG=C.UTF-8
+I260425 16:03:35.109370 1 1@cli/start.go:1356 ⋮ [T1,Vsystem,n?] 13 +TERM=screen
+I260425 16:03:35.109380 1 1@cli/start.go:1363 ⋮ [T1,Vsystem,n?] 14  process identity: uid 0 euid 0 gid 0 egid 0
+W260425 16:03:35.109505 1 1@cli/start.go:1543 ⋮ [T1,Vsystem,n?] 15  could not initialize GEOS - spatial functions may not be available: geos: error during GEOS init: geos: cannot load GEOS from dir ‹"/usr/local/lib/cockroach"›: ‹geos error: /usr/local/lib/cockroach/libgeos.so: cannot open shared object file: No such file or directory›
+W260425 16:03:35.109505 1 1@cli/start.go:1543 ⋮ [T1,Vsystem,n?] 15 +HINT: ‹Ensure you have the spatial libraries installed as per the instructions in https://www.cockroachlabs.com/docs/dev/install-cockroachdb-linux›
+I260425 16:03:35.109556 1 1@cli/start.go:795 ⋮ [T1,Vsystem,n?] 16  starting cockroach node
+W260425 16:03:35.110073 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 17  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+W260425 16:03:35.110150 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 18  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+W260425 16:03:35.110191 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 19  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+I260425 16:03:35.999554 83 server/config.go:924 ⋮ [T1,Vsystem,n?] 20  1 storage engine initialized
+I260425 16:03:35.999595 83 server/config.go:927 ⋮ [T1,Vsystem,n?] 21  Pebble cache size: 256 MiB
+I260425 16:03:35.999618 83 server/config.go:927 ⋮ [T1,Vsystem,n?] 22  store 0: disk deviceID: 252:1
+I260425 16:03:35.999624 83 server/config.go:927 ⋮ [T1,Vsystem,n?] 23  store 0: max size 0 B, max open file limit 1043575
+I260425 16:03:35.999627 83 server/config.go:927 ⋮ [T1,Vsystem,n?] 24  store 0: /mnt/crdb2: rw encrypted=false fs:{bdev=/dev/mapper/crdb2 fstype=ext4 mountpoint=/mnt/crdb2 mountopts=rw,relatime}
+W260425 16:03:35.999971 83 server/status/runtime.go:909 ⋮ [T1,Vsystem,n?] 25  could not parse build timestamp: ‹parsing time "" as "2006/01/02 15:04:05": cannot parse "" as "2006"›
+I260425 16:03:36.002217 83 server/goroutinedumper/goroutinedumper.go:162 ⋮ [T1,Vsystem,n?] 26  writing goroutine dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/goroutine_dump›
+I260425 16:03:36.008946 164 util/cidr/cidr.go:299 ⋮ [T1,Vsystem,n?] 27  CIDR lookup updated with 0 destinations
+W260425 16:03:36.011349 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 28  unsupported device type 252:1 for store at ‹"/mnt/crdb2/cockroach-temp3897079241"›
+W260425 16:03:36.011450 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 29  unsupported device type 252:1 for store at ‹"/mnt/crdb2/cockroach-temp3897079241"›
+I260425 16:03:36.954361 83 1@server/clock_monotonicity.go:61 ⋮ [T1,Vsystem,n?] 30  monitoring forward clock jumps based on server.clock.forward_jump_check.enabled
+W260425 16:03:36.955195 83 1@cli/start.go:1317 ⋮ [T1,Vsystem,n?] 31  Running a server without --sql-addr, with a combined RPC/SQL listener, is deprecated.
+W260425 16:03:36.955195 83 1@cli/start.go:1317 ⋮ [T1,Vsystem,n?] 31 +This feature will be removed in a later version of CockroachDB.
+I260425 16:03:36.955226 83 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32  initial startup completed.
+I260425 16:03:36.955226 83 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Node will now attempt to join a running cluster, or wait for `cockroach init`.
+I260425 16:03:36.955226 83 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Client connections will be accepted after this completes successfully.
+I260425 16:03:36.955226 83 1@cli/start.go:1597 ⋮ [T1,Vsystem,n?] 32 +Check the log file(s) for progress. 
+I260425 16:03:36.955242 83 server/init.go:200 ⋮ [T1,Vsystem,n?] 33  no stores initialized
+I260425 16:03:36.955250 83 server/init.go:201 ⋮ [T1,Vsystem,n?] 34  awaiting `cockroach init` or join with an already initialized node
+I260425 16:03:36.956114 645 server/init.go:376 ⋮ [T1,Vsystem,n?] 35  ‹localhost:26257› is itself waiting for init, will retry
+I260425 16:03:36.956792 645 server/init.go:376 ⋮ [T1,Vsystem,n?] 36  ‹localhost:26259› is itself waiting for init, will retry
+I260425 16:03:37.957929 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 37  ‹localhost:26257› is itself waiting for init, will retry
+I260425 16:03:38.958390 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 38  ‹localhost:26259› is itself waiting for init, will retry
+I260425 16:03:39.958143 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 39  ‹localhost:26257› is itself waiting for init, will retry
+I260425 16:03:40.958401 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 40  ‹localhost:26259› is itself waiting for init, will retry
+I260425 16:03:41.958646 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 41  ‹localhost:26257› is itself waiting for init, will retry
+I260425 16:03:42.958114 645 server/init.go:422 ⋮ [T1,Vsystem,n?] 42  ‹localhost:26259› is itself waiting for init, will retry
+I260425 16:03:44.502870 83 server/init.go:288 ⋮ [T1,Vsystem,n?] 43  joined cluster b58840d0-7b95-4c2d-b5fd-4f8f7bf2a163 through join rpc
+I260425 16:03:44.502890 83 server/init.go:289 ⋮ [T1,Vsystem,n?] 44  received node ID: 3
+I260425 16:03:44.502898 83 server/init.go:290 ⋮ [T1,Vsystem,n?] 45  received cluster version: 1000026.2-upgrading-to-1000026.3-step-006
+I260425 16:03:44.504610 83 1@obs/ash/sampler.go:212 ⋮ [T1,Vsystem,n3] 46  starting ASH sampler
+W260425 16:03:44.504727 83 2@gossip/gossip.go:1493 ⋮ [T1,Vsystem,n3] 47  no incoming or outgoing connections
+I260425 16:03:44.510605 428 1@server/server.go:1976 ⋮ [T1,Vsystem,n3] 48  connecting to gossip network to verify cluster ID "b58840d0-7b95-4c2d-b5fd-4f8f7bf2a163"
+I260425 16:03:44.510757 930 gossip/client.go:412 ⋮ [T1,Vsystem,n3] 49  unvalidated bootstrap gossip dial to ‹localhost:26257›
+I260425 16:03:44.513078 930 gossip/client.go:127 ⋮ [T1,Vsystem,n3] 50  started gossip client to n0 (‹localhost:26257›)
+I260425 16:03:44.513368 428 1@server/server.go:1979 ⋮ [T1,Vsystem,n3] 51  node connected via gossip
+I260425 16:03:44.543913 834 server/node.go:697 ⋮ [T1,Vsystem,n3] 52  initialized store s3 in 39ms (0 replicas)
+I260425 16:03:44.612230 83 server/node.go:808 ⋮ [T1,Vsystem,n3] 53  started with attributes []
+I260425 16:03:44.612376 83 server/profiler/heapprofiler.go:74 ⋮ [T1,Vsystem,n3] 54  writing go heap profiles to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/heap_profiler› at least every 1h0m0s
+I260425 16:03:44.612395 83 server/profiler/memory_monitoring_profiler.go:66 ⋮ [T1,Vsystem,n3] 55  writing memory monitoring dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/heap_profiler› at least every 1h0m0s
+I260425 16:03:44.612405 83 server/profiler/cgoprofiler.go:66 ⋮ [T1,Vsystem,n3] 56  to enable jmalloc profiling: "export MALLOC_CONF=prof:true" or "ln -s prof:true /etc/malloc.conf"
+I260425 16:03:44.612415 83 server/profiler/statsprofiler.go:68 ⋮ [T1,Vsystem,n3] 57  writing memory stats to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/heap_profiler› at last every 1h0m0s
+I260425 16:03:44.612568 83 server/profiler/activequeryprofiler.go:88 ⋮ [T1,Vsystem,n3] 58  writing go query profiles to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/heap_profiler›
+I260425 16:03:44.613121 83 server/profiler/cpuprofiler.go:87 ⋮ [T1,Vsystem,n3] 59  writing cpu profile dumps to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/pprof_dump›
+I260425 16:03:44.613132 83 server/profiler/ashreportprofiler.go:67 ⋮ [T1,Vsystem,n3] 60  writing ASH reports to ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2/heap_profiler›
+W260425 16:03:44.613236 83 1@storage/disk/platform_linux.go:186 ⋮ [-] 61  unsupported device type 252:1 for store at ‹"/mnt/crdb2"›
+I260425 16:03:44.613605 83 1@server/server.go:2178 ⋮ [T1,Vsystem,n3] 62  starting http server at ‹127.0.0.1:8081› (use: ‹localhost:8081›)
+I260425 16:03:44.613627 83 1@server/server.go:2186 ⋮ [T1,Vsystem,n3] 63  starting grpc/postgres server at ‹127.0.0.1:26258›
+I260425 16:03:44.613646 83 1@server/server.go:2187 ⋮ [T1,Vsystem,n3] 64  advertising CockroachDB node at ‹localhost:26258›
+W260425 16:03:44.613941 83 1@server/status/runtime.go:1686 ⋮ [T1,Vsystem,n3,summaries] 65  unable to read cgroup CPU settings: error when read cpu quota from cgroup v2 at ‹/sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope/cpu.max›: open ‹/sys/fs/cgroup/user.slice/user-1000.slice/session-1.scope/cpu.max›: no such file or directory; falling back to OS-reported CPU count
+I260425 16:03:44.722276 83 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3] 66 ={"Timestamp":1777133024722273221,"EventType":"node_join","NodeID":3,"StartedAt":1777133024504777645,"LastUp":1777133024504777645}
+I260425 16:03:44.722427 1177 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 67  spanconfig-subscriber: established range feed cache
+I260425 16:03:44.722460 1179 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 68  settings-watcher: established range feed cache
+I260425 16:03:44.724138 83 sql/sqlliveness/slinstance/slinstance.go:446 ⋮ [T1,Vsystem,n3] 69  starting SQL liveness instance
+I260425 16:03:44.790596 1159 sql/sqlliveness/slstorage/slstorage.go:540 ⋮ [T1,Vsystem,n3] 70  inserted sqlliveness session 010180fb494fda171d4f8288df0d77e81e2b5c with expiry 1777133064.724184069,0
+I260425 16:03:44.790644 1159 sql/sqlliveness/slinstance/slinstance.go:248 ⋮ [T1,Vsystem,n3] 71  created new SQL liveness session 010180fb494fda171d4f8288df0d77e81e2b5c
+I260425 16:03:44.790677 83 sql/sqlinstance/instancestorage/instancestorage.go:338 ⋮ [T1,Vsystem,n3] 72  assigning instance id to rpc addr ‹localhost:26258› and sql addr ‹localhost:26258›
+I260425 16:03:44.860454 83 server/server_sql.go:1664 ⋮ [T1,Vsystem,n3] 73  bound sqlinstance: Instance{RegionPrefix: gA==, InstanceID: 3, SQLAddr: ‹localhost:26258›, RPCAddr: ‹localhost:26258›, SessionID: 010180fb494fda171d4f8288df0d77e81e2b5c, Locality: , BinaryVersion: 1000026.2-upgrading-to-1000026.3-step-006}
+I260425 16:03:44.860586 1203 sql/temporary_schema.go:705 ⋮ [T1,Vsystem,n3] 74  skipping temporary object cleanup run as it is not the leaseholder
+I260425 16:03:44.860629 1203 sql/temporary_schema.go:706 ⋮ [T1,Vsystem,n3] 75  completed temporary object cleanup job
+I260425 16:03:44.860643 1203 sql/temporary_schema.go:874 ⋮ [T1,Vsystem,n3] 76  temporary object cleaner next scheduled to run at 2026-04-25 16:33:44.860576755 +0000 UTC m=+1809.962255937
+I260425 16:03:44.860644 1208 sql/sqlstats/persistedsqlstats/provider.go:157 ⋮ [T1,Vsystem,n3] 77  starting sql-stats-worker with initial delay: 9m54.184294382s
+I260425 16:03:44.860593 83 sql/catalog/lease/lease.go:3186 ⋮ [T1,Vsystem,n3] 78  starting lease manager rangefeed at timestamp 1777133024.860592142,0
+I260425 16:03:44.861274 83 upgrade/upgrademanager/manager.go:178 ⋮ [T1,Vsystem,n3] 79  running permanent upgrades up to version: 1000026.2-upgrading-to-1000026.3-step-006
+I260425 16:03:44.861414 1185 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 80  system-config-cache: established range feed cache
+I260425 16:03:45.270401 83 upgrade/upgrademanager/manager.go:244 ⋮ [T1,Vsystem,n3] 81  the last permanent upgrade (v0.0-upgrading-step-004) does not appear to have completed; attempting to run all upgrades
+I260425 16:03:45.270442 83 upgrade/upgrademanager/manager.go:250 ⋮ [T1,Vsystem,n3] 82  running permanent upgrade for version 0.0-upgrading-step-002
+I260425 16:03:45.463350 433 1@gossip/gossip.go:1507 ⋮ [T1,Vsystem,n3] 83  node has connected to cluster via gossip
+I260425 16:03:45.475864 1137 spanconfig/spanconfigmanager/manager.go:138 ⋮ [T1,Vsystem,n3] 84  started auto span config reconciliation job
+I260425 16:03:45.475948 1361 jobs/adopt.go:311 ⋮ [T1,Vsystem,n3,job=1170022809144721411] 85  job 1170022809144721411: resuming execution
+I260425 16:03:45.609955 1391 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170022809144721411] 86  AUTO SPAN CONFIG RECONCILIATION job 1170022809144721411: stepping through state running
+I260425 16:03:45.746725 1391 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170022809144721411] 87 ={"Timestamp":1777133025746721434,"EventType":"status_change","JobID":1170022809144721411,"JobType":"AUTO SPAN CONFIG RECONCILIATION","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:03:45.887216 83 upgrade/upgrademanager/manager.go:815 ⋮ [T1,Vsystem,n3] 88  found existing migration job 1170022810486603778 for version 0.0-upgrading-step-002 in status running, waiting
+I260425 16:03:45.887300 83 upgrade/upgrademanager/manager.go:721 ⋮ [T1,Vsystem,n3] 89  waiting for intitialize the system cluster
+I260425 16:03:45.887310 83 jobs/wait.go:56 ⋮ [T1,Vsystem,n3] 90  waiting for 1 [1170022810486603778] queued jobs to complete
+I260425 16:03:47.116526 1391 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:250 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170022809144721411] 91  established range feed over system.descriptors starting at time 1777133025.818945808,0
+I260425 16:03:47.116570 1391 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:309 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170022809144721411] 92  established range feed over system.zones starting at time 1777133025.818945808,0
+I260425 16:03:47.116613 1391 spanconfig/spanconfigsqlwatcher/sqlwatcher.go:410 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170022809144721411] 93  established range feed over system.protected_ts_records starting at time 1777133025.818945808,0
+I260425 16:03:47.389495 83 jobs/wait.go:148 ⋮ [T1,Vsystem,n3] 94  waited for 1 [1170022810486603778] queued jobs to complete 1.502170292s
+I260425 16:03:47.389523 83 upgrade/upgrademanager/manager.go:250 ⋮ [T1,Vsystem,n3] 95  running permanent upgrade for version 0.0-upgrading-step-004
+I260425 16:03:47.526777 83 upgrade/upgrademanager/manager.go:728 ⋮ [T1,Vsystem,n3] 96  running intitialize the cluster
+I260425 16:03:47.526867 1906 jobs/adopt.go:311 ⋮ [T1,Vsystem,n3,job=1170022817430011907] 97  job 1170022817430011907: resuming execution
+I260425 16:03:47.670789 1939 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170022817430011907] 98  MIGRATION job 1170022817430011907: stepping through state running
+I260425 16:03:47.817903 1939 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170022817430011907] 99 ={"Timestamp":1777133027817898989,"EventType":"status_change","JobID":1170022817430011907,"JobType":"MIGRATION","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:03:47.819918 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 100  executing bootstrap step ‹"add users and roles"›
+I260425 16:03:48.190186 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 101  executing bootstrap step ‹"enable diagnostics reporting"›
+I260425 16:03:48.332997 1950 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=optInToDiagnosticsStatReporting] 102 ={"Timestamp":1777133028332849564,"EventType":"set_cluster_setting","Statement":"SET CLUSTER SETTING \"diagnostics.reporting.enabled\" = true","Tag":"SET CLUSTER SETTING","User":"node","ApplicationName":"$ internal-optInToDiagnosticsStatReporting","TxnReadTimestamp":1777133028190472218,"SettingName":"diagnostics.reporting.enabled","Value":"‹true›","DefaultValue":"‹true›"}
+I260425 16:03:48.333091 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 103  executing bootstrap step ‹"initialize the cluster.secret setting"›
+I260425 16:03:48.408189 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 104  executing bootstrap step ‹"update system.locations with default location data"›
+I260425 16:03:48.856520 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 105  executing bootstrap step ‹"create default databases"›
+I260425 16:03:49.072043 2043 sql/schemachanger/scbuild/event_log.go:61 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 106  event logging for declarative schema change targets built for CREATE DATABASE
+I260425 16:03:49.072238 2043 sql/schemachanger/scplan/plan.go:97 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 107  building declarative schema changer plan in StatementPhase (rollback=false) for CREATE DATABASE
+I260425 16:03:49.074614 2043 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 108  executing declarative schema change StatementPhase stage 1 of 1 with 17 MutationType ops (rollback=false) for CREATE DATABASE
+I260425 16:03:49.074970 2043 sql/schemachanger/scplan/plan.go:97 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 109  building declarative schema changer plan in PreCommitPhase (rollback=false) for CREATE DATABASE
+I260425 16:03:49.076503 2043 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 110  executing declarative schema change PreCommitPhase stage 1 of 2 with 1 MutationType op (rollback=false) for CREATE DATABASE
+I260425 16:03:49.076529 2043 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 111  executing declarative schema change PreCommitPhase stage 2 of 2 with 17 MutationType ops (rollback=false) for CREATE DATABASE
+I260425 16:03:49.565930 2048 sql/schemachanger/scbuild/event_log.go:61 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 112  event logging for declarative schema change targets built for CREATE DATABASE
+I260425 16:03:49.566096 2048 sql/schemachanger/scplan/plan.go:97 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 113  building declarative schema changer plan in StatementPhase (rollback=false) for CREATE DATABASE
+I260425 16:03:49.567750 2048 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 114  executing declarative schema change StatementPhase stage 1 of 1 with 17 MutationType ops (rollback=false) for CREATE DATABASE
+I260425 16:03:49.568020 2048 sql/schemachanger/scplan/plan.go:97 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 115  building declarative schema changer plan in PreCommitPhase (rollback=false) for CREATE DATABASE
+I260425 16:03:49.569544 2048 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 116  executing declarative schema change PreCommitPhase stage 1 of 2 with 1 MutationType op (rollback=false) for CREATE DATABASE
+I260425 16:03:49.569570 2048 sql/schemachanger/scrun/scrun.go:186 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=create-default-DB] 117  executing declarative schema change PreCommitPhase stage 2 of 2 with 17 MutationType ops (rollback=false) for CREATE DATABASE
+I260425 16:03:49.646712 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 118  executing bootstrap step ‹"create jobs metrics polling job"›
+I260425 16:03:49.696258 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 119  executing bootstrap step ‹"create sql activity updater job"›
+I260425 16:03:49.771868 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 120  executing bootstrap step ‹"create mvcc stats job"›
+I260425 16:03:49.845115 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 121  executing bootstrap step ‹"create update cached table metadata job"›
+I260425 16:03:49.917567 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 122  executing bootstrap step ‹"maybe initialize replication standby read-only catalog"›
+I260425 16:03:49.917604 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 123  executing bootstrap step ‹"create sql activity flush job"›
+I260425 16:03:49.994052 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 124  executing bootstrap step ‹"configure sql activity table TTLs"›
+I260425 16:03:50.063933 2031 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=set-SQLStatsTables-TTL] 125 ={"Timestamp":1777133029997858011,"EventType":"set_zone_config","Statement":"ALTER TABLE \"\".system.statement_statistics CONFIGURE ZONE USING \"gc.ttlseconds\" = $1","Tag":"CONFIGURE ZONE","User":"node","DescriptorID":42,"ApplicationName":"$ internal-set-SQLStatsTables-TTL","PlaceholderValues":["‹3600›"],"TxnReadTimestamp":1777133029994297033,"Target":"‹TABLE system.public.statement_statistics›","Options":["‹\"gc.ttlseconds\" = 3600›"],"ResolvedOldConfig":"‹range_min_bytes:134217728 range_max_bytes:536870912 gc:<ttl_seconds:14400 > num_replicas:5 inherited_constraints:false null_voter_constraints_is_empty:true inherited_lease_preferences:false ›"}
+I260425 16:03:50.136232 2079 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=set-SQLStatsTables-TTL] 126 ={"Timestamp":1777133030067929395,"EventType":"set_zone_config","Statement":"ALTER TABLE \"\".system.transaction_statistics CONFIGURE ZONE USING \"gc.ttlseconds\" = $1","Tag":"CONFIGURE ZONE","User":"node","DescriptorID":43,"ApplicationName":"$ internal-set-SQLStatsTables-TTL","PlaceholderValues":["‹3600›"],"TxnReadTimestamp":1777133030064346575,"Target":"‹TABLE system.public.transaction_statistics›","Options":["‹\"gc.ttlseconds\" = 3600›"],"ResolvedOldConfig":"‹range_min_bytes:134217728 range_max_bytes:536870912 gc:<ttl_seconds:14400 > num_replicas:5 inherited_constraints:false null_voter_constraints_is_empty:true inherited_lease_preferences:false ›"}
+I260425 16:03:50.208505 2199 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=set-SQLStatsTables-TTL] 127 ={"Timestamp":1777133030138598156,"EventType":"set_zone_config","Statement":"ALTER TABLE \"\".system.statement_activity CONFIGURE ZONE USING \"gc.ttlseconds\" = $1","Tag":"CONFIGURE ZONE","User":"node","DescriptorID":61,"ApplicationName":"$ internal-set-SQLStatsTables-TTL","PlaceholderValues":["‹3600›"],"TxnReadTimestamp":1777133030136562921,"Target":"‹TABLE system.public.statement_activity›","Options":["‹\"gc.ttlseconds\" = 3600›"],"ResolvedOldConfig":"‹range_min_bytes:134217728 range_max_bytes:536870912 gc:<ttl_seconds:14400 > num_replicas:5 inherited_constraints:false null_voter_constraints_is_empty:true inherited_lease_preferences:false ›"}
+I260425 16:03:50.284326 2212 1@util/log/event_log.go:90 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004,intExec=set-SQLStatsTables-TTL] 128 ={"Timestamp":1777133030210788332,"EventType":"set_zone_config","Statement":"ALTER TABLE \"\".system.transaction_activity CONFIGURE ZONE USING \"gc.ttlseconds\" = $1","Tag":"CONFIGURE ZONE","User":"node","DescriptorID":62,"ApplicationName":"$ internal-set-SQLStatsTables-TTL","PlaceholderValues":["‹3600›"],"TxnReadTimestamp":1777133030208848301,"Target":"‹TABLE system.public.transaction_activity›","Options":["‹\"gc.ttlseconds\" = 3600›"],"ResolvedOldConfig":"‹range_min_bytes:134217728 range_max_bytes:536870912 gc:<ttl_seconds:14400 > num_replicas:5 inherited_constraints:false null_voter_constraints_is_empty:true inherited_lease_preferences:false ›"}
+I260425 16:03:50.284460 1939 upgrade/upgrades/permanent_upgrades.go:98 ⋮ [T1,Vsystem,n3,job=MIGRATION id=1170022817430011907,upgrade=0.0-upgrading-step-004] 129  executing bootstrap step ‹"create hot range logger job"›
+I260425 16:03:50.433305 1939 jobs/registry.go:1622 ⋮ [T1,Vsystem,n3,job=1170022817430011907] 130  MIGRATION job 1170022817430011907: stepping through state succeeded
+I260425 16:03:50.944726 1939 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3,job=1170022817430011907] 131 ={"Timestamp":1777133030944722727,"EventType":"status_change","JobID":1170022817430011907,"JobType":"MIGRATION","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:03:51.093730 83 jobs/wait.go:148 ⋮ [T1,Vsystem,n3] 132  waited for 1 [1170022817430011907] queued jobs to complete 3.566911447s
+I260425 16:03:51.093758 83 server/server_sql.go:1767 ⋮ [T1,Vsystem,n3] 133  done ensuring all necessary startup migrations have run
+I260425 16:03:51.094891 2325 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 134  statement-hints-watcher: established range feed cache
+I260425 16:03:51.095180 83 server/license/enforcer.go:257 ⋮ [T1,Vsystem,n3] 135  trial license expiry initialized to 1970-01-01 00:00:00 +0000 UTC
+I260425 16:03:51.096935 83 server/license/enforcer.go:288 ⋮ [T1,Vsystem,n3] 136  generated new cluster init grace period end time: 2026-05-02 16:03:35.039022435 +0000 UTC
+I260425 16:03:51.173211 83 server/license/enforcer.go:493 ⋮ [T1,Vsystem,n3] 137  enforcer license updated: type is none, grace period ends at "2026-05-02 16:03:35 +0000 UTC", telemetry required: false
+I260425 16:03:51.173250 83 server/license/enforcer.go:493 ⋮ [T1,Vsystem,n3] 138  enforcer license updated: type is none, grace period ends at "2026-05-02 16:03:35 +0000 UTC", telemetry required: false
+I260425 16:03:51.174183 2288 jobs/job_scheduler.go:407 ⋮ [T1,Vsystem,n3] 139  waiting 2m0s before scheduled jobs daemon start
+I260425 16:03:51.175069 2388 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 140  tenant-settings-watcher: established range feed cache
+I260425 16:03:51.175476 2404 kv/kvclient/rangefeed/rangefeedcache/watcher.go:341 ⋮ [T1,Vsystem,n3] 141  tenant-entry-watcher: established range feed cache
+I260425 16:03:51.176025 2404 multitenant/tenantcapabilities/tenantcapabilitieswatcher/watcher.go:285 ⋮ [T1,Vsystem,n3] 142  received results of a full table scan for tenant capabilities
+I260425 16:03:51.176120 2327 sql/syntheticprivilegecache/cache.go:204 ⋮ [T1,Vsystem,n3] 143  warmed privileges for virtual tables in 81.169753ms
+I260425 16:03:51.176312 83 1@server/server_sql.go:2033 ⋮ [T1,Vsystem,n3] 144  serving sql connections
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145  node startup completed:
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +CockroachDB node starting at 2026-04-25 16:03:51.176330988 +0000 UTC m=+16.278010161 (took 16.1s)
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +build:               CCL v26.3.0-alpha.00000000-dev @  (go1.26.2)
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +malloc_conf:         prof:false,prof_active:true,background_thread:true,thp:never,metadata_thp:disabled,narenas:64,dirty_decay_ms:2000,muzzy_decay_ms:0
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +webui:               ‹http://localhost:8081›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +sql:                 ‹postgresql://root@localhost:26258/defaultdb?sslmode=disable›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +sql (JDBC):          ‹jdbc:postgresql://localhost:26258/defaultdb?sslmode=disable&user=root›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +RPC client flags:    ‹./cockroach <client cmd> --host=localhost:26258 --insecure›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +logs:                ‹/home/ubuntu/cockroach/pkg/kv/kvserver/bench_tier_a/phase2_scenario1_results/run-20260425-141417/hdd/logs/node2›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +temp dir:            ‹/mnt/crdb2/cockroach-temp3897079241›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +external I/O path:   ‹/mnt/crdb2/extern›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +store[0]:            ‹path=/mnt/crdb2›
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +clusterID:           b58840d0-7b95-4c2d-b5fd-4f8f7bf2a163
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +status:              initialized new node, joined pre-existing cluster
+I260425 16:03:51.176396 83 1@cli/start.go:1304 ⋮ [T1,Vsystem,n3] 145 +nodeID:              3
+I260425 16:03:51.181292 2375 server/auto_upgrade.go:81 ⋮ [T1,Vsystem,n3] 146  no need to upgrade, cluster already at the newest version
+I260425 16:03:51.245527 2325 sql/hints/hint_cache.go:224 ⋮ [T1,Vsystem,n3] 147  statement_hints rangefeed completed initial scan
+I260425 16:03:51.246843 2300 sql/catalog/lease/lease.go:3823 ⋮ [T1,Vsystem,n3] 148  starting orphaned lease cleanup from stale sessions in default region (0x80)
+I260425 16:03:51.319754 2300 sql/catalog/lease/lease.go:3883 ⋮ [T1,Vsystem,n3] 149  completed orphaned lease cleanup for default region (0x80): 0 sessions processed, 0 leases deleted
+I260425 16:03:51.321593 2300 sql/catalog/lease/lease.go:3980 ⋮ [T1,Vsystem,n3] 150  found 0 orphaned leases to clean up for instance ID 3
+W260425 16:04:14.729152 1175 server/node.go:1591 ⋮ [T1,Vsystem,n3,summaries] 151  health alerts detected: ranges.underreplicated@s3=1
+W260425 16:04:34.728428 1175 server/node.go:1591 ⋮ [T1,Vsystem,n3,summaries] 152  health alerts detected: ranges.underreplicated@s3=1
+I260425 16:04:51.739556 5666 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 153 ={"Timestamp":1777133091739552200,"EventType":"status_change","JobID":1170023026359042051,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:04:51.739835 5666 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023026359042051,create-stats-distsql] 154  using computed sample size of 10000 for histogram construction
+I260425 16:04:53.531057 5666 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 155 ={"Timestamp":1777133093531054674,"EventType":"status_change","JobID":1170023026359042051,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:04:54.772743 5886 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 156 ={"Timestamp":1777133094772738879,"EventType":"status_change","JobID":1170023035846623235,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:04:54.773065 5886 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023035846623235,create-stats-distsql] 157  using computed sample size of 10000 for histogram construction
+I260425 16:04:56.717642 5886 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 158 ={"Timestamp":1777133096717638417,"EventType":"status_change","JobID":1170023035846623235,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:04:57.476634 6162 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 159 ={"Timestamp":1777133097476631417,"EventType":"status_change","JobID":1170023045661130755,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:04:57.476909 6162 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023045661130755,create-stats-distsql] 160  using computed sample size of 10000 for histogram construction
+I260425 16:04:59.270568 6162 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 161 ={"Timestamp":1777133099270564861,"EventType":"status_change","JobID":1170023045661130755,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:00.234374 6325 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 162 ={"Timestamp":1777133100234371464,"EventType":"status_change","JobID":1170023054163279875,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:00.234669 6325 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023054163279875,create-stats-distsql] 163  using computed sample size of 10000 for histogram construction
+I260425 16:05:02.261604 6325 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 164 ={"Timestamp":1777133102261600273,"EventType":"status_change","JobID":1170023054163279875,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:02.974485 6612 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 165 ={"Timestamp":1777133102974481657,"EventType":"status_change","JobID":1170023063562813443,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:02.974777 6612 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023063562813443,create-stats-distsql] 166  using computed sample size of 10000 for histogram construction
+I260425 16:05:04.498384 6612 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 167 ={"Timestamp":1777133104498381216,"EventType":"status_change","JobID":1170023063562813443,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:05.195556 6785 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 168 ={"Timestamp":1777133105195552689,"EventType":"status_change","JobID":1170023070955405315,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:05.195822 6785 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023070955405315,create-stats-distsql] 169  using computed sample size of 10000 for histogram construction
+I260425 16:05:07.043535 6785 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 170 ={"Timestamp":1777133107043531656,"EventType":"status_change","JobID":1170023070955405315,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:07.975294 7155 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 171 ={"Timestamp":1777133107975290082,"EventType":"status_change","JobID":1170023080015462403,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:07.975569 7155 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023080015462403,create-stats-distsql] 172  using computed sample size of 10000 for histogram construction
+I260425 16:05:09.261677 7155 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 173 ={"Timestamp":1777133109261673315,"EventType":"status_change","JobID":1170023080015462403,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:10.386640 7351 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 174 ={"Timestamp":1777133110386636902,"EventType":"status_change","JobID":1170023086785200131,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:10.387208 7351 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023086785200131,create-stats-distsql] 175  using computed sample size of 10000 for histogram construction
+I260425 16:05:12.870451 7351 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 176 ={"Timestamp":1777133112870447530,"EventType":"status_change","JobID":1170023086785200131,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:13.622456 7481 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 177 ={"Timestamp":1777133113622451988,"EventType":"status_change","JobID":1170023098544619523,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:13.622851 7481 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023098544619523,create-stats-distsql] 178  using computed sample size of 10000 for histogram construction
+I260425 16:05:14.815077 7481 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 179 ={"Timestamp":1777133114815073786,"EventType":"status_change","JobID":1170023098544619523,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:15.565442 7692 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 180 ={"Timestamp":1777133115565438850,"EventType":"status_change","JobID":1170023105028456451,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:15.565711 7692 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023105028456451,create-stats-distsql] 181  using computed sample size of 10000 for histogram construction
+I260425 16:05:17.148555 7692 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 182 ={"Timestamp":1777133117148550841,"EventType":"status_change","JobID":1170023105028456451,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:17.867508 8012 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 183 ={"Timestamp":1777133117867503905,"EventType":"status_change","JobID":1170023112296759299,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:17.867809 8012 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023112296759299,create-stats-distsql] 184  using computed sample size of 10000 for histogram construction
+I260425 16:05:19.492430 8012 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 185 ={"Timestamp":1777133119492426448,"EventType":"status_change","JobID":1170023112296759299,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:20.497556 8229 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 186 ={"Timestamp":1777133120497551966,"EventType":"status_change","JobID":1170023120319381507,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:20.497903 8229 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023120319381507,create-stats-distsql] 187  using computed sample size of 10000 for histogram construction
+I260425 16:05:21.832732 8229 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 188 ={"Timestamp":1777133121832728643,"EventType":"status_change","JobID":1170023120319381507,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:22.555802 8316 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 189 ={"Timestamp":1777133122555797648,"EventType":"status_change","JobID":1170023127868243971,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:22.556129 8316 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023127868243971,create-stats-distsql] 190  using computed sample size of 10000 for histogram construction
+I260425 16:05:24.039397 8316 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 191 ={"Timestamp":1777133124039394148,"EventType":"status_change","JobID":1170023127868243971,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:24.767895 8599 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 192 ={"Timestamp":1777133124767881738,"EventType":"status_change","JobID":1170023135088508931,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:24.768205 8599 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023135088508931,create-stats-distsql] 193  using computed sample size of 10000 for histogram construction
+I260425 16:05:25.829240 8599 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 194 ={"Timestamp":1777133125829235708,"EventType":"status_change","JobID":1170023135088508931,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:26.555338 8784 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 195 ={"Timestamp":1777133126555333983,"EventType":"status_change","JobID":1170023140981473283,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:26.555674 8784 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023140981473283,create-stats-distsql] 196  using computed sample size of 10000 for histogram construction
+I260425 16:05:27.726456 8784 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 197 ={"Timestamp":1777133127726452226,"EventType":"status_change","JobID":1170023140981473283,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:28.473489 9095 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 198 ={"Timestamp":1777133128473486333,"EventType":"status_change","JobID":1170023147320967171,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:28.473850 9095 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023147320967171,create-stats-distsql] 199  using computed sample size of 10000 for histogram construction
+I260425 16:05:31.271523 9095 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 200 ={"Timestamp":1777133131271518937,"EventType":"status_change","JobID":1170023147320967171,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:32.015556 9362 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 201 ={"Timestamp":1777133132015552031,"EventType":"status_change","JobID":1170023158729834499,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:32.016209 9362 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023158729834499,create-stats-distsql] 202  using computed sample size of 10000 for histogram construction
+I260425 16:05:35.928599 9362 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 203 ={"Timestamp":1777133135928595500,"EventType":"status_change","JobID":1170023158729834499,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:36.739625 9735 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 204 ={"Timestamp":1777133136739621014,"EventType":"status_change","JobID":1170023174221987843,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:36.740144 9735 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023174221987843,create-stats-distsql] 205  using computed sample size of 10000 for histogram construction
+I260425 16:05:41.290737 9735 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 206 ={"Timestamp":1777133141290733471,"EventType":"status_change","JobID":1170023174221987843,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:42.087392 10021 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 207 ={"Timestamp":1777133142087388785,"EventType":"status_change","JobID":1170023191863525379,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:42.087736 10021 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023191863525379,create-stats-distsql] 208  using computed sample size of 10000 for histogram construction
+I260425 16:05:43.802631 10021 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 209 ={"Timestamp":1777133143802627419,"EventType":"status_change","JobID":1170023191863525379,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:44.399150 10294 sql/create_stats.go:284 ⋮ [T1,Vsystem,n3,intExec=create-stats] 210  concurrent create stats job found, skipping
+I260425 16:05:45.247927 10386 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 211 ={"Timestamp":1777133145247923362,"EventType":"status_change","JobID":1170023201556365315,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:45.248472 10386 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023201556365315,create-stats-distsql] 212  using computed sample size of 10000 for histogram construction
+I260425 16:05:45.637647 10386 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023201556365315,create-stats-distsql] 213  using computed sample size of 10000 for histogram construction
+I260425 16:05:45.918400 10386 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023201556365315,create-stats-distsql] 214  using computed sample size of 10000 for histogram construction
+I260425 16:05:46.232840 10386 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023201556365315,create-stats-distsql] 215  using computed sample size of 10000 for histogram construction
+I260425 16:05:47.682395 10386 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 216 ={"Timestamp":1777133147682392045,"EventType":"status_change","JobID":1170023201556365315,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:05:48.707547 10702 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 217 ={"Timestamp":1777133148707544005,"EventType":"status_change","JobID":1170023213619642371,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:48.707930 10702 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023213619642371,create-stats-distsql] 218  using computed sample size of 10000 for histogram construction
+I260425 16:05:50.286646 10702 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 219 ={"Timestamp":1777133150286642903,"EventType":"status_change","JobID":1170023213619642371,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 16:05:50.746106 4063 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 220  failed to create statistics on table 48: create-stats: cannot create statistics on *sql.optSequence
+W260425 16:05:50.916537 4063 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 221  failed to create statistics on table 63: create-stats: cannot create statistics on *sql.optSequence
+I260425 16:05:51.344601 10971 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 222 ={"Timestamp":1777133151344597612,"EventType":"status_change","JobID":1170023222204727299,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:05:51.346364 10971 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023222204727299,create-stats-distsql] 223  using computed sample size of 10000 for histogram construction
+I260425 16:05:52.095101 10971 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 224 ={"Timestamp":1777133152095096252,"EventType":"status_change","JobID":1170023222204727299,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 16:05:52.464390 4063 sql/stats/automatic_stats.go:1268 ⋮ [T1,Vsystem,n3] 225  failed to create statistics on table 7: create-stats: cannot create statistics on *sql.optSequence
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226  IO admission controller:
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [status] throttling elastic only at 590 KiB/s due to L0 growth
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [util] L0: 10%, flush: 0%
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [L0] compaction score 0.100, 8 ssts, 2 sub-levels, in 16 MiB (writes 16 MiB, ingests 0 B), out 4.9 MiB [≈6.9 MiB] (net 11 MiB)
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [io-tokens] total used 13 MiB (elastic 0 B)
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [flush] flushed 322 MiB [≈0 B] (mult 1.000)
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [accounting] 51403 requests (247 bypassed), write 17 MiB (1.1 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 16 MiB, adjusted-disk-writes 55 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:06:44.654975 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 226 +  [models] write 0.93x+1 B [≈0.86x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 3.56x+1 B [≈5.16x+376 B], at-admission 206 KiB
+I260425 16:06:45.118832 1127 util/admission/granter.go:568 ⋮ [-] 227  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 0/0/0)
+I260425 16:06:52.880117 13652 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 228 ={"Timestamp":1777133212880114068,"EventType":"status_change","JobID":1170023424009076739,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:06:52.880441 13652 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023424009076739,create-stats-distsql] 229  using computed sample size of 10000 for histogram construction
+I260425 16:06:53.817925 13652 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 230 ={"Timestamp":1777133213817921814,"EventType":"status_change","JobID":1170023424009076739,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:06:54.423459 13893 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 231 ={"Timestamp":1777133214423455362,"EventType":"status_change","JobID":1170023429070094339,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:06:54.423763 13893 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023429070094339,create-stats-distsql] 232  using computed sample size of 10000 for histogram construction
+I260425 16:06:55.676284 13893 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 233 ={"Timestamp":1777133215676280633,"EventType":"status_change","JobID":1170023429070094339,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:06:56.319642 14057 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 234 ={"Timestamp":1777133216319637365,"EventType":"status_change","JobID":1170023435154325507,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:06:56.320046 14057 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170023435154325507,create-stats-distsql] 235  using computed sample size of 10000 for histogram construction
+I260425 16:06:57.794585 14057 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 236 ={"Timestamp":1777133217794581976,"EventType":"status_change","JobID":1170023435154325507,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237  IO admission controller:
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [status] admitting all
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [util] L0: 0%, flush: 0%
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [L0] compaction score 0.000, 0 ssts, 0 sub-levels, in 0 B (writes 0 B, ingests 0 B), out 12 MiB [≈9.2 MiB] (net -12 MiB)
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [io-tokens] total used 15 MiB (elastic 0 B)
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [flush] flushed 0 B [≈0 B] (mult 1.000)
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [accounting] 52324 requests (778 bypassed), write 16 MiB (1.1 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 0 B, adjusted-disk-writes 37 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:06:59.655443 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 237 +  [models] write 0.00x+0 B [≈0.86x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 2.30x+1 B [≈3.73x+188 B], at-admission 206 KiB
+W260425 16:07:19.213322 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 238  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:07:45.231598 1127 util/admission/granter.go:568 ⋮ [-] 239  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 203/1/0)
+I260425 16:08:45.556585 1127 util/admission/granter.go:568 ⋮ [-] 240  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 233/1/0)
+I260425 16:08:58.231272 21796 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 241 ={"Timestamp":1777133338231268886,"EventType":"status_change","JobID":1170023835313307651,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:08:58.231660 21796 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170023835313307651,create-stats-distsql] 242  using computed sample size of 10000 for histogram construction
+I260425 16:08:58.827046 21796 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 243 ={"Timestamp":1777133338827043425,"EventType":"status_change","JobID":1170023835313307651,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:09:46.153219 1127 util/admission/granter.go:568 ⋮ [-] 244  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 252/1/0)
+I260425 16:09:59.161381 26602 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 245 ={"Timestamp":1777133399161378328,"EventType":"status_change","JobID":1170024034951593987,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:09:59.161765 26602 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170024034951593987,create-stats-distsql] 246  using computed sample size of 10000 for histogram construction
+I260425 16:09:59.754870 26602 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 247 ={"Timestamp":1777133399754866415,"EventType":"status_change","JobID":1170024034951593987,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:10:00.078233 26871 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 248 ={"Timestamp":1777133400078230397,"EventType":"status_change","JobID":1170024037969756163,"JobType":"AUTO CREATE STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:10:00.078578 26871 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE STATS id=1170024037969756163,create-stats-distsql] 249  using computed sample size of 10000 for histogram construction
+I260425 16:10:00.839834 26871 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 250 ={"Timestamp":1777133400839830139,"EventType":"status_change","JobID":1170024037969756163,"JobType":"AUTO CREATE STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+W260425 16:10:26.811277 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 251  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:10:49.047349 1127 util/admission/granter.go:568 ⋮ [-] 252  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 270/1/0)
+I260425 16:12:00.301040 1127 util/admission/granter.go:568 ⋮ [-] 253  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 302/4/22)
+I260425 16:13:01.195284 49734 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 254 ={"Timestamp":1777133581195280770,"EventType":"status_change","JobID":1170024631350362115,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:13:01.195684 49734 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170024631350362115,create-stats-distsql] 255  using computed sample size of 10000 for histogram construction
+I260425 16:13:01.695933 49734 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 256 ={"Timestamp":1777133581695930555,"EventType":"status_change","JobID":1170024631350362115,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:13:10.088992 1127 util/admission/granter.go:568 ⋮ [-] 257  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 317/4/22)
+I260425 16:14:02.092818 59424 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 258 ={"Timestamp":1777133642092815039,"EventType":"status_change","JobID":1170024830726242307,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:14:02.093554 59424 sql/distsql_plan_stats.go:813 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170024830726242307,create-stats-distsql] 259  job 1170024830726242307: stats collection is swallowing benign error the latest full statistic for column ‹fingerprint_id› has no histogram
+I260425 16:14:02.366262 59424 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 260 ={"Timestamp":1777133642366258297,"EventType":"status_change","JobID":1170024830726242307,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:14:13.421049 1127 util/admission/granter.go:568 ⋮ [-] 261  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 332/4/22)
+I260425 16:15:16.945613 1127 util/admission/granter.go:568 ⋮ [-] 262  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 354/4/22)
+W260425 16:15:21.721563 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 263  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+W260425 16:16:20.413066 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 264  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:16:36.230030 1127 util/admission/granter.go:568 ⋮ [-] 265  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 356/4/22)
+I260425 16:17:02.635705 87399 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 266 ={"Timestamp":1777133822635702299,"EventType":"status_change","JobID":1170025422895185923,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:17:02.636107 87399 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170025422895185923,create-stats-distsql] 267  using computed sample size of 10000 for histogram construction
+I260425 16:17:03.187619 87399 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 268 ={"Timestamp":1777133823187615667,"EventType":"status_change","JobID":1170025422895185923,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:17:43.784586 1127 util/admission/granter.go:568 ⋮ [-] 269  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 367/4/22)
+W260425 16:18:17.810681 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 270  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:18:44.513485 1127 util/admission/granter.go:568 ⋮ [-] 271  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 433/9/38)
+I260425 16:19:45.936140 1127 util/admission/granter.go:568 ⋮ [-] 272  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 548/18/38)
+I260425 16:20:46.078517 1127 util/admission/granter.go:568 ⋮ [-] 273  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 629/26/38)
+I260425 16:21:46.620587 1127 util/admission/granter.go:568 ⋮ [-] 274  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 720/29/38)
+I260425 16:22:47.855494 1127 util/admission/granter.go:568 ⋮ [-] 275  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 827/32/38)
+I260425 16:23:48.552464 1127 util/admission/granter.go:568 ⋮ [-] 276  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 928/34/38)
+I260425 16:24:48.575623 1127 util/admission/granter.go:568 ⋮ [-] 277  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1019/44/38)
+W260425 16:25:47.110870 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 278  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:25:49.926006 1127 util/admission/granter.go:568 ⋮ [-] 279  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1107/53/56)
+I260425 16:27:07.622501 1127 util/admission/granter.go:568 ⋮ [-] 280  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1113/53/56)
+W260425 16:27:34.210783 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 281  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:29:00.828321 1127 util/admission/granter.go:568 ⋮ [-] 282  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1121/53/56)
+I260425 16:30:14.891192 1127 util/admission/granter.go:568 ⋮ [-] 283  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1122/53/56)
+W260425 16:31:09.514397 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 284  unable to get disk stats for token error adjustment: /proc/diskstats:20: ‹%!q(*withstack.withStack)›: deviceID.major field not present
+I260425 16:31:21.368927 1127 util/admission/granter.go:568 ⋮ [-] 285  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1123/53/56)
+I260425 16:32:03.643445 211185 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 286 ={"Timestamp":1777134723643441745,"EventType":"status_change","JobID":1170028374776348675,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:32:03.643834 211185 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170028374776348675,create-stats-distsql] 287  using computed sample size of 10000 for histogram construction
+I260425 16:32:04.150436 211185 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 288 ={"Timestamp":1777134724150432931,"EventType":"status_change","JobID":1170028374776348675,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:32:22.925661 1127 util/admission/granter.go:568 ⋮ [-] 289  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1144/54/56)
+I260425 16:33:23.056451 1127 util/admission/granter.go:568 ⋮ [-] 290  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1275/80/65)
+I260425 16:33:44.866148 1203 sql/temporary_schema.go:705 ⋮ [T1,Vsystem,n3] 291  skipping temporary object cleanup run as it is not the leaseholder
+I260425 16:33:44.866201 1203 sql/temporary_schema.go:706 ⋮ [T1,Vsystem,n3] 292  completed temporary object cleanup job
+I260425 16:33:44.866210 1203 sql/temporary_schema.go:874 ⋮ [T1,Vsystem,n3] 293  temporary object cleaner next scheduled to run at 2026-04-25 17:03:44.860576755 +0000 UTC m=+3609.962255937
+I260425 16:33:55.011733 1127 storage/disk/linux_parse.go:58 ⋮ [-] 294  /proc/diskstats did not parse
+W260425 16:33:55.011782 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 295  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+I260425 16:34:23.070391 1127 util/admission/granter.go:568 ⋮ [-] 296  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1466/127/72)
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297  IO admission controller:
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [status] throttling all at 10 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [util] L0: 10%, flush: 31%
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [L0] compaction score 0.100, 14 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 40 MiB [≈42 MiB] (net 11 MiB)
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [io-tokens] total used 48 MiB (elastic 0 B)
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [flush] flushed 153 MiB [≈150 MiB] (mult 1.000)
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [accounting] 260003 requests (816 bypassed), write 70 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 641 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:34:45.207291 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 297 +  [models] write 0.71x+1 B [≈0.69x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 12.76x+1 B [≈13.19x+1 B], at-admission 9 B
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298  IO admission controller:
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [status] throttling all at 9.9 MiB/s (elastic 7.9 MiB/s) due to memtable flush
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [util] L0: 5%, flush: 30%
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [L0] compaction score 0.050, 7 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 44 MiB [≈43 MiB] (net -11 MiB)
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [io-tokens] total used 46 MiB (elastic 0 B)
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [flush] flushed 147 MiB [≈149 MiB] (mult 1.000)
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [accounting] 250893 requests (844 bypassed), write 66 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 586 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:35:00.211771 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 298 +  [models] write 0.50x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 17.63x+1 B [≈15.41x+1 B], at-admission 14 B
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299  IO admission controller:
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [status] throttling all at 9.5 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [util] L0: 10%, flush: 29%
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [L0] compaction score 0.100, 8 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 46 MiB [≈44 MiB] (net 4.6 MiB)
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [io-tokens] total used 42 MiB (elastic 0 B)
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [flush] flushed 138 MiB [≈143 MiB] (mult 1.000)
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [accounting] 258760 requests (807 bypassed), write 70 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 605 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:35:15.212528 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 299 +  [models] write 0.72x+1 B [≈0.66x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 12.04x+1 B [≈13.72x+1 B], at-admission 11 B
+I260425 16:35:23.202916 1127 util/admission/granter.go:568 ⋮ [-] 300  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1663/181/83)
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301  IO admission controller:
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [status] throttling all at 9.2 MiB/s (elastic 7.4 MiB/s) due to memtable flush
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [util] L0: 5%, flush: 31%
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [L0] compaction score 0.050, 6 ssts, 1 sub-levels, in 34 MiB (writes 34 MiB, ingests 0 B), out 37 MiB [≈41 MiB] (net -3.5 MiB)
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [io-tokens] total used 43 MiB (elastic 0 B)
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [flush] flushed 133 MiB [≈138 MiB] (mult 1.000)
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [accounting] 251073 requests (784 bypassed), write 66 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 34 MiB, adjusted-disk-writes 580 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:35:30.213215 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 301 +  [models] write 0.51x+1 B [≈0.58x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 17.22x+1 B [≈15.47x+1 B], at-admission 10 B
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302  IO admission controller:
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [status] throttling all at 8.9 MiB/s (elastic 3.7 MiB/s) due to memtable flush
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [util] L0: 10%, flush: 30%
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [L0] compaction score 0.100, 9 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 47 MiB [≈44 MiB] (net 2.4 MiB)
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [io-tokens] total used 41 MiB (elastic 0 B)
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [flush] flushed 130 MiB [≈134 MiB] (mult 1.000)
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [accounting] 255699 requests (800 bypassed), write 69 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 571 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:35:45.218351 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 302 +  [models] write 0.72x+1 B [≈0.65x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.46x+1 B [≈13.46x+1 B], at-admission 9 B
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303  IO admission controller:
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [status] throttling all at 9.0 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [util] L0: 10%, flush: 31%
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [L0] compaction score 0.100, 17 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 41 MiB [≈43 MiB] (net 8.6 MiB)
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [io-tokens] total used 42 MiB (elastic 25 KiB)
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [flush] flushed 136 MiB [≈135 MiB] (mult 1.000)
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [accounting] 245294 requests (856 bypassed), write 64 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 597 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:36:00.219037 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 303 +  [models] write 0.77x+1 B [≈0.71x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 12.04x+1 B [≈12.75x+1 B], at-admission 20 B
+I260425 16:36:04.379340 246580 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 304 ={"Timestamp":1777134964379336680,"EventType":"status_change","JobID":1170029164183617539,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:36:04.379728 246580 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170029164183617539,create-stats-distsql] 305  using computed sample size of 10000 for histogram construction
+I260425 16:36:04.521627 246580 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 306 ={"Timestamp":1777134964521623573,"EventType":"status_change","JobID":1170029164183617539,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307  IO admission controller:
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [status] throttling all at 8.1 MiB/s (elastic 6.5 MiB/s) due to memtable flush
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [util] L0: 5%, flush: 39%
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [L0] compaction score 0.050, 9 ssts, 1 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 42 MiB [≈42 MiB] (net -8.4 MiB)
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [io-tokens] total used 48 MiB (elastic 0 B)
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [flush] flushed 110 MiB [≈122 MiB] (mult 1.000)
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [accounting] 249419 requests (807 bypassed), write 67 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 542 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:36:15.220117 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 307 +  [models] write 0.50x+1 B [≈0.61x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 16.25x+1 B [≈14.50x+1 B], at-admission 16 B
+I260425 16:36:23.302312 1127 util/admission/granter.go:568 ⋮ [-] 308  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 1892/235/95)
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309  IO admission controller:
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [status] throttling all at 6.3 MiB/s (elastic 3.1 MiB/s) due to memtable flush
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [util] L0: 10%, flush: 40%
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [L0] compaction score 0.100, 20 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 37 MiB [≈37 MiB] (net 12 MiB)
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [io-tokens] total used 38 MiB (elastic 0 B)
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [flush] flushed 76 MiB [≈94 MiB] (mult 1.000)
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [accounting] 255778 requests (802 bypassed), write 69 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 590 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:36:45.312218 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 309 +  [models] write 0.72x+1 B [≈0.64x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.85x+1 B [≈14.20x+1 B], at-admission 9 B
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310  IO admission controller:
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [status] throttling all at 6.1 MiB/s (elastic 3.8 MiB/s) due to memtable flush
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [util] L0: 10%, flush: 46%
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [L0] compaction score 0.100, 19 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 54 MiB [≈46 MiB] (net -4.0 MiB)
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [io-tokens] total used 42 MiB (elastic 0 B)
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [flush] flushed 87 MiB [≈91 MiB] (mult 1.000)
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [accounting] 252217 requests (816 bypassed), write 66 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 618 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:37:00.318450 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 310 +  [models] write 0.75x+1 B [≈0.69x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 12.40x+1 B [≈13.30x+1 B], at-admission 15 B
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311  IO admission controller:
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [status] throttling all at 5.9 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [util] L0: 10%, flush: 51%
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [L0] compaction score 0.100, 13 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 39 MiB [≈42 MiB] (net -5.3 MiB)
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [io-tokens] total used 46 MiB (elastic 0 B)
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [flush] flushed 87 MiB [≈89 MiB] (mult 1.000)
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [accounting] 242606 requests (762 bypassed), write 66 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 602 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:37:15.373190 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 311 +  [models] write 0.50x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 18.06x+1 B [≈15.68x+1 B], at-admission 10 B
+I260425 16:37:23.668312 1127 util/admission/granter.go:568 ⋮ [-] 312  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 2191/307/104)
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313  IO admission controller:
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [status] throttling all at 5.9 MiB/s (elastic 3.6 MiB/s) due to memtable flush
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [util] L0: 10%, flush: 44%
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [L0] compaction score 0.100, 18 ssts, 2 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 44 MiB [≈43 MiB] (net 5.3 MiB)
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [io-tokens] total used 39 MiB (elastic 0 B)
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [flush] flushed 87 MiB [≈88 MiB] (mult 1.000)
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [accounting] 248638 requests (775 bypassed), write 65 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 606 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:37:30.373639 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 313 +  [models] write 0.76x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 12.19x+1 B [≈13.93x+1 B], at-admission 11 B
+I260425 16:37:43.011248 1127 storage/disk/linux_parse.go:58 ⋮ [-] 314  /proc/diskstats did not parse
+W260425 16:37:43.011298 1127 util/admission/store_grant_coordinator.go:311 ⋮ [T1,Vsystem,n3] 315  unable to get disk stats for token error adjustment: /proc/diskstats did not parse
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316  IO admission controller:
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [status] throttling all at 5.6 MiB/s (elastic 3.4 MiB/s) due to memtable flush
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [util] L0: 10%, flush: 53%
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [L0] compaction score 0.100, 13 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 38 MiB [≈41 MiB] (net -4.8 MiB)
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [flush] flushed 81 MiB [≈84 MiB] (mult 1.000)
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [accounting] 242133 requests (762 bypassed), write 66 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 575 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:37:45.378424 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 316 +  [models] write 0.51x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 17.22x+1 B [≈15.58x+1 B], at-admission 8 B
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317  IO admission controller:
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [status] throttling all at 5.8 MiB/s (elastic 2.9 MiB/s) due to memtable flush
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [util] L0: 15%, flush: 43%
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [L0] compaction score 0.150, 21 ssts, 3 sub-levels, in 49 MiB (writes 49 MiB, ingests 0 B), out 38 MiB [≈39 MiB] (net 12 MiB)
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [io-tokens] total used 39 MiB (elastic 0 B)
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [flush] flushed 91 MiB [≈88 MiB] (mult 1.000)
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [accounting] 246326 requests (801 bypassed), write 64 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 49 MiB, adjusted-disk-writes 571 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:38:00.379376 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 317 +  [models] write 0.76x+1 B [≈0.68x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.56x+1 B [≈13.57x+1 B], at-admission 14 B
+I260425 16:38:04.641272 264541 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 318 ={"Timestamp":1777135084641269381,"EventType":"status_change","JobID":1170029558337142787,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: running","PreviousStatus":"running","NewStatus":"running","RunNum":0}
+I260425 16:38:04.641668 264541 sql/distsql_plan_stats.go:200 ⋮ [T1,Vsystem,n3,job=AUTO CREATE PARTIAL STATS id=1170029558337142787,create-stats-distsql] 319  using computed sample size of 10000 for histogram construction
+I260425 16:38:04.764995 264541 1@jobs/update.go:193 ⋮ [T1,Vsystem,n3] 320 ={"Timestamp":1777135084764991459,"EventType":"status_change","JobID":1170029558337142787,"JobType":"AUTO CREATE PARTIAL STATS","Description":"state changed to: succeeded","PreviousStatus":"running","NewStatus":"succeeded","RunNum":0}
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321  IO admission controller:
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [status] throttling all at 5.4 MiB/s (elastic 3.4 MiB/s) due to memtable flush
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [util] L0: 10%, flush: 52%
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [L0] compaction score 0.100, 16 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 42 MiB [≈40 MiB] (net -8.4 MiB)
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [io-tokens] total used 43 MiB (elastic 0 B)
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [flush] flushed 75 MiB [≈81 MiB] (mult 1.000)
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [accounting] 231401 requests (753 bypassed), write 63 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 611 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:38:15.441513 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 321 +  [models] write 0.53x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 18.33x+1 B [≈15.95x+1 B], at-admission 14 B
+I260425 16:38:23.731733 1127 util/admission/granter.go:568 ⋮ [-] 322  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 2502/380/115)
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323  IO admission controller:
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [status] throttling all at 5.5 MiB/s (elastic 2.8 MiB/s) due to memtable flush
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [util] L0: 15%, flush: 46%
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [L0] compaction score 0.150, 27 ssts, 3 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 35 MiB [≈38 MiB] (net 14 MiB)
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [io-tokens] total used 39 MiB (elastic 0 B)
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [flush] flushed 84 MiB [≈82 MiB] (mult 1.000)
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [accounting] 242463 requests (759 bypassed), write 63 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 583 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:38:30.457751 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 323 +  [models] write 0.78x+1 B [≈0.69x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.78x+1 B [≈13.86x+1 B], at-admission 12 B
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324  IO admission controller:
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [status] throttling all at 5.5 MiB/s (elastic 3.4 MiB/s) due to memtable flush
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [util] L0: 10%, flush: 55%
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [L0] compaction score 0.100, 18 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 44 MiB [≈41 MiB] (net -10 MiB)
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [io-tokens] total used 46 MiB (elastic 0 B)
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [flush] flushed 82 MiB [≈82 MiB] (mult 1.000)
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [accounting] 245235 requests (774 bypassed), write 66 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 595 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:38:45.570581 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 324 +  [models] write 0.50x+1 B [≈0.60x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 17.89x+1 B [≈15.88x+1 B], at-admission 9 B
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325  IO admission controller:
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [status] throttling all at 5.1 MiB/s (elastic 3.3 MiB/s) due to memtable flush
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [util] L0: 15%, flush: 52%
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [L0] compaction score 0.150, 22 ssts, 3 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 47 MiB [≈44 MiB] (net 2.7 MiB)
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [io-tokens] total used 40 MiB (elastic 0 B)
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [flush] flushed 72 MiB [≈77 MiB] (mult 1.000)
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [accounting] 253650 requests (820 bypassed), write 66 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 557 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:39:00.573617 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 325 +  [models] write 0.75x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.20x+1 B [≈13.54x+1 B], at-admission 14 B
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326  IO admission controller:
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [status] throttling all at 4.9 MiB/s (elastic 2.8 MiB/s) due to memtable flush
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [util] L0: 15%, flush: 60%
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [L0] compaction score 0.150, 24 ssts, 3 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 31 MiB [≈38 MiB] (net 2.0 MiB)
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [io-tokens] total used 44 MiB (elastic 0 B)
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [flush] flushed 70 MiB [≈73 MiB] (mult 1.000)
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [accounting] 247390 requests (781 bypassed), write 67 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 544 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:39:15.786402 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 326 +  [models] write 0.50x+1 B [≈0.59x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 16.37x+1 B [≈14.95x+1 B], at-admission 9 B
+I260425 16:39:24.034543 1127 util/admission/granter.go:568 ⋮ [-] 327  disk token error adjustment: no stat change for 20 consecutive intervals (cumulative runs exceeding 20/50/100: 2772/457/125)
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328  IO admission controller:
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [status] throttling all at 4.8 MiB/s (elastic 3.1 MiB/s) due to memtable flush
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [util] L0: 15%, flush: 55%
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [L0] compaction score 0.150, 30 ssts, 3 sub-levels, in 50 MiB (writes 50 MiB, ingests 0 B), out 46 MiB [≈42 MiB] (net 3.9 MiB)
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [io-tokens] total used 40 MiB (elastic 5.5 KiB)
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [flush] flushed 72 MiB [≈72 MiB] (mult 1.000)
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [accounting] 254084 requests (793 bypassed), write 66 MiB (2.3 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 50 MiB, adjusted-disk-writes 591 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:39:30.787364 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 328 +  [models] write 0.75x+1 B [≈0.67x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 11.91x+1 B [≈13.43x+1 B], at-admission 10 B
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329  IO admission controller:
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [status] throttling all at 5.0 MiB/s (elastic 3.5 MiB/s) due to memtable flush
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [util] L0: 10%, flush: 59%
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [L0] compaction score 0.100, 19 ssts, 2 sub-levels, in 33 MiB (writes 33 MiB, ingests 0 B), out 43 MiB [≈42 MiB] (net -9.9 MiB)
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [io-tokens] total used 45 MiB (elastic 0 B)
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [flush] flushed 78 MiB [≈75 MiB] (mult 1.000)
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [accounting] 248424 requests (783 bypassed), write 67 MiB (4.5 MiB bypassed), ingest 0 B (0 B bypassed), adjusted-lsm-writes 33 MiB, adjusted-disk-writes 557 MiB, ignored-write 0 B, ignored-ingest 0 B
+I260425 16:39:45.788311 1127 util/admission/io_load_listener.go:751 ⋮ [T1,Vsystem,n3,s3] 329 +  [models] write 0.50x+1 B [≈0.58x+1 B], l0-ingest 0.00x+0 B [≈1.13x+1 B], ingest 0.00x+0 B [≈1.00x+1 B], write-amp 16.75x+1 B [≈15.09x+1 B], at-admission 7 B
+I260425 16:39:49.603267 1 1@cli/start.go:1011 ⋮ [T1,Vsystem,n3] 330  received signal 'terminated'
+I260425 16:39:49.607390 1 1@cli/start.go:1052 ⋮ [T1,Vsystem,n3] 331  initiating graceful shutdown of server
+I260425 16:39:49.608580 280356 server/drain.go:378 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 332  all tenant servers stopped
+I260425 16:39:49.608617 280356 1@server/drain.go:437 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 333  waiting for health probes to notice that the node is not ready for new sql connections
+I260425 16:39:49.608674 2322 sql/stats/automatic_stats.go:800 ⋮ [T1,Vsystem,n3] 334  draining auto stats misestimates refresher
+I260425 16:39:49.608671 977 sql/stats/automatic_stats.go:762 ⋮ [T1,Vsystem,n3] 335  draining auto stats refresher
+W260425 16:39:49.608708 1134 jobs/registry.go:1063 ⋮ [T1,Vsystem,n3] 336  canceling all adopted jobs due to graceful drain request
+I260425 16:39:49.608696 2323 sql/stats/automatic_stats.go:854 ⋮ [T1,Vsystem,n3] 337  draining stats garbage collector
+W260425 16:39:49.608848 25115 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,job=AUTO SPAN CONFIG RECONCILIATION id=1170022809144721411,rangefeed=‹sql-watcher-descriptor-rangefeed›,mux_n=3,gen=4] 338  error closing mux rangefeed client: context canceled
+W260425 16:39:50.231691 2025 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 339  while processing outgoing Raft queue to node 1: ‹EOF›:
+W260425 16:39:50.231691 433 2@gossip/gossip.go:1493 ⋮ [T1,Vsystem,n3] 340  no incoming or outgoing connections
+W260425 16:39:50.231763 1376 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 341  while processing outgoing Raft queue to node 1: ‹EOF›:
+I260425 16:39:50.231828 280436 gossip/client.go:412 ⋮ [T1,Vsystem,n3] 342  unvalidated bootstrap gossip dial to ‹localhost:26259›
+W260425 16:39:50.231845 1339 15@kv/kvserver/raft_transport.go:920 ⋮ [T1,Vsystem,n3] 343  while processing outgoing Raft queue to node 1: ‹EOF›:
+I260425 16:39:50.233332 280436 gossip/client.go:127 ⋮ [T1,Vsystem,n3] 344  started gossip client to n0 (‹localhost:26259›)
+I260425 16:39:50.233621 280436 gossip/client.go:136 ⋮ [T1,Vsystem,n3] 345  closing client to n2 (‹localhost:26259›): stopping outgoing client to n2 (‹localhost:26259›); already have incoming
+I260425 16:39:50.233653 433 1@gossip/gossip.go:1507 ⋮ [T1,Vsystem,n3] 346  node has connected to cluster via gossip
+E260425 16:39:50.329196 736 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=system,rpc] 347  disconnected (was healthy for 36m6.982s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 16:39:50.329516 736 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=system,rpc] 348  failed connection attempt (last connected 0s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"› [code 14/Unavailable]
+E260425 16:39:50.380659 810 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=?,raddr=‹localhost:26257›,class=system,rpc] 349  disconnected (was healthy for 36m5.868s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 16:39:50.381009 810 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=?,raddr=‹localhost:26257›,class=system,rpc] 350  failed connection attempt (last connected 0s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"› [code 14/Unavailable]
+E260425 16:39:50.529125 1263 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=raft,rpc] 351  disconnected (was healthy for 36m5.144s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 16:39:50.529471 1263 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=raft,rpc] 352  failed connection attempt (last connected 0s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"› [code 14/Unavailable]
+I260425 16:39:50.658634 280356 sql/sqlstats/persistedsqlstats/provider.go:125 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 353  stopping persisted SQL stats tasks
+I260425 16:39:50.668245 280356 sql/sqlstats/persistedsqlstats/provider.go:131 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 354  persisted SQL stats tasks successfully shut down
+I260425 16:39:50.668275 280356 sql/stats/automatic_stats.go:575 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 355  starting to wait for auto-stats tasks to shut down
+I260425 16:39:50.668285 280356 sql/stats/automatic_stats.go:578 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 356  auto-stats tasks successfully shut down
+I260425 16:39:50.668293 280356 jobs/registry.go:1997 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 357  starting to wait for job registry to shut down
+I260425 16:39:50.668302 280356 jobs/registry.go:2000 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 358  job registry tasks successfully shut down
+W260425 16:39:50.705912 1159 sql/sqlliveness/slinstance/slinstance.go:337 ⋮ [T1,Vsystem,n3] 359  exiting heartbeat loop
+I260425 16:39:50.705940 1159 sql/sqlliveness/slinstance/slinstance.go:322 ⋮ [T1,Vsystem,n3] 360  draining heartbeat loop
+I260425 16:39:50.707892 280356 server/drain.go:520 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 361  SQL server drained successfully; SQL queries cannot execute any more
+I260425 16:39:50.707919 280356 server/drain.go:386 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 362  done draining clients
+E260425 16:39:50.766176 1170 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=default,rpc] 363  disconnected (was healthy for 36m6.139s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+E260425 16:39:50.766634 1170 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=default,rpc] 364  failed connection attempt (last connected 0s ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"› [code 14/Unavailable]
+I260425 16:39:50.847456 280356 1@server/drain.go:337 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 365  drain remaining: 107
+I260425 16:39:50.847485 280356 1@server/drain.go:339 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 366  drain details: descriptor leases: 73, liveness record: 1, range lease iterations: 33
+E260425 16:39:50.861370 1205 1@obs/statementstore/statement_store.go:301 ⋮ [T1,Vsystem,n3] 367  error inserting statement fingerprints: batch-insert-statements: cannot acquire lease when draining
+E260425 16:39:50.905511 1164 2@rpc/peer.go:676 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=rangefeed,rpc] 368  disconnected (was healthy for 36m6.134s): grpc: ‹node unavailable; try another peer› [code 2/Unknown]
+W260425 16:39:50.905529 976 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹table-stats-cache›] 369  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.905723 22805 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹statement-hints-watcher›,mux_n=3,gen=4] 374  error closing mux rangefeed client: context canceled
+W260425 16:39:50.905580 1187 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹spanconfig-subscriber›] 370  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.905613 1151 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹sql_instances›] 372  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.905598 2405 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-entry-watcher›] 371  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.905677 2376 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-boundaries-watcher›] 373  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.908015 2302 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹statement-hints-watcher›] 379  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.905701 1180 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹settings-watcher›] 377  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹error reading from server: read tcp 127.0.0.1:35526->127.0.0.1:26257: use of closed network connection› [code 14/Unavailable]
+W260425 16:39:50.905725 25220 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹lease›,mux_n=3,gen=4] 375  error closing mux rangefeed client: context canceled
+W260425 16:39:50.905723 25121 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹system-config-cache›,mux_n=3,gen=5] 376  error closing mux rangefeed client: context canceled
+W260425 16:39:50.905723 25990 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-settings-watcher›,mux_n=3,gen=4] 378  error closing mux rangefeed client: context canceled
+W260425 16:39:50.908102 1130 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹lease›] 380  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.908137 15 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹system-config-cache›] 381  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+W260425 16:39:50.908215 2389 kv/kvclient/rangefeed/rangefeed.go:408 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-settings-watcher›] 382  rangefeed failed 0 times, restarting: receiving from node 1: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]
+E260425 16:39:50.908339 1164 2@rpc/peer.go:697 ⋮ [T1,Vsystem,n3,rnode=1,raddr=‹localhost:26257›,class=rangefeed,rpc] 383  failed connection attempt (last connected 3ms ago): grpc: ‹connection error: desc = "transport: error while dialing: dial tcp 127.0.0.1:26257: connect: connection refused"› [code 14/Unavailable]
+I260425 16:39:51.049538 280356 server/drain.go:378 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 384  all tenant servers stopped
+W260425 16:39:51.050317 280932 sql/sqlstats/persistedsqlstats/flush.go:256 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 385  failed to flush statement statistics: upsert-stmt-stats: cannot acquire lease when draining
+I260425 16:39:51.050374 280356 sql/sqlstats/persistedsqlstats/provider.go:125 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 386  stopping persisted SQL stats tasks
+I260425 16:39:51.050383 280356 sql/sqlstats/persistedsqlstats/provider.go:131 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 387  persisted SQL stats tasks successfully shut down
+I260425 16:39:51.050389 280356 sql/stats/automatic_stats.go:575 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 388  starting to wait for auto-stats tasks to shut down
+I260425 16:39:51.050395 280356 sql/stats/automatic_stats.go:578 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 389  auto-stats tasks successfully shut down
+I260425 16:39:51.050400 280356 jobs/registry.go:1997 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 390  starting to wait for job registry to shut down
+I260425 16:39:51.050407 280356 jobs/registry.go:2000 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 391  job registry tasks successfully shut down
+I260425 16:39:51.051294 280356 server/drain.go:520 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 392  SQL server drained successfully; SQL queries cannot execute any more
+I260425 16:39:51.051322 280356 server/drain.go:386 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 393  done draining clients
+W260425 16:39:51.061524 203 15@kv/kvserver/storeliveness/support_manager.go:370 ⋮ [T1,Vsystem,n3,s3] 394  failed to send heartbeat to store {NodeID:1 StoreID:1}
+I260425 16:39:51.121856 280356 1@server/drain.go:337 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 395  drain remaining: 0
+I260425 16:39:51.121891 280356 1@server/drain.go:602 ⋮ [T1,Vsystem,n3,server drain process,call-graceful-drain] 396  graceful drain complete
+W260425 16:39:51.122019 1344 15@kv/kvserver/storeliveness/transport.go:565 ⋮ [T1,Vsystem,n3] 397  processing outgoing queue to node 1 failed: ‹EOF›:
+I260425 16:39:51.122197 644 server/start_listen.go:114 ⋮ [T1,Vsystem,n3] 398  server shutting down: instructing cmux to stop accepting
+W260425 16:39:51.122225 280822 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹system-config-cache›,mux_n=3,gen=2] 399  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122272 1722 15@kv/kvserver/storeliveness/transport.go:565 ⋮ [T1,Vsystem,n3] 400  processing outgoing queue to node 2 failed: grpc: ‹grpc: the client connection is closing› [code 1/Canceled]:
+W260425 16:39:51.122280 280834 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-boundaries-watcher›,mux_n=3,gen=2] 401  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122316 280377 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-entry-watcher›,mux_n=3,gen=2] 403  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122337 280411 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹table-stats-cache›,mux_n=3,gen=2] 404  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122352 280866 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹statement-hints-watcher›,mux_n=3,gen=2] 405  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122362 280856 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹lease›,mux_n=3,gen=2] 406  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122395 280818 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹sql_instances›,mux_n=3,gen=2] 407  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122405 280383 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹tenant-settings-watcher›,mux_n=3,gen=2] 408  error closing mux rangefeed client: context canceled
+W260425 16:39:51.122123 2931 15@kv/kvserver/closedts/sidetransport/receiver.go:150 ⋮ [n3,remote=2] 409  closed timestamps side-transport connection dropped from node: 2 (grpc: ‹context canceled› [code 1/Canceled])
+W260425 16:39:51.122302 280657 15@kv/kvclient/kvcoord/dist_sender_mux_rangefeed.go:417 ⋮ [T1,Vsystem,n3,rangefeed=‹spanconfig-subscriber›,mux_n=3,gen=2] 402  error closing mux rangefeed client: context canceled
+I260425 16:39:51.685836 280356 server/server_controller.go:380 ⋮ [T1,Vsystem,n3] 410  server controller shutting down
+I260425 16:39:51.685874 280356 server/server_controller.go:389 ⋮ [T1,Vsystem,n3] 411  waiting for tenant servers to report stopped
+I260425 16:39:52.021991 1 1@cli/start.go:1123 ⋮ [T1,Vsystem,n3] 412  server drained and shutdown completed
