@@ -1,0 +1,36 @@
+{
+  "regions": {
+    "sensitive": false,
+    "type": [
+      "list",
+      [
+        "object",
+        {
+          "ami_id": "string",
+          "ami_id_arm64": "string",
+          "ami_id_fips": "string",
+          "region": "string",
+          "security_group": "string",
+          "subnets": [
+            "map",
+            "string"
+          ]
+        }
+      ]
+    ],
+    "value": [
+      {
+        "ami_id": "ami-0e83be366243f524a",
+        "ami_id_arm64": "ami-05983a09f7dc1c18f",
+        "ami_id_fips": "ami-08692707dfc6f8b64",
+        "region": "us-east-2",
+        "security_group": "sg-0a2365d30852c58e8",
+        "subnets": {
+          "us-east-2a": "subnet-0c022ffea47410575",
+          "us-east-2b": "subnet-0d6fdc3ab4b235720",
+          "us-east-2c": "subnet-067ab40507dd0d895"
+        }
+      }
+    ]
+  }
+}

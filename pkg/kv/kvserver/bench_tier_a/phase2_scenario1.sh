@@ -13,12 +13,25 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 RESULTS_DIR="${RESULTS_DIR:-$SCRIPT_DIR/phase2_scenario1_results}"
 CLUSTER_DATA="$RESULTS_DIR/cluster-data"
 LOG_DIR="$RESULTS_DIR/logs"
-DURATION="5m"
-WARMUP="2m"
-CONCURRENCY=256
-BLOCK_BYTES=128
+DURATION="${DURATION:-5m}"
+WARMUP="${WARMUP:-2m}"
+CONCURRENCY="${CONCURRENCY:-256}"
+BLOCK_BYTES="${BLOCK_BYTES:-128}"
+NODE_COUNT="${NODE_COUNT:-3}"
+CLUSTER="${CLUSTER:-}"
 
 mkdir -p "$RESULTS_DIR" "$LOG_DIR"
+
+# Resolve SQL connection target once; used throughout apply_settings and
+# set_unsafe_cluster_setting. Falls back to localhost for local runs.
+_SQL_HOST="localhost"
+_SQL_PORT=26257
+if [[ -n "$CLUSTER" ]]; then
+  _raw=$(roachprod pgurl "$CLUSTER:1" 2>/dev/null | tr -d "'\""| sed 's|?.*||')
+  _hp=$(echo "$_raw" | sed 's|.*@||')
+  _SQL_HOST=$(echo "$_hp" | cut -d: -f1)
+  _SQL_PORT=$(echo "$_hp" | cut -d: -f2)
+fi
 
 PORTS=(26257 26258 26259)
 HTTP_PORTS=(8080 8081 8082)
@@ -30,12 +43,13 @@ HTTP_PORTS=(8080 8081 8082)
 ALL_NODES="${ALL_NODES:-false}"
 
 pg_url() {
-  echo "postgresql://root@localhost:26257?sslmode=disable"
+  echo "postgresql://root@${_SQL_HOST}:${_SQL_PORT}?sslmode=disable"
 }
 
 declare -A NODE_PIDS
 
 start_cluster() {
+  [[ -n "$CLUSTER" ]] && { echo "==> Using roachprod cluster $CLUSTER (skipping local start)"; return; }
   echo "==> Starting 3-node cluster..."
   rm -rf "$CLUSTER_DATA"
   for i in 0 1 2; do
@@ -57,7 +71,7 @@ start_cluster() {
     echo "  node $node PID ${NODE_PIDS[$node]}"
   done
   sleep 5
-  "$BINARY" init --insecure --host=localhost:26257 >/dev/null 2>&1 || true
+  "$BINARY" init --insecure --host="${_SQL_HOST}:${_SQL_PORT}" >/dev/null 2>&1 || true
   sleep 5
 
   # If a cgroups v2 bandwidth cap was set up by setup_sim_disks.sh, move each
@@ -78,6 +92,7 @@ start_cluster() {
 }
 
 stop_cluster() {
+  [[ -n "$CLUSTER" ]] && { echo "==> Using roachprod cluster $CLUSTER (skipping local stop)"; return; }
   echo "==> Stopping cluster..."
   pkill -f "cockroach start" 2>/dev/null || true
   sleep 3
@@ -90,7 +105,7 @@ stop_cluster() {
 set_unsafe_cluster_setting() {
   local setting="$1"
   local value="$2"
-  python3 - localhost 26257 "$setting" "$value" <<'PYEOF'
+  python3 - "$_SQL_HOST" "$_SQL_PORT" "$setting" "$value" <<'PYEOF'
 import socket, struct, re, sys
 
 def pg_connect(host, port):
@@ -171,7 +186,7 @@ apply_settings() {
   case "$design" in
     baseline)
       # RESET never triggers the interlock — safe for all unsafe settings.
-      "$BINARY" sql --insecure --host=localhost:26257 -e "
+      "$BINARY" sql --insecure --host="${_SQL_HOST}:${_SQL_PORT}" -e "
         RESET CLUSTER SETTING kv.raft_log.disable_synchronization_unsafe;
         RESET CLUSTER SETTING kv.raft_log.simulated_quorum_skip_probability;
         RESET CLUSTER SETTING kv.raft_log.simulated_wal_write_skip_probability;
@@ -188,7 +203,7 @@ apply_settings() {
       # entries back for snapshotting) panics and crashes all nodes. So we use
       # disable_synchronization_unsafe=true here, which skips fsyncs while
       # keeping WAL bytes intact — the only runtime-stable upper bound.
-      "$BINARY" sql --insecure --host=localhost:26257 -e "
+      "$BINARY" sql --insecure --host="${_SQL_HOST}:${_SQL_PORT}" -e "
         RESET CLUSTER SETTING kv.raft_log.simulated_quorum_skip_probability;
         RESET CLUSTER SETTING kv.raft_log.simulated_wal_write_skip_probability;
       " >/dev/null
@@ -198,7 +213,7 @@ apply_settings() {
       # S1 at N=3, Q=2: design-(1), skip probability = (N-Q)/N = 1/3.
       # Entries are still written to the WAL; only the fsync barrier is skipped.
       # Compare against s2_p33 to isolate write-bandwidth vs fsync-latency gains.
-      "$BINARY" sql --insecure --host=localhost:26257 -e "
+      "$BINARY" sql --insecure --host="${_SQL_HOST}:${_SQL_PORT}" -e "
         RESET CLUSTER SETTING kv.raft_log.disable_synchronization_unsafe;
         RESET CLUSTER SETTING kv.raft_log.simulated_wal_write_skip_probability;
       " >/dev/null
@@ -209,7 +224,7 @@ apply_settings() {
       # the per-entry knob (simulated_quorum_skip_probability=1.0). Entries are
       # still written. Compare against s2_p100 (disable_synchronization_unsafe)
       # to verify the two design-(1) mechanisms produce equivalent results.
-      "$BINARY" sql --insecure --host=localhost:26257 -e "
+      "$BINARY" sql --insecure --host="${_SQL_HOST}:${_SQL_PORT}" -e "
         RESET CLUSTER SETTING kv.raft_log.disable_synchronization_unsafe;
         RESET CLUSTER SETTING kv.raft_log.simulated_wal_write_skip_probability;
       " >/dev/null
@@ -217,7 +232,7 @@ apply_settings() {
       ;;
     s2_p33)
       # S2 at N=3, Q=2: skip probability = (N-Q)/N = 1/3.
-      "$BINARY" sql --insecure --host=localhost:26257 -e "
+      "$BINARY" sql --insecure --host="${_SQL_HOST}:${_SQL_PORT}" -e "
         RESET CLUSTER SETTING kv.raft_log.disable_synchronization_unsafe;
         RESET CLUSTER SETTING kv.raft_log.simulated_quorum_skip_probability;
       " >/dev/null
@@ -260,6 +275,15 @@ snapshot_vars() {
   # Unlike storage_wal_fsync_latency_count (Pebble store-wide), this metric
   # isolates the exact path that S1/S2 are designed to accelerate.
   local filter="storage_wal|raft_process_commandcommit|raft_process_logcommit|storage_wal_fsync"
+  if [[ -n "$CLUSTER" ]]; then
+    for n in $(seq 1 "$NODE_COUNT"); do
+      roachprod ssh "$CLUSTER:$n" -- \
+        "curl -s http://localhost:8080/_status/vars 2>/dev/null | grep -E '$filter'" \
+        > "$RESULTS_DIR/${tag}_n${n}.vars" 2>/dev/null || true
+    done
+    cp "$RESULTS_DIR/${tag}_n1.vars" "$RESULTS_DIR/${tag}.vars" 2>/dev/null || true
+    return
+  fi
   if [[ "$ALL_NODES" == "true" ]]; then
     local n=1
     for port in "${HTTP_PORTS[@]}"; do
