@@ -668,6 +668,13 @@ func SetupSSH(ctx context.Context, l *logger.Logger, clusterName string, sync bo
 	for provider := range zones {
 		providers = append(providers, provider)
 	}
+	hasGCEProvider := false
+	for _, provider := range providers {
+		if provider == gce.ProviderName {
+			hasGCEProvider = true
+			break
+		}
+	}
 
 	// Configure SSH for machines in the zones we operate on.
 	if err := vm.ProvidersSequential(providers, func(p vm.Provider) error {
@@ -711,9 +718,16 @@ func SetupSSH(ctx context.Context, l *logger.Logger, clusterName string, sync bo
 	// shared ubuntu user.
 	authorizedKeys, err := gce.Infrastructure.GetUserAuthorizedKeys()
 	if err != nil {
-		return errors.Wrap(err, "failed to retrieve authorized keys from gcloud")
+		// Non-GCE clusters (for example AWS in a personal account) may not have
+		// access to Cockroach's GCE metadata project. Continue without shared-key
+		// propagation in that case; each user can still access with their own key.
+		if hasGCEProvider {
+			return errors.Wrap(err, "failed to retrieve authorized keys from gcloud")
+		}
+		l.Printf("WARN: failed to retrieve authorized keys from gcloud; continuing without shared authorized_keys setup: %v", err)
+	} else {
+		installCluster.AuthorizedKeys = authorizedKeys.AsSSH()
 	}
-	installCluster.AuthorizedKeys = authorizedKeys.AsSSH()
 	return installCluster.SetupSSH(ctx, l)
 }
 
